@@ -1,0 +1,436 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="main">
+      <UniqueIdentifier>{c949027d-a33f-4cb7-aeef-76d7dbdc7144}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main\소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Client">
+      <UniqueIdentifier>{866a33e3-5e8d-400f-a173-71f10dc8a1e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{ddc5afca-5981-4833-a3a4-ae52d6c5b23a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Common">
+      <UniqueIdentifier>{4e27a879-0ae4-4e2b-b309-8e597eb592cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Component">
+      <UniqueIdentifier>{77e1d424-78e9-4daa-878a-556343e5cb72}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\GameObject">
+      <UniqueIdentifier>{5dd3eb3f-ed70-4600-b816-c8ac79d87231}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\High Level Interface">
+      <UniqueIdentifier>{a3f5def2-e547-46f8-8f96-96de1cdb71f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Manager">
+      <UniqueIdentifier>{8d0937c0-32a6-4395-abec-d8df9295dd3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Resource">
+      <UniqueIdentifier>{16f625d0-9fce-4398-bcb7-d7cf560ce0d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene">
+      <UniqueIdentifier>{12fe1aba-53c3-4f86-a2bf-49131e305d93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Component\Base">
+      <UniqueIdentifier>{5aac5ef0-7f98-49c4-be14-ddaaa9f2a030}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\GameObject\Base">
+      <UniqueIdentifier>{86f7663b-379a-4fa2-a0a6-8da85e94bae1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Scene\Bse">
+      <UniqueIdentifier>{0c87bb17-615d-4a4c-94e3-eaf660677024}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Resource\Base">
+      <UniqueIdentifier>{86d9cce1-67a1-40a5-be33-7d58d1aff81c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main\소스 파일\리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="main\소스 파일\헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Client\Character">
+      <UniqueIdentifier>{2a6204fd-9b5d-47be-8202-30e17efdeff8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\Character\Warrior">
+      <UniqueIdentifier>{ac9a2d08-91d4-46e1-b6c0-ddf365e61a3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\Monsters">
+      <UniqueIdentifier>{42e48576-27d1-4112-8861-d8cf79ae3176}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\Monsters\Slime">
+      <UniqueIdentifier>{88c6f3d0-3025-4903-a0bb-794cf9f85184}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\Map">
+      <UniqueIdentifier>{424a9296-f6ae-4626-bf76-1f94b69f7839}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\FightScene">
+      <UniqueIdentifier>{66921ef5-971c-430c-8dee-36b1f988ef62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\Item">
+      <UniqueIdentifier>{a5749efe-caae-4b71-9a42-456dc26d3c22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\BackGroundImage">
+      <UniqueIdentifier>{96a00718-b198-4382-9372-83917ed7df7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\EquipmentPage">
+      <UniqueIdentifier>{3d5e503f-7bb1-49e1-a86b-51294ab14d0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\FightScene\FightPage">
+      <UniqueIdentifier>{b84bee5b-122f-4f0e-b0dd-8bb0aa3e1f9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\FightScene\Pesoch">
+      <UniqueIdentifier>{8e8c3eb5-5c13-4228-8e81-18795ab08b66}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\Map\Base">
+      <UniqueIdentifier>{99003bc5-9a68-4cd9-9630-1a6d71f08e2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\LogoOBJ">
+      <UniqueIdentifier>{c715e18d-bc66-462a-8480-15e7bab0def4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\PlayScene">
+      <UniqueIdentifier>{86459632-b56e-4e0f-b8b6-fb0c7655abdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\PlayScene\Card">
+      <UniqueIdentifier>{e256e596-565c-40bd-82ec-6b139c248615}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>main\소스 파일\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>main\소스 파일\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>main\소스 파일\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h">
+      <Filter>Engine\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="def.h">
+      <Filter>Engine\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Maths.h">
+      <Filter>Engine\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="chEntity.h">
+      <Filter>Engine\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="chComponent.h">
+      <Filter>Engine\Component\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="chAnimator.h">
+      <Filter>Engine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="chCollider.h">
+      <Filter>Engine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="chGameObject.h">
+      <Filter>Engine\GameObject\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="chPlayer.h">
+      <Filter>Engine\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="chApplication.h">
+      <Filter>Engine\High Level Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="chInput.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="chResources.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="chSceneManager.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="chTime.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="chScene.h">
+      <Filter>Engine\Scene\Bse</Filter>
+    </ClInclude>
+    <ClInclude Include="chLogoScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="chResource.h">
+      <Filter>Engine\Resource\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="chImage.h">
+      <Filter>Engine\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="chAnimation.h">
+      <Filter>Engine\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="chCamera.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="chObject.h">
+      <Filter>Engine\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="chCollisionManager.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="chPlayScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="chTitleScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="chEndScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="chBgImageObject.h">
+      <Filter>Engine\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="chMonster.h">
+      <Filter>Engine\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="chMissile.h">
+      <Filter>Engine\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="chBackPack.h">
+      <Filter>Engine\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="LoopHero_KCH.h">
+      <Filter>main\소스 파일\헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="LoopMonster.h">
+      <Filter>Client\Monsters</Filter>
+    </ClInclude>
+    <ClInclude Include="LoopWarrior.h">
+      <Filter>Client\Character\Warrior</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerStat.h">
+      <Filter>Client\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Slime.h">
+      <Filter>Client\Monsters\Slime</Filter>
+    </ClInclude>
+    <ClInclude Include="EquipmentPage.h">
+      <Filter>Client\EquipmentPage</Filter>
+    </ClInclude>
+    <ClInclude Include="FightPageOBJ.h">
+      <Filter>Client\FightScene\FightPage</Filter>
+    </ClInclude>
+    <ClInclude Include="pesochAni.h">
+      <Filter>Client\FightScene\Pesoch</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Client\Map\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterHouse.h">
+      <Filter>Client\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Road.h">
+      <Filter>Client\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="FigjtPageTimeAni.h">
+      <Filter>Client\FightScene\FightPage</Filter>
+    </ClInclude>
+    <ClInclude Include="FightPos.h">
+      <Filter>Client\FightScene</Filter>
+    </ClInclude>
+    <ClInclude Include="chIdlePlayScene.h">
+      <Filter>Engine\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="LogoObject.h">
+      <Filter>Client\LogoOBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="LogoAni1.h">
+      <Filter>Client\LogoOBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="LogoAni2.h">
+      <Filter>Client\LogoOBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="chDayOBJ.h">
+      <Filter>Client\BackGroundImage</Filter>
+    </ClInclude>
+    <ClInclude Include="chHelthBarPanelOBJ.h">
+      <Filter>Client\BackGroundImage</Filter>
+    </ClInclude>
+    <ClInclude Include="chItemPanelOBJ.h">
+      <Filter>Client\BackGroundImage</Filter>
+    </ClInclude>
+    <ClInclude Include="chPlashkaOBJ.h">
+      <Filter>Client\BackGroundImage</Filter>
+    </ClInclude>
+    <ClInclude Include="chSpeedPanelOBJ.h">
+      <Filter>Client\BackGroundImage</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayingCard.h">
+      <Filter>Client\PlayScene\Card</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>main\소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Maths.cpp">
+      <Filter>Engine\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="chEntity.cpp">
+      <Filter>Engine\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="chComponent.cpp">
+      <Filter>Engine\Component\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="chAnimator.cpp">
+      <Filter>Engine\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="chCollider.cpp">
+      <Filter>Engine\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="chGameObject.cpp">
+      <Filter>Engine\GameObject\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="chPlayer.cpp">
+      <Filter>Engine\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="chApplication.cpp">
+      <Filter>Engine\High Level Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="chInput.cpp">
+      <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="chResources.cpp">
+      <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="chSceneManager.cpp">
+      <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="chTime.cpp">
+      <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="chScene.cpp">
+      <Filter>Engine\Scene\Bse</Filter>
+    </ClCompile>
+    <ClCompile Include="chLogoScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="chResource.cpp">
+      <Filter>Engine\Resource\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="chImage.cpp">
+      <Filter>Engine\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="chAnimation.cpp">
+      <Filter>Engine\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="chCamera.cpp">
+      <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="chObject.cpp">
+      <Filter>Engine\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="chCollisionManager.cpp">
+      <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="chPlayScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="chTitleScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="chEndScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="chBgImageObject.cpp">
+      <Filter>Engine\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="chMonster.cpp">
+      <Filter>Engine\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="chMissile.cpp">
+      <Filter>Engine\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="LoopMonster.cpp">
+      <Filter>Client\Monsters</Filter>
+    </ClCompile>
+    <ClCompile Include="LoopWarrior.cpp">
+      <Filter>Client\Character\Warrior</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerStat.cpp">
+      <Filter>Client\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="chBackPack.cpp">
+      <Filter>Engine\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Slime.cpp">
+      <Filter>Client\Monsters\Slime</Filter>
+    </ClCompile>
+    <ClCompile Include="EquipmentPage.cpp">
+      <Filter>Client\EquipmentPage</Filter>
+    </ClCompile>
+    <ClCompile Include="FightPageOBJ.cpp">
+      <Filter>Client\FightScene\FightPage</Filter>
+    </ClCompile>
+    <ClCompile Include="pesochAni.cpp">
+      <Filter>Client\FightScene\Pesoch</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Client\Map\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterHouse.cpp">
+      <Filter>Client\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Road.cpp">
+      <Filter>Client\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="FigjtPageTimeAni.cpp">
+      <Filter>Client\FightScene\FightPage</Filter>
+    </ClCompile>
+    <ClCompile Include="FightPos.cpp">
+      <Filter>Client\FightScene</Filter>
+    </ClCompile>
+    <ClCompile Include="chIdlePlayScene.cpp">
+      <Filter>Engine\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="LogoObject.cpp">
+      <Filter>Client\LogoOBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="LogoAni1.cpp">
+      <Filter>Client\LogoOBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="LogoAni2.cpp">
+      <Filter>Client\LogoOBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="chDayOBJ.cpp">
+      <Filter>Client\BackGroundImage</Filter>
+    </ClCompile>
+    <ClCompile Include="chHelthBarPanelOBJ.cpp">
+      <Filter>Client\BackGroundImage</Filter>
+    </ClCompile>
+    <ClCompile Include="chItemPanelOBJ.cpp">
+      <Filter>Client\BackGroundImage</Filter>
+    </ClCompile>
+    <ClCompile Include="chPlashkaOBJ.cpp">
+      <Filter>Client\BackGroundImage</Filter>
+    </ClCompile>
+    <ClCompile Include="chSpeedPanelOBJ.cpp">
+      <Filter>Client\BackGroundImage</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayingCard.cpp">
+      <Filter>Client\PlayScene\Card</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LoopHero_KCH.rc">
+      <Filter>main\소스 파일\리소스 파일</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>main\소스 파일\리소스 파일</Filter>
+    </Image>
+    <Image Include="LoopHero_KCH.ico">
+      <Filter>main\소스 파일\리소스 파일</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
