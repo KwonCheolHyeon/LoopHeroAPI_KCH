@@ -93,17 +93,17 @@ namespace ch
 		HPEN redPen = CreatePen(PS_SOLID, 1, RGB(0, 125, 0));
 		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
 
-		int maxRow = mainWidnow.height / TILE_SIZE * TILE_SCALE ;
+		int maxRow = mainWidnow.height / TILE_SIZE * TILE_SCALE;
 		for (size_t i = 0; i < maxRow; i++)
 		{
-			MoveToEx(hdc, 0, TILE_SIZE * i * TILE_SCALE, nullptr);
+			MoveToEx(hdc,0, TILE_SIZE * i * TILE_SCALE, nullptr);
 			LineTo(hdc, mainWidnow.width, TILE_SIZE * i * TILE_SCALE);
 		}
 
 		int maxColumn = mainWidnow.width / TILE_SIZE * TILE_SCALE ;
 		for (size_t i = 0; i < maxColumn; i++)
 		{
-			MoveToEx(hdc, TILE_SIZE * i * TILE_SCALE, 0, nullptr);
+			MoveToEx(hdc, TILE_SIZE * i * TILE_SCALE, 62.5f, nullptr);
 			LineTo(hdc, TILE_SIZE * i * TILE_SCALE, mainWidnow.height);
 		}
 

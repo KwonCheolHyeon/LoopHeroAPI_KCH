@@ -25,7 +25,7 @@ namespace ch
 
 		AddGameObject(logo2, eColliderLayer::BackGround);
 		
-
+		
 	}
 
 	LogoScene::~LogoScene()
@@ -36,13 +36,16 @@ namespace ch
 	{
 		
 		
-		Camera::SetCameraEffect(eCameraEffect::FadeOut);
+	
 
 	}
 
 	void LogoScene::Tick()
 	{
+
 		Scene::Tick();
+		Camera::SetCameraEffect(eCameraEffect::FadeOut);
+
 		nextLogo += Time::DeltaTime();
 
 		
