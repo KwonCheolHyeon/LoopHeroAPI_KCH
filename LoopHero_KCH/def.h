@@ -42,6 +42,7 @@ enum class eComponentType
 enum class eColliderLayer
 {
 	Default,
+	Greed,
 	BackGround,
 	Tile,
 	Player,
@@ -76,7 +77,7 @@ union ColliderID
 
 
 #define TILE_SIZE 25
-#define TILE_SCALE 2.5
+#define TILE_SCALE 2.5f
 
 #define TILE_LINE_X 8
 #define TILE_LINE_Y 3

@@ -12,11 +12,16 @@
 #include "chItemPanelOBJ.h"
 #include "PlayingCard.h"
 #include "chApplication.h"
+#include "GameMap.h"
+
 
 namespace ch
 {
 	PlayScene::PlayScene()
 	{
+		ch::object::Instantiate<GameMap>(eColliderLayer::Greed);
+
+
 		chDayOBJ* day = new chDayOBJ();
 		day->SetImage(L"DayPanel", L"day_0.bmp");
 		day->Initialize();
@@ -38,13 +43,13 @@ namespace ch
 		chItemPanel->Initialize();
 		AddGameObject(chItemPanel, eColliderLayer::BackGround);
 
-		/*
+		
 		PlayingCard* chPlayingCard = new PlayingCard();
 		chPlayingCard->SetImage(L"Cards", L"s_card_rubashka_3.bmp");
 		chPlayingCard->Initialize();
 		chPlayingCard->SetPos({ 1600 - 150,0 });
 		AddGameObject(chPlayingCard, eColliderLayer::BackGround);
-		*/
+		
 
 
 		EquipmentPage* ep = new EquipmentPage();
@@ -86,33 +91,9 @@ namespace ch
 
 	void PlayScene::Render(HDC hdc)
 	{
-		
-		
-		WindowData mainWidnow = Application::GetInstance().GetWindowData();
-
-		HPEN redPen = CreatePen(PS_SOLID, 1, RGB(0, 125, 0));
-		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
-
-		int maxRow = mainWidnow.height / TILE_SIZE * TILE_SCALE;
-		for (size_t i = 0; i < maxRow; i++)
-		{
-			MoveToEx(hdc,0, TILE_SIZE * i * TILE_SCALE, nullptr);
-			LineTo(hdc, mainWidnow.width, TILE_SIZE * i * TILE_SCALE);
-		}
-
-		int maxColumn = mainWidnow.width / TILE_SIZE * TILE_SCALE ;
-		for (size_t i = 0; i < maxColumn; i++)
-		{
-			MoveToEx(hdc, TILE_SIZE * i * TILE_SCALE, 62.5f, nullptr);
-			LineTo(hdc, TILE_SIZE * i * TILE_SCALE, mainWidnow.height);
-		}
-
-		(HPEN)SelectObject(hdc, oldPen);
-		DeleteObject(redPen);
-
-
 		Scene::Render(hdc);
 		
+		WindowData mainWidnow = Application::GetInstance().GetWindowData();		
 	}
 
 	void PlayScene::Enter()

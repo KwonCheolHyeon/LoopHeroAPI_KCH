@@ -100,6 +100,9 @@
     <Filter Include="Client\PlayScene\Card">
       <UniqueIdentifier>{e256e596-565c-40bd-82ec-6b139c248615}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Client\Map\Card">
+      <UniqueIdentifier>{9e66cb0a-7f6f-4e53-8191-2cc784e1a579}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -222,7 +225,7 @@
     <ClInclude Include="pesochAni.h">
       <Filter>Client\FightScene\Pesoch</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
+    <ClInclude Include="GameMap.h">
       <Filter>Client\Map\Base</Filter>
     </ClInclude>
     <ClInclude Include="MonsterHouse.h">
@@ -266,6 +269,9 @@
     </ClInclude>
     <ClInclude Include="PlayingCard.h">
       <Filter>Client\PlayScene\Card</Filter>
+    </ClInclude>
+    <ClInclude Include="chStoneMountain.h">
+      <Filter>Client\Map\Card</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -374,7 +380,7 @@
     <ClCompile Include="pesochAni.cpp">
       <Filter>Client\FightScene\Pesoch</Filter>
     </ClCompile>
-    <ClCompile Include="Map.cpp">
+    <ClCompile Include="GameMap.cpp">
       <Filter>Client\Map\Base</Filter>
     </ClCompile>
     <ClCompile Include="MonsterHouse.cpp">
@@ -418,6 +424,9 @@
     </ClCompile>
     <ClCompile Include="PlayingCard.cpp">
       <Filter>Client\PlayScene\Card</Filter>
+    </ClCompile>
+    <ClCompile Include="chStoneMountain.cpp">
+      <Filter>Client\Map\Card</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

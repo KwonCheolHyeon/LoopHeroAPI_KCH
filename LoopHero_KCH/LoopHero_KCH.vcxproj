@@ -31,7 +31,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <EnableUnitySupport>true</EnableUnitySupport>
+    <EnableUnitySupport>false</EnableUnitySupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -45,7 +45,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <EnableUnitySupport>true</EnableUnitySupport>
+    <EnableUnitySupport>false</EnableUnitySupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -156,6 +156,7 @@
     <ClInclude Include="chPlayScene.h" />
     <ClInclude Include="chResource.h" />
     <ClInclude Include="chSpeedPanelOBJ.h" />
+    <ClInclude Include="chStoneMountain.h" />
     <ClInclude Include="chTitleScene.h" />
     <ClInclude Include="EquipmentPage.h" />
     <ClInclude Include="FightPageOBJ.h" />
@@ -168,7 +169,7 @@
     <ClInclude Include="Road.h" />
     <ClInclude Include="LoopMonster.h" />
     <ClInclude Include="LoopWarrior.h" />
-    <ClInclude Include="Map.h" />
+    <ClInclude Include="GameMap.h" />
     <ClInclude Include="Maths.h" />
     <ClInclude Include="chPlayer.h" />
     <ClInclude Include="chResources.h" />
@@ -213,6 +214,7 @@
     <ClCompile Include="chPlayScene.cpp" />
     <ClCompile Include="chResource.cpp" />
     <ClCompile Include="chSpeedPanelOBJ.cpp" />
+    <ClCompile Include="chStoneMountain.cpp" />
     <ClCompile Include="chTitleScene.cpp" />
     <ClCompile Include="EquipmentPage.cpp" />
     <ClCompile Include="FightPageOBJ.cpp" />
@@ -225,7 +227,7 @@
     <ClCompile Include="Road.cpp" />
     <ClCompile Include="LoopMonster.cpp" />
     <ClCompile Include="LoopWarrior.cpp" />
-    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="GameMap.cpp" />
     <ClCompile Include="Maths.cpp" />
     <ClCompile Include="chPlayer.cpp" />
     <ClCompile Include="chResources.cpp" />
