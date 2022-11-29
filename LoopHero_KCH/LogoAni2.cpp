@@ -7,8 +7,6 @@
 namespace ch 
 {
 
-
-
 	LogoAni2::LogoAni2()
 		: mImage(nullptr)
 	{

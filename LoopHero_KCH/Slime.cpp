@@ -9,6 +9,7 @@
 #include "chAnimator.h"
 #include "chCollider.h"
 
+
 namespace ch
 {
 	Slime::Slime()
@@ -29,6 +30,17 @@ namespace ch
 
 		mAnimator->Play(L"SlimeIdle", true);
 		AddComponent(mAnimator);
+
+		mHP.baseHp = 13;
+		mATT.baseStr = 3.3;
+		mDEF.baseDef = 0;
+
+		//mHP.nowHP = mHP.baseHp * LOOP; 현재 HP 
+		//mATT.nowStr = mATT.baseStr * LOOP; 
+		//mDEF.nowDef = mDEF.baseDef * LOOP;
+		mSPD.spd = 0.6;
+		
+
 	}
 
 	Slime::~Slime()
@@ -43,6 +55,14 @@ namespace ch
 		Vector2 pos = GetPos();
 
 		SetPos(pos);
+
+		attSpdChek += Time::DeltaTime();
+
+		if (attSpdChek >= ( 1 / mSPD.spd)) //공격속도
+		{
+			mAttack();
+		}
+
 
 		if (KEY_DOWN(eKeyCode::Q))
 		{
@@ -69,6 +89,38 @@ namespace ch
 		
 
 		GameObject::Render(hdc);
+	}
+
+	void Slime::mSetTarget()
+	{//플레이어 선택
+
+	}
+
+	void Slime::mAttack()
+	{
+		//공격
+
+		attSpdChek = 0;
+	}
+
+	void Slime::takeDamage(double damage) //데미지 받을때
+	{
+		mHP.nowHP -= calcDEF(damage);//데미지 받을때
+		
+	}
+
+	double Slime::calcDEF(double damage) // 방어력 계산
+	{
+		double Finaldmg = 0;
+
+		Finaldmg = 0.5 * damage * (20.3125 / (18.75 + mDEF.nowDef - (0.5 * damage)) - (1 / 12));//방어력 계산식
+
+		return Finaldmg;
+	}
+
+	void Slime::ITEMs()
+	{
+		//아이템 관련 함수
 	}
 
 }

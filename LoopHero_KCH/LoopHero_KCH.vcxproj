@@ -165,6 +165,11 @@
     <ClInclude Include="LogoAni1.h" />
     <ClInclude Include="LogoAni2.h" />
     <ClInclude Include="LogoObject.h" />
+    <ClInclude Include="MonsterStat.h" />
+    <ClInclude Include="newroad_0.h" />
+    <ClInclude Include="newroad_1.h" />
+    <ClInclude Include="newroad_2.h" />
+    <ClInclude Include="newroad_3.h" />
     <ClInclude Include="PlayingCard.h" />
     <ClInclude Include="Road.h" />
     <ClInclude Include="LoopMonster.h" />
@@ -186,6 +191,10 @@
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Slime.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TitleOpLeft.h" />
+    <ClInclude Include="TitleOpmiddle.h" />
+    <ClInclude Include="TitleOpRight.h" />
+    <ClInclude Include="titleStarBtn.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="chAnimation.cpp" />
@@ -223,6 +232,11 @@
     <ClCompile Include="LogoAni1.cpp" />
     <ClCompile Include="LogoAni2.cpp" />
     <ClCompile Include="LogoObject.cpp" />
+    <ClCompile Include="MonsterStat.cpp" />
+    <ClCompile Include="newroad_0.cpp" />
+    <ClCompile Include="newroad_1.cpp" />
+    <ClCompile Include="newroad_2.cpp" />
+    <ClCompile Include="newroad_3.cpp" />
     <ClCompile Include="PlayingCard.cpp" />
     <ClCompile Include="Road.cpp" />
     <ClCompile Include="LoopMonster.cpp" />
@@ -239,6 +253,10 @@
     <ClCompile Include="pesochAni.cpp" />
     <ClCompile Include="PlayerStat.cpp" />
     <ClCompile Include="Slime.cpp" />
+    <ClCompile Include="TitleOpLeft.cpp" />
+    <ClCompile Include="TitleOpmiddle.cpp" />
+    <ClCompile Include="TitleOpRight.cpp" />
+    <ClCompile Include="titleStarBtn.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LoopHero_KCH.rc" />

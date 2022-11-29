@@ -5,6 +5,7 @@
 #include "chResources.h"
 #include "chObject.h"
 #include "chStoneMountain.h"
+#include "newroad_0.h"
 namespace ch 
 {
 	GameMap::GameMap()
@@ -42,11 +43,13 @@ namespace ch
 			//int index = (y * TILE_LINE_X) + (x % TILE_LINE_X);
 			Vector2 objectPos = indexPos;
 
-			
+			if (y < 11 && x < 22) {
 			GameObject* gameObj
-				= ch::object::Instantiate<StoneMountain>(objectPos, eColliderLayer::Tile);
+				= ch::object::Instantiate<newroad_0>(objectPos, eColliderLayer::Tile);
 
-			mTiles[y][x] = gameObj;
+			
+				mTiles[y][x] = gameObj;
+			}
 		}
 
 	}
@@ -57,14 +60,14 @@ namespace ch
 		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
 
 		int maxRow = mainWidnow.height / TILE_SIZE * TILE_SCALE;
-		for (size_t i = 0; i < maxRow; i++)
+		for (size_t i = 0; i < 12; i++)
 		{
 			MoveToEx(hdc, 0, TILE_SIZE * i * TILE_SCALE, nullptr);
 			LineTo(hdc, mainWidnow.width, TILE_SIZE * i * TILE_SCALE);
 		}
 
 		int maxColumn = mainWidnow.width / TILE_SIZE * TILE_SCALE;
-		for (size_t i = 0; i < maxColumn; i++)
+		for (size_t i = 0; i < 22; i++)
 		{
 			MoveToEx(hdc, TILE_SIZE * i * TILE_SCALE, 62.5f, nullptr);
 			LineTo(hdc, TILE_SIZE * i * TILE_SCALE, mainWidnow.height);

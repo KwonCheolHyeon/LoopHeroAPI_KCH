@@ -1,46 +1,47 @@
-#include "LogoAni1.h"
+#include "TitleOpmiddle.h"
 #include "chResources.h"
 #include "chImage.h"
 #include "chObject.h"
 #include "chTime.h"
-namespace ch 
+
+namespace ch
 {
-	LogoAni1::LogoAni1() //타이틀씬에 루프히어로 로고
+	TitleOpmiddle::TitleOpmiddle()
 		: mImage(nullptr)
 	{
-		SetPos({ 550,200});
+		SetPos({ 650,-950 });
 		SetScale({ 2.5f, 2.5f });
-		this->m_Blend.SourceConstantAlpha = 0;
+	
 	}
-	LogoAni1::~LogoAni1()
-	{
 
-	}
-	void LogoAni1::Initialize()
+	TitleOpmiddle::~TitleOpmiddle()
 	{
 	}
-	void LogoAni1::Tick()
+	void TitleOpmiddle::Initialize()
+	{
+	}
+
+	void TitleOpmiddle::Tick()
 	{
 		GameObject::Tick();
 		Vector2 pos = GetPos();
-		
+
 
 		imageLiveTime += Time::DeltaTime();
-		if (imageLiveTime >= 2.0f && imageLiveTime <= 4.7f) 
+		if (imageLiveTime >= 2.0f && imageLiveTime <= 4.7f)
 		{
-			pos.y -=  Time::DeltaTime()*100;
+			pos.y += Time::DeltaTime() * 350;
 		}
 		if (imageLiveTime <= 2.0f && imageLiveTime <= 4.0f)
 		{
-			
+
 		}
 
 		SetPos(pos);
 	}
 
-	void LogoAni1::Render(HDC hdc)
+	void TitleOpmiddle::Render(HDC hdc)
 	{
-
 		Vector2 pos = GetPos();
 		Vector2 scale = GetScale();
 		Vector2 finalPos = pos;
@@ -54,14 +55,13 @@ namespace ch
 			, RGB(255, 0, 255));
 
 		GameObject::Render(hdc);
-
 	}
-	void LogoAni1::SetImage(const std::wstring& key, const std::wstring& fileName)
+
+	void TitleOpmiddle::SetImage(const std::wstring& key, const std::wstring& fileName)
 	{
-		std::wstring path = L"..\\Resources\\loophero\\TitleScene\\";
+		std::wstring path = L"..\\Resources\\loophero\\TitleScene\\menu\\";
 		path += fileName;
 
 		mImage = Resources::Load<Image>(key, path);
 	}
 }
-

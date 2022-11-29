@@ -1,4 +1,4 @@
-#include "chStoneMountain.h"
+#include "newroad_1.h"
 #include "chApplication.h"
 #include "chInput.h"
 #include "chImage.h"
@@ -7,31 +7,28 @@
 
 namespace ch 
 {
-	StoneMountain::StoneMountain()
+	newroad_1::newroad_1()
 	{
-		mImage = Resources::Load<Image>(L"stoneMountain", L"..\\Resources\\Image\\Tile\\s_lands_11.bmp");
+		mImage = Resources::Load<Image>(L"Road1", L"..\\Resources\\loophero\\Map\\Road\\newroad_1.bmp");
 	}
-	StoneMountain::StoneMountain(Vector2 pos)
+	newroad_1::newroad_1(Vector2 pos)
 		: GameObject(pos)
 	{
-		mImage = Resources::Load<Image>(L"stoneMountain", L"..\\Resources\\Image\\Tile\\s_lands_11.bmp");
+		mImage = Resources::Load<Image>(L"Road1", L"..\\Resources\\loophero\\Map\\Road\\newroad_1.bmp");
 	}
-	StoneMountain::~StoneMountain()
+	newroad_1::~newroad_1()
 	{
 
 	}
-
-	void StoneMountain::Initialize()
+	void newroad_1::Initialize()
 	{
 
 	}
-
-	void StoneMountain::Tick()
+	void newroad_1::Tick()
 	{
 
 	}
-
-	void StoneMountain::Render(HDC hdc)
+	void newroad_1::Render(HDC hdc)
 	{
 		Vector2 pos = GetPos();
 		Vector2 scale = GetScale();

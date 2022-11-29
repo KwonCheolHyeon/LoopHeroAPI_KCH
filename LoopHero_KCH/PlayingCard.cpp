@@ -39,7 +39,7 @@ namespace ch
 	}
 	void PlayingCard::SetImage(const std::wstring& key, const std::wstring& fileName)
 	{
-		std::wstring path = L"..\\Resources\\loophero\\MainGame\\Card\\Card\\";
+		std::wstring path = L"..\\Resources\\loophero\\MainGame\\Card\\";
 		path += fileName;
 
 		mImage = Resources::Load<Image>(key, path);

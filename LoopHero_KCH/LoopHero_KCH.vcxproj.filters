@@ -100,8 +100,26 @@
     <Filter Include="Client\PlayScene\Card">
       <UniqueIdentifier>{e256e596-565c-40bd-82ec-6b139c248615}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Client\Map\Card">
+    <Filter Include="Client\Map\Cards">
       <UniqueIdentifier>{9e66cb0a-7f6f-4e53-8191-2cc784e1a579}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\Map\Road">
+      <UniqueIdentifier>{64d24610-cad6-4f53-9191-88c3ec4cecbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\Map\Road\Base">
+      <UniqueIdentifier>{a04c7c79-8c8a-4239-9259-f3d708fce9bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\Map\Road\newRoad">
+      <UniqueIdentifier>{47ed8336-fb2a-49e7-a3a2-e76db9a84609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\TitleScene">
+      <UniqueIdentifier>{e1f5b2c1-a6c7-4f54-96e1-6f5777ddc6d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\TitleScene\BTN">
+      <UniqueIdentifier>{afd9d09f-2a3e-42a1-8a05-7af54bfbcf5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\Monsters\base">
+      <UniqueIdentifier>{acec6f66-43cf-4a95-b123-b72d1cb129f1}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -228,12 +246,6 @@
     <ClInclude Include="GameMap.h">
       <Filter>Client\Map\Base</Filter>
     </ClInclude>
-    <ClInclude Include="MonsterHouse.h">
-      <Filter>Client\Map</Filter>
-    </ClInclude>
-    <ClInclude Include="Road.h">
-      <Filter>Client\Map</Filter>
-    </ClInclude>
     <ClInclude Include="FigjtPageTimeAni.h">
       <Filter>Client\FightScene\FightPage</Filter>
     </ClInclude>
@@ -271,7 +283,40 @@
       <Filter>Client\PlayScene\Card</Filter>
     </ClInclude>
     <ClInclude Include="chStoneMountain.h">
-      <Filter>Client\Map\Card</Filter>
+      <Filter>Client\Map\Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="Road.h">
+      <Filter>Client\Map\Road\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterHouse.h">
+      <Filter>Client\Map\Road\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="newroad_0.h">
+      <Filter>Client\Map\Road\newRoad</Filter>
+    </ClInclude>
+    <ClInclude Include="newroad_1.h">
+      <Filter>Client\Map\Road\newRoad</Filter>
+    </ClInclude>
+    <ClInclude Include="newroad_2.h">
+      <Filter>Client\Map\Road\newRoad</Filter>
+    </ClInclude>
+    <ClInclude Include="newroad_3.h">
+      <Filter>Client\Map\Road\newRoad</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleOpmiddle.h">
+      <Filter>Client\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleOpLeft.h">
+      <Filter>Client\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleOpRight.h">
+      <Filter>Client\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="titleStarBtn.h">
+      <Filter>Client\TitleScene\BTN</Filter>
+    </ClInclude>
+    <ClInclude Include="MonsterStat.h">
+      <Filter>Client\Monsters\base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -383,12 +428,6 @@
     <ClCompile Include="GameMap.cpp">
       <Filter>Client\Map\Base</Filter>
     </ClCompile>
-    <ClCompile Include="MonsterHouse.cpp">
-      <Filter>Client\Map</Filter>
-    </ClCompile>
-    <ClCompile Include="Road.cpp">
-      <Filter>Client\Map</Filter>
-    </ClCompile>
     <ClCompile Include="FigjtPageTimeAni.cpp">
       <Filter>Client\FightScene\FightPage</Filter>
     </ClCompile>
@@ -426,7 +465,40 @@
       <Filter>Client\PlayScene\Card</Filter>
     </ClCompile>
     <ClCompile Include="chStoneMountain.cpp">
-      <Filter>Client\Map\Card</Filter>
+      <Filter>Client\Map\Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterHouse.cpp">
+      <Filter>Client\Map\Road\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="Road.cpp">
+      <Filter>Client\Map\Road\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="newroad_0.cpp">
+      <Filter>Client\Map\Road\newRoad</Filter>
+    </ClCompile>
+    <ClCompile Include="newroad_1.cpp">
+      <Filter>Client\Map\Road\newRoad</Filter>
+    </ClCompile>
+    <ClCompile Include="newroad_2.cpp">
+      <Filter>Client\Map\Road\newRoad</Filter>
+    </ClCompile>
+    <ClCompile Include="newroad_3.cpp">
+      <Filter>Client\Map\Road\newRoad</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleOpmiddle.cpp">
+      <Filter>Client\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleOpLeft.cpp">
+      <Filter>Client\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleOpRight.cpp">
+      <Filter>Client\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="titleStarBtn.cpp">
+      <Filter>Client\TitleScene\BTN</Filter>
+    </ClCompile>
+    <ClCompile Include="MonsterStat.cpp">
+      <Filter>Client\Monsters\base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

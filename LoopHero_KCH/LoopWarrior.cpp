@@ -43,7 +43,10 @@ namespace ch
 
 	void LoopWarrior::Tick()
 	{
+
 		playerRegenTime += (Time::DeltaTime() * gameSpeed); // 1초당 리젠 시간;
+
+
 		GameObject::Tick();
 		Vector2 pos = GetPos();
 		Vector2 scale = GetScale();

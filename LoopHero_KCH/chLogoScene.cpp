@@ -14,18 +14,13 @@
 #include "chCamera.h"
 namespace ch
 {
-
-
 	LogoScene::LogoScene()
 	{
 		LogoObject* logo2 = new LogoObject();
 		logo2->SetImage(L"LogoObject2", L"s_intro_logo_0.bmp");
 		logo2->Initialize();
 		
-
 		AddGameObject(logo2, eColliderLayer::BackGround);
-		
-		
 	}
 
 	LogoScene::~LogoScene()
@@ -34,9 +29,6 @@ namespace ch
 
 	void LogoScene::Initialize()
 	{
-		
-		
-	
 
 	}
 

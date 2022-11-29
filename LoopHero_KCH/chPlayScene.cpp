@@ -45,12 +45,16 @@ namespace ch
 
 		
 		PlayingCard* chPlayingCard = new PlayingCard();
-		chPlayingCard->SetImage(L"Cards", L"s_card_rubashka_3.bmp");
+		chPlayingCard->SetImage(L"Cards", L"card_rubashka_00.bmp");
 		chPlayingCard->Initialize();
-		chPlayingCard->SetPos({ 1600 - 150,0 });
+		chPlayingCard->SetPos({0,900-145 });
 		AddGameObject(chPlayingCard, eColliderLayer::BackGround);
 		
-
+		PlayingCard* chPlayingCard2 = new PlayingCard();
+		chPlayingCard2->SetImage(L"Cards2", L"card_rubashka_00.bmp");
+		chPlayingCard2->Initialize();
+		chPlayingCard2->SetPos({102.5f,900 - 145 });
+		AddGameObject(chPlayingCard2, eColliderLayer::BackGround);
 
 		EquipmentPage* ep = new EquipmentPage();
 		ep->SetImage(L"EquipmentPage", L"s_hud_24_3.bmp");
