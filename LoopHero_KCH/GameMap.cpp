@@ -6,6 +6,7 @@
 #include "chObject.h"
 #include "chStoneMountain.h"
 #include "newroad_0.h"
+#include "Cemetery.h"
 namespace ch 
 {
 	GameMap::GameMap()
@@ -14,8 +15,8 @@ namespace ch
 		//mTilesImage = Resources::Load<Image>(L"Monster", L"..\\Resources\\Image\\Tile\\s_lands_11.bmp");
 
 		// 배열 초기화
-		mTiles.resize(11);
-		for (size_t i = 0; i < 11; i++)
+		mTiles.resize(12);
+		for (size_t i = 0; i < 12; i++)
 		{
 			mTiles[i].resize(21);
 		}
@@ -43,11 +44,10 @@ namespace ch
 			//int index = (y * TILE_LINE_X) + (x % TILE_LINE_X);
 			Vector2 objectPos = indexPos;
 
-			if (y < 11 && x < 22) {
+			if (y >= 0 && y < 12 && x>=0 && x < 21) {
 			GameObject* gameObj
-				= ch::object::Instantiate<newroad_0>(objectPos, eColliderLayer::Tile);
+				= ch::object::Instantiate<Cemetery>(objectPos, eColliderLayer::Tile);
 
-			
 				mTiles[y][x] = gameObj;
 			}
 		}

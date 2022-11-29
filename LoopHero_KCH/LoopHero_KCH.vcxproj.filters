@@ -121,6 +121,12 @@
     <Filter Include="Client\Monsters\base">
       <UniqueIdentifier>{acec6f66-43cf-4a95-b123-b72d1cb129f1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Client\Map\Cards\InGameresources">
+      <UniqueIdentifier>{4e618929-c8cf-4a13-9f4d-41828779c350}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\Map\Cards\MonsterHouses">
+      <UniqueIdentifier>{2dbe6de3-6eec-4bf9-950f-8ac8ebda512c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -282,9 +288,6 @@
     <ClInclude Include="PlayingCard.h">
       <Filter>Client\PlayScene\Card</Filter>
     </ClInclude>
-    <ClInclude Include="chStoneMountain.h">
-      <Filter>Client\Map\Cards</Filter>
-    </ClInclude>
     <ClInclude Include="Road.h">
       <Filter>Client\Map\Road\Base</Filter>
     </ClInclude>
@@ -317,6 +320,39 @@
     </ClInclude>
     <ClInclude Include="MonsterStat.h">
       <Filter>Client\Monsters\base</Filter>
+    </ClInclude>
+    <ClInclude Include="newroad_4.h">
+      <Filter>Client\Map\Road\newRoad</Filter>
+    </ClInclude>
+    <ClInclude Include="newroad_5.h">
+      <Filter>Client\Map\Road\newRoad</Filter>
+    </ClInclude>
+    <ClInclude Include="SpiderCocoon.h">
+      <Filter>Client\Map\Cards\MonsterHouses</Filter>
+    </ClInclude>
+    <ClInclude Include="Vampire_Mansion.h">
+      <Filter>Client\Map\Cards\MonsterHouses</Filter>
+    </ClInclude>
+    <ClInclude Include="Grove.h">
+      <Filter>Client\Map\Cards\MonsterHouses</Filter>
+    </ClInclude>
+    <ClInclude Include="Cemetery.h">
+      <Filter>Client\Map\Cards\MonsterHouses</Filter>
+    </ClInclude>
+    <ClInclude Include="GMapBASE.h">
+      <Filter>Client\Map\Road\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="chMedow.h">
+      <Filter>Client\Map\Cards\InGameresources</Filter>
+    </ClInclude>
+    <ClInclude Include="chRock.h">
+      <Filter>Client\Map\Cards\InGameresources</Filter>
+    </ClInclude>
+    <ClInclude Include="chStoneMountain.h">
+      <Filter>Client\Map\Cards\InGameresources</Filter>
+    </ClInclude>
+    <ClInclude Include="chCampfire.h">
+      <Filter>Client\Map\Road\newRoad</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -464,9 +500,6 @@
     <ClCompile Include="PlayingCard.cpp">
       <Filter>Client\PlayScene\Card</Filter>
     </ClCompile>
-    <ClCompile Include="chStoneMountain.cpp">
-      <Filter>Client\Map\Cards</Filter>
-    </ClCompile>
     <ClCompile Include="MonsterHouse.cpp">
       <Filter>Client\Map\Road\Base</Filter>
     </ClCompile>
@@ -499,6 +532,39 @@
     </ClCompile>
     <ClCompile Include="MonsterStat.cpp">
       <Filter>Client\Monsters\base</Filter>
+    </ClCompile>
+    <ClCompile Include="newroad_4.cpp">
+      <Filter>Client\Map\Road\newRoad</Filter>
+    </ClCompile>
+    <ClCompile Include="newroad_5.cpp">
+      <Filter>Client\Map\Road\newRoad</Filter>
+    </ClCompile>
+    <ClCompile Include="SpiderCocoon.cpp">
+      <Filter>Client\Map\Cards\MonsterHouses</Filter>
+    </ClCompile>
+    <ClCompile Include="Vampire_Mansion.cpp">
+      <Filter>Client\Map\Cards\MonsterHouses</Filter>
+    </ClCompile>
+    <ClCompile Include="Grove.cpp">
+      <Filter>Client\Map\Cards\MonsterHouses</Filter>
+    </ClCompile>
+    <ClCompile Include="Cemetery.cpp">
+      <Filter>Client\Map\Cards\MonsterHouses</Filter>
+    </ClCompile>
+    <ClCompile Include="GMapBASE.cpp">
+      <Filter>Client\Map\Road\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="chMedow.cpp">
+      <Filter>Client\Map\Cards\InGameresources</Filter>
+    </ClCompile>
+    <ClCompile Include="chRock.cpp">
+      <Filter>Client\Map\Cards\InGameresources</Filter>
+    </ClCompile>
+    <ClCompile Include="chStoneMountain.cpp">
+      <Filter>Client\Map\Cards\InGameresources</Filter>
+    </ClCompile>
+    <ClCompile Include="chCampfire.cpp">
+      <Filter>Client\Map\Road\newRoad</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

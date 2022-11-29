@@ -130,12 +130,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Cemetery.h" />
     <ClInclude Include="chAnimation.h" />
     <ClInclude Include="chAnimator.h" />
     <ClInclude Include="chApplication.h" />
     <ClInclude Include="chBackPack.h" />
     <ClInclude Include="chBgImageObject.h" />
     <ClInclude Include="chCamera.h" />
+    <ClInclude Include="chCampfire.h" />
     <ClInclude Include="chCollider.h" />
     <ClInclude Include="chCollisionManager.h" />
     <ClInclude Include="chComponent.h" />
@@ -149,12 +151,14 @@
     <ClInclude Include="chInput.h" />
     <ClInclude Include="chItemPanelOBJ.h" />
     <ClInclude Include="chLogoScene.h" />
+    <ClInclude Include="chMedow.h" />
     <ClInclude Include="chMissile.h" />
     <ClInclude Include="chMonster.h" />
     <ClInclude Include="chObject.h" />
     <ClInclude Include="chPlashkaOBJ.h" />
     <ClInclude Include="chPlayScene.h" />
     <ClInclude Include="chResource.h" />
+    <ClInclude Include="chRock.h" />
     <ClInclude Include="chSpeedPanelOBJ.h" />
     <ClInclude Include="chStoneMountain.h" />
     <ClInclude Include="chTitleScene.h" />
@@ -162,6 +166,8 @@
     <ClInclude Include="FightPageOBJ.h" />
     <ClInclude Include="FightPos.h" />
     <ClInclude Include="FigjtPageTimeAni.h" />
+    <ClInclude Include="GMapBASE.h" />
+    <ClInclude Include="Grove.h" />
     <ClInclude Include="LogoAni1.h" />
     <ClInclude Include="LogoAni2.h" />
     <ClInclude Include="LogoObject.h" />
@@ -170,6 +176,8 @@
     <ClInclude Include="newroad_1.h" />
     <ClInclude Include="newroad_2.h" />
     <ClInclude Include="newroad_3.h" />
+    <ClInclude Include="newroad_4.h" />
+    <ClInclude Include="newroad_5.h" />
     <ClInclude Include="PlayingCard.h" />
     <ClInclude Include="Road.h" />
     <ClInclude Include="LoopMonster.h" />
@@ -190,19 +198,23 @@
     <ClInclude Include="PlayerStat.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Slime.h" />
+    <ClInclude Include="SpiderCocoon.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TitleOpLeft.h" />
     <ClInclude Include="TitleOpmiddle.h" />
     <ClInclude Include="TitleOpRight.h" />
     <ClInclude Include="titleStarBtn.h" />
+    <ClInclude Include="Vampire_Mansion.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cemetery.cpp" />
     <ClCompile Include="chAnimation.cpp" />
     <ClCompile Include="chAnimator.cpp" />
     <ClCompile Include="chApplication.cpp" />
     <ClCompile Include="chBackPack.cpp" />
     <ClCompile Include="chBgImageObject.cpp" />
     <ClCompile Include="chCamera.cpp" />
+    <ClCompile Include="chCampfire.cpp" />
     <ClCompile Include="chCollider.cpp" />
     <ClCompile Include="chCollisionManager.cpp" />
     <ClCompile Include="chComponent.cpp" />
@@ -216,12 +228,14 @@
     <ClCompile Include="chInput.cpp" />
     <ClCompile Include="chItemPanelOBJ.cpp" />
     <ClCompile Include="chLogoScene.cpp" />
+    <ClCompile Include="chMedow.cpp" />
     <ClCompile Include="chMissile.cpp" />
     <ClCompile Include="chMonster.cpp" />
     <ClCompile Include="chObject.cpp" />
     <ClCompile Include="chPlashkaOBJ.cpp" />
     <ClCompile Include="chPlayScene.cpp" />
     <ClCompile Include="chResource.cpp" />
+    <ClCompile Include="chRock.cpp" />
     <ClCompile Include="chSpeedPanelOBJ.cpp" />
     <ClCompile Include="chStoneMountain.cpp" />
     <ClCompile Include="chTitleScene.cpp" />
@@ -229,6 +243,8 @@
     <ClCompile Include="FightPageOBJ.cpp" />
     <ClCompile Include="FightPos.cpp" />
     <ClCompile Include="FigjtPageTimeAni.cpp" />
+    <ClCompile Include="GMapBASE.cpp" />
+    <ClCompile Include="Grove.cpp" />
     <ClCompile Include="LogoAni1.cpp" />
     <ClCompile Include="LogoAni2.cpp" />
     <ClCompile Include="LogoObject.cpp" />
@@ -237,6 +253,8 @@
     <ClCompile Include="newroad_1.cpp" />
     <ClCompile Include="newroad_2.cpp" />
     <ClCompile Include="newroad_3.cpp" />
+    <ClCompile Include="newroad_4.cpp" />
+    <ClCompile Include="newroad_5.cpp" />
     <ClCompile Include="PlayingCard.cpp" />
     <ClCompile Include="Road.cpp" />
     <ClCompile Include="LoopMonster.cpp" />
@@ -253,10 +271,12 @@
     <ClCompile Include="pesochAni.cpp" />
     <ClCompile Include="PlayerStat.cpp" />
     <ClCompile Include="Slime.cpp" />
+    <ClCompile Include="SpiderCocoon.cpp" />
     <ClCompile Include="TitleOpLeft.cpp" />
     <ClCompile Include="TitleOpmiddle.cpp" />
     <ClCompile Include="TitleOpRight.cpp" />
     <ClCompile Include="titleStarBtn.cpp" />
+    <ClCompile Include="Vampire_Mansion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LoopHero_KCH.rc" />

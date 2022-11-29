@@ -1,22 +1,25 @@
 #pragma once
 #include "chGameObject.h"
 
-namespace ch 
+namespace ch
 {
 	class Image;
-	class StoneMountain : public GameObject
+	class Grove : public GameObject
 	{
 	public:
-		StoneMountain();
-		StoneMountain(Vector2 pos);
-		~StoneMountain();
+		Grove();
+		Grove(Vector2 pos);
+		~Grove();
 
 		virtual void Initialize() override;
 		virtual void Tick() override;
 		virtual void Render(HDC hdc) override;
-		
+
 	private:
 		Image* mImage;
 
+
+
 	};
 }
+
