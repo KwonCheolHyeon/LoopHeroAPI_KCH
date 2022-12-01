@@ -18,6 +18,7 @@ namespace ch
 		mTiles.resize(12);
 		for (size_t i = 0; i < 12; i++)
 		{
+
 			mTiles[i].resize(21);
 		}
 	}
@@ -45,13 +46,12 @@ namespace ch
 			Vector2 objectPos = indexPos;
 
 			if (y >= 0 && y < 12 && x>=0 && x < 21) {
-			GameObject* gameObj
-				= ch::object::Instantiate<Cemetery>(objectPos, eColliderLayer::Tile);
+			TileMapObject* gameObj
+				= ch::object::Instantiate<newroad_0>(objectPos, eColliderLayer::Tile);
 
 				mTiles[y][x] = gameObj;
 			}
 		}
-
 	}
 	void GameMap::Render(HDC hdc)
 	{
@@ -60,13 +60,14 @@ namespace ch
 		HPEN oldPen = (HPEN)SelectObject(hdc, redPen);
 
 		int maxRow = mainWidnow.height / TILE_SIZE * TILE_SCALE;
-		for (size_t i = 0; i < 12; i++)
+		for (size_t i = 0; i < 13; i++)
 		{
 			MoveToEx(hdc, 0, TILE_SIZE * i * TILE_SCALE, nullptr);
 			LineTo(hdc, mainWidnow.width, TILE_SIZE * i * TILE_SCALE);
 		}
 
 		int maxColumn = mainWidnow.width / TILE_SIZE * TILE_SCALE;
+
 		for (size_t i = 0; i < 22; i++)
 		{
 			MoveToEx(hdc, TILE_SIZE * i * TILE_SCALE, 62.5f, nullptr);

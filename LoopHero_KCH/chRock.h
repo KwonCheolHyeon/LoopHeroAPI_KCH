@@ -1,10 +1,10 @@
 #pragma once	
-#include "chGameObject.h"
+#include "TileMapObject.h"
 
 namespace ch {
 
 	class Image;
-	class Rock : public GameObject
+	class Rock : public TileMapObject
 	{
 	public:
 		Rock();
@@ -14,7 +14,7 @@ namespace ch {
 		virtual void Initialize() override;
 		virtual void Tick() override;
 		virtual void Render(HDC hdc) override;
-
+		
 	private:
 		Image* mImage;
 

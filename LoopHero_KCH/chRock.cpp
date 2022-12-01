@@ -11,8 +11,9 @@ namespace ch
 	{
 		mImage = Resources::Load<Image>(L"Rock", L"..\\Resources\\loophero\\Map\\Cards\\Rock.bmp");
 	}
+	
 	Rock::Rock(Vector2 pos)
-		: GameObject(pos)
+		: TileMapObject(pos)
 	{
 		mImage = Resources::Load<Image>(L"Rock", L"..\\Resources\\loophero\\Map\\Cards\\Rock.bmp");
 	}

@@ -1,11 +1,7 @@
 #pragma once
 namespace ch {
-
-
 	struct mapBase
 	{
-
-		
 	//설치하기전
 		//이 배열에 건물이 존재 하는지?
 		//주변 타일이 있느지?  ex) map[1][1]   map[0][1] map[1][2] 상하좌우   map[x][y] +- 1씩 체크해서 

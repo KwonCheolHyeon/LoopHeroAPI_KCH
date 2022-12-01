@@ -172,6 +172,8 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 
     ch::Application::GetInstance().Initialize(windowData);
 
+
+
     return TRUE;
 }
 
@@ -185,6 +187,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY  - 종료 메시지를 게시하고 반환합니다.
 //
 //
+
+#include "chSceneManager.h"
+#include "chScene.h"
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)

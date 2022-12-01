@@ -1,10 +1,10 @@
 #pragma once
-#include "chGameObject.h"
+#include "TileMapObject.h"
 
 namespace ch {
 
 	class Image;
-	class SpiderCocoon : public GameObject
+	class SpiderCocoon : public TileMapObject
 	{
 	public:
 		SpiderCocoon();

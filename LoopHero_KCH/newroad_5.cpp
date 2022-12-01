@@ -13,7 +13,7 @@ namespace ch
 		mImage = Resources::Load<Image>(L"Road5", L"..\\Resources\\loophero\\Map\\Road\\newroad_5.bmp");
 	}
 	newroad_5::newroad_5(Vector2 pos)
-		: GameObject(pos)
+		: TileMapObject(pos)
 	{
 		mImage = Resources::Load<Image>(L"Road5", L"..\\Resources\\loophero\\Map\\Road\\newroad_5.bmp");
 	}

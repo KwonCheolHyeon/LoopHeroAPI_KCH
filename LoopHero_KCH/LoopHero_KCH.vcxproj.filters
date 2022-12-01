@@ -127,6 +127,12 @@
     <Filter Include="Client\Map\Cards\MonsterHouses">
       <UniqueIdentifier>{2dbe6de3-6eec-4bf9-950f-8ac8ebda512c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\UI">
+      <UniqueIdentifier>{e3041d5f-188f-43ef-94af-6f2b80de0a8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\UI\Base">
+      <UniqueIdentifier>{16d9ca03-3174-49ad-89a3-6f620ec08d17}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -288,12 +294,6 @@
     <ClInclude Include="PlayingCard.h">
       <Filter>Client\PlayScene\Card</Filter>
     </ClInclude>
-    <ClInclude Include="Road.h">
-      <Filter>Client\Map\Road\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="MonsterHouse.h">
-      <Filter>Client\Map\Road\Base</Filter>
-    </ClInclude>
     <ClInclude Include="newroad_0.h">
       <Filter>Client\Map\Road\newRoad</Filter>
     </ClInclude>
@@ -353,6 +353,18 @@
     </ClInclude>
     <ClInclude Include="chCampfire.h">
       <Filter>Client\Map\Road\newRoad</Filter>
+    </ClInclude>
+    <ClInclude Include="chButton.h">
+      <Filter>Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="chUiBase.h">
+      <Filter>Engine\UI\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="chPanel.h">
+      <Filter>Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMapObject.h">
+      <Filter>Client\Map\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -500,12 +512,6 @@
     <ClCompile Include="PlayingCard.cpp">
       <Filter>Client\PlayScene\Card</Filter>
     </ClCompile>
-    <ClCompile Include="MonsterHouse.cpp">
-      <Filter>Client\Map\Road\Base</Filter>
-    </ClCompile>
-    <ClCompile Include="Road.cpp">
-      <Filter>Client\Map\Road\Base</Filter>
-    </ClCompile>
     <ClCompile Include="newroad_0.cpp">
       <Filter>Client\Map\Road\newRoad</Filter>
     </ClCompile>
@@ -565,6 +571,18 @@
     </ClCompile>
     <ClCompile Include="chCampfire.cpp">
       <Filter>Client\Map\Road\newRoad</Filter>
+    </ClCompile>
+    <ClCompile Include="chButton.cpp">
+      <Filter>Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="chUiBase.cpp">
+      <Filter>Engine\UI\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="chPanel.cpp">
+      <Filter>Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMapObject.cpp">
+      <Filter>Client\Map\Base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -10,18 +10,21 @@ namespace ch {
 		mImage = Resources::Load<Image>(L"Medow", L"..\\Resources\\loophero\\Map\\Cards\\Medow.bmp");
 	}
 	Medow::Medow(Vector2 pos)
-		: GameObject(pos)
+		: TileMapObject(pos)
 	{
 		mImage = Resources::Load<Image>(L"Medow", L"..\\Resources\\loophero\\Map\\Cards\\Medow.bmp");
 	}
 	Medow::~Medow()
 	{
+
 	}
 	void Medow::Initialize()
 	{
+
 	}
 	void Medow::Tick()
 	{
+
 	}
 	void Medow::Render(HDC hdc)
 	{

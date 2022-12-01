@@ -12,7 +12,7 @@ namespace ch
 		mImage = Resources::Load<Image>(L"Road4", L"..\\Resources\\loophero\\Map\\Road\\newroad_4.bmp");
 	}
 	newroad_4::newroad_4(Vector2 pos)
-		: GameObject(pos)
+		: TileMapObject(pos)
 	{
 		mImage = Resources::Load<Image>(L"Road4", L"..\\Resources\\loophero\\Map\\Road\\newroad_4.bmp");
 	}
@@ -22,9 +22,11 @@ namespace ch
 	}
 	void newroad_4::Initialize()
 	{
+
 	}
 	void newroad_4::Tick()
 	{
+		
 	}
 	void newroad_4::Render(HDC hdc)
 	{

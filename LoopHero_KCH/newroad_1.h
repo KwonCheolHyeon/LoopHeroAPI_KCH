@@ -1,8 +1,8 @@
 #pragma once
-#include "chGameObject.h"
+#include "TileMapObject.h"
 namespace ch {
 	class Image;
-	class newroad_1 : public GameObject
+	class newroad_1 : public TileMapObject
 	{
 	public:
 		newroad_1();

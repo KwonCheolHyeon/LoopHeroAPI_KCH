@@ -10,6 +10,7 @@ enum class eSceneType
 	Play,
 	IdlePlay,
 	End,
+	Tool,
 	Max,
 };
 
@@ -61,6 +62,18 @@ enum class eCameraEffect
 	FadeIn,
 	FadeOut,
 	None,
+};
+
+enum class eUIType
+{
+	HP,
+	MP,
+	SHOP,
+	INVENTORY,
+	OPTION,
+
+
+	END,
 };
 
 union ColliderID

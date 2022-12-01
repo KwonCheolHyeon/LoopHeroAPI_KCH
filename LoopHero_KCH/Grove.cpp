@@ -12,7 +12,7 @@ namespace ch
 		mImage = Resources::Load<Image>(L"Grove", L"..\\Resources\\loophero\\Map\\Cards\\Grove.bmp");
 	}
 	Grove::Grove(Vector2 pos)
-		: GameObject(pos)
+		: TileMapObject(pos)
 	{
 		mImage = Resources::Load<Image>(L"Grove", L"..\\Resources\\loophero\\Map\\Cards\\Grove.bmp");
 	}
@@ -21,6 +21,7 @@ namespace ch
 	}
 	void Grove::Initialize()
 	{
+
 	}
 	void Grove::Tick()
 	{

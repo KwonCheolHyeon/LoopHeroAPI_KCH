@@ -1,11 +1,11 @@
 #pragma once
-#include "chGameObject.h"
+#include "TileMapObject.h"
 
 namespace ch
 {
 
 class Image;
-class Vampire_Mansion : public GameObject
+class Vampire_Mansion : public TileMapObject
 {
 public:
 	Vampire_Mansion();
@@ -18,7 +18,7 @@ public:
 
 private:
 	Image* mImage;
-
+	
 
 
 };

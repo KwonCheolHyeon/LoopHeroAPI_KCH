@@ -17,7 +17,16 @@ namespace ch
 		Input::Initialize();
 		SceneManager::Initialize();
 		Camera::Initialize();
+		
+
 	}
+
+	void Application::initializeAtlasWindow(WindowData data)
+	{
+		mAtlasWindowData = data;
+		mAtlasWindowData.hdc = GetDC(data.hWnd);
+	}
+
 
 	void Application::Tick()
 	{

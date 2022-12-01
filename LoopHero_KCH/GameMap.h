@@ -18,10 +18,7 @@ namespace ch {
 
 
 		private:
-			std::vector<std::vector<GameObject*>> mTiles;
-			
-			
-
+			std::vector<std::vector<TileMapObject*>> mTiles;
 
 	};
 }

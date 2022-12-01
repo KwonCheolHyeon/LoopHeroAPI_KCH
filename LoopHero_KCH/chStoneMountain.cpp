@@ -12,7 +12,7 @@ namespace ch
 		mImage = Resources::Load<Image>(L"stoneMountain", L"..\\Resources\\Image\\Tile\\s_lands_11.bmp");
 	}
 	StoneMountain::StoneMountain(Vector2 pos)
-		: GameObject(pos)
+		: TileMapObject(pos)
 	{
 		mImage = Resources::Load<Image>(L"stoneMountain", L"..\\Resources\\Image\\Tile\\s_lands_11.bmp");
 	}

@@ -12,7 +12,7 @@ namespace ch
 		mImage = Resources::Load<Image>(L"Vampire_Mansion", L"..\\Resources\\loophero\\Map\\Cards\\Vampire_Mansion.bmp");
 	}
 	Vampire_Mansion::Vampire_Mansion(Vector2 pos)
-		: GameObject(pos)
+		: TileMapObject(pos)
 	{
 		mImage = Resources::Load<Image>(L"Vampire_Mansion", L"..\\Resources\\loophero\\Map\\Cards\\Vampire_Mansion.bmp");
 	}

@@ -12,7 +12,7 @@ namespace ch
 		mImage = Resources::Load<Image>(L"SpiderCocoon", L"..\\Resources\\loophero\\Map\\Cards\\SpiderCocoon.bmp");
 	}
 	SpiderCocoon::SpiderCocoon(Vector2 pos)
-		: GameObject(pos)
+		: TileMapObject(pos)
 	{
 		mImage = Resources::Load<Image>(L"SpiderCocoon", L"..\\Resources\\loophero\\Map\\Cards\\SpiderCocoon.bmp");
 	}

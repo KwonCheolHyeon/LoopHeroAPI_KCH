@@ -31,7 +31,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <EnableUnitySupport>false</EnableUnitySupport>
+    <EnableUnitySupport>true</EnableUnitySupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -45,7 +45,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
-    <EnableUnitySupport>false</EnableUnitySupport>
+    <EnableUnitySupport>true</EnableUnitySupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -136,6 +136,7 @@
     <ClInclude Include="chApplication.h" />
     <ClInclude Include="chBackPack.h" />
     <ClInclude Include="chBgImageObject.h" />
+    <ClInclude Include="chButton.h" />
     <ClInclude Include="chCamera.h" />
     <ClInclude Include="chCampfire.h" />
     <ClInclude Include="chCollider.h" />
@@ -155,6 +156,7 @@
     <ClInclude Include="chMissile.h" />
     <ClInclude Include="chMonster.h" />
     <ClInclude Include="chObject.h" />
+    <ClInclude Include="chPanel.h" />
     <ClInclude Include="chPlashkaOBJ.h" />
     <ClInclude Include="chPlayScene.h" />
     <ClInclude Include="chResource.h" />
@@ -162,6 +164,7 @@
     <ClInclude Include="chSpeedPanelOBJ.h" />
     <ClInclude Include="chStoneMountain.h" />
     <ClInclude Include="chTitleScene.h" />
+    <ClInclude Include="chUiBase.h" />
     <ClInclude Include="EquipmentPage.h" />
     <ClInclude Include="FightPageOBJ.h" />
     <ClInclude Include="FightPos.h" />
@@ -179,7 +182,6 @@
     <ClInclude Include="newroad_4.h" />
     <ClInclude Include="newroad_5.h" />
     <ClInclude Include="PlayingCard.h" />
-    <ClInclude Include="Road.h" />
     <ClInclude Include="LoopMonster.h" />
     <ClInclude Include="LoopWarrior.h" />
     <ClInclude Include="GameMap.h" />
@@ -193,13 +195,13 @@
     <ClInclude Include="def.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="LoopHero_KCH.h" />
-    <ClInclude Include="MonsterHouse.h" />
     <ClInclude Include="pesochAni.h" />
     <ClInclude Include="PlayerStat.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Slime.h" />
     <ClInclude Include="SpiderCocoon.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TileMapObject.h" />
     <ClInclude Include="TitleOpLeft.h" />
     <ClInclude Include="TitleOpmiddle.h" />
     <ClInclude Include="TitleOpRight.h" />
@@ -213,6 +215,7 @@
     <ClCompile Include="chApplication.cpp" />
     <ClCompile Include="chBackPack.cpp" />
     <ClCompile Include="chBgImageObject.cpp" />
+    <ClCompile Include="chButton.cpp" />
     <ClCompile Include="chCamera.cpp" />
     <ClCompile Include="chCampfire.cpp" />
     <ClCompile Include="chCollider.cpp" />
@@ -232,6 +235,7 @@
     <ClCompile Include="chMissile.cpp" />
     <ClCompile Include="chMonster.cpp" />
     <ClCompile Include="chObject.cpp" />
+    <ClCompile Include="chPanel.cpp" />
     <ClCompile Include="chPlashkaOBJ.cpp" />
     <ClCompile Include="chPlayScene.cpp" />
     <ClCompile Include="chResource.cpp" />
@@ -239,6 +243,7 @@
     <ClCompile Include="chSpeedPanelOBJ.cpp" />
     <ClCompile Include="chStoneMountain.cpp" />
     <ClCompile Include="chTitleScene.cpp" />
+    <ClCompile Include="chUiBase.cpp" />
     <ClCompile Include="EquipmentPage.cpp" />
     <ClCompile Include="FightPageOBJ.cpp" />
     <ClCompile Include="FightPos.cpp" />
@@ -256,7 +261,6 @@
     <ClCompile Include="newroad_4.cpp" />
     <ClCompile Include="newroad_5.cpp" />
     <ClCompile Include="PlayingCard.cpp" />
-    <ClCompile Include="Road.cpp" />
     <ClCompile Include="LoopMonster.cpp" />
     <ClCompile Include="LoopWarrior.cpp" />
     <ClCompile Include="GameMap.cpp" />
@@ -267,11 +271,11 @@
     <ClCompile Include="chSceneManager.cpp" />
     <ClCompile Include="chTime.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MonsterHouse.cpp" />
     <ClCompile Include="pesochAni.cpp" />
     <ClCompile Include="PlayerStat.cpp" />
     <ClCompile Include="Slime.cpp" />
     <ClCompile Include="SpiderCocoon.cpp" />
+    <ClCompile Include="TileMapObject.cpp" />
     <ClCompile Include="TitleOpLeft.cpp" />
     <ClCompile Include="TitleOpmiddle.cpp" />
     <ClCompile Include="TitleOpRight.cpp" />

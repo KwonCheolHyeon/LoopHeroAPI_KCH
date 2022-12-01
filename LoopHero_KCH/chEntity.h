@@ -15,6 +15,6 @@ namespace ch
 		UINT32 GetID() { return mID; }
 	private:
 		std::wstring mName;
-		UINT mID;
+		UINT32 mID;
 	};
 }

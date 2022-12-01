@@ -12,7 +12,7 @@ namespace ch
 		mImage = Resources::Load<Image>(L"cemetery", L"..\\Resources\\loophero\\Map\\Cards\\cemetery.bmp");
 	}
 	Campfire::Campfire(Vector2 pos)
-		: GameObject(pos)
+		: TileMapObject(pos)
 	{
 		mImage = Resources::Load<Image>(L"cemetery", L"..\\Resources\\loophero\\Map\\Cards\\cemetery.bmp");
 	}

@@ -1,9 +1,9 @@
 #pragma once
-#include "chGameObject.h"
+#include "TileMapObject.h"
 
 namespace ch {
 	class Image;
-	class Medow : public GameObject
+	class Medow : public TileMapObject
 	{
 	public:
 		Medow();
