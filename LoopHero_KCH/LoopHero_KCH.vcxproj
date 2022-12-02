@@ -150,11 +150,13 @@
     <ClInclude Include="chIdlePlayScene.h" />
     <ClInclude Include="chImage.h" />
     <ClInclude Include="chInput.h" />
+    <ClInclude Include="chItemBase.h" />
     <ClInclude Include="chItemPanelOBJ.h" />
     <ClInclude Include="chLogoScene.h" />
     <ClInclude Include="chMedow.h" />
     <ClInclude Include="chMissile.h" />
     <ClInclude Include="chMonster.h" />
+    <ClInclude Include="chMouseObject.h" />
     <ClInclude Include="chObject.h" />
     <ClInclude Include="chPanel.h" />
     <ClInclude Include="chPlashkaOBJ.h" />
@@ -229,11 +231,13 @@
     <ClCompile Include="chIdlePlayScene.cpp" />
     <ClCompile Include="chImage.cpp" />
     <ClCompile Include="chInput.cpp" />
+    <ClCompile Include="chItemBase.cpp" />
     <ClCompile Include="chItemPanelOBJ.cpp" />
     <ClCompile Include="chLogoScene.cpp" />
     <ClCompile Include="chMedow.cpp" />
     <ClCompile Include="chMissile.cpp" />
     <ClCompile Include="chMonster.cpp" />
+    <ClCompile Include="chMouseObject.cpp" />
     <ClCompile Include="chObject.cpp" />
     <ClCompile Include="chPanel.cpp" />
     <ClCompile Include="chPlashkaOBJ.cpp" />

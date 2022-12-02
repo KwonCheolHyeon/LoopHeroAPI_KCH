@@ -1,14 +1,25 @@
 #include "PlayingCard.h"
 #include "chResources.h"
 #include "chImage.h"
+#include "chCollider.h"
+#include "chInput.h"
+#include "GameMap.h"
 
 namespace ch 
 {
 	PlayingCard::PlayingCard()
-		: mImage(nullptr)
+		: mBGImage(nullptr)
+		, mCardImage(nullptr)
+		, mTileType(1)
 	{
 		SetPos(Vector2::Zero);
 		SetScale({ 2.5f,2.5f });
+
+		Collider* collider = new Collider();
+		AddComponent(collider);
+
+		
+		collider->SetOffset(Vector2(50, 80));
 	}
 	PlayingCard::~PlayingCard()
 	{
@@ -20,6 +31,7 @@ namespace ch
 	void PlayingCard::Tick()
 	{
 		GameObject::Tick();
+		
 	}
 	void PlayingCard::Render(HDC hdc)
 	{
@@ -28,20 +40,55 @@ namespace ch
 		Vector2 finalPos = pos;
 
 		Vector2 rect;
-		rect.x = mImage->GetWidth() * scale.x;
-		rect.y = mImage->GetHeight() * scale.y;
+		rect.x = mBGImage->GetWidth() * scale.x;
+		rect.y = mBGImage->GetHeight() * scale.y;
+
+		Vector2 rectCard;
+		rectCard.x = mCardImage->GetWidth() * 2.5f;
+		rectCard.y = mCardImage->GetHeight() * 2.5f;
+
+		
 
 		TransparentBlt(hdc, finalPos.x, finalPos.y, rect.x, rect.y
-			, mImage->GetDC(), 0, 0, mImage->GetWidth(), mImage->GetHeight()
+			, mBGImage->GetDC(), 0, 0, mBGImage->GetWidth(), mBGImage->GetHeight()
+			, RGB(255, 0, 255));
+
+		TransparentBlt(hdc, finalPos.x + 15, finalPos.y + 20, rectCard.x , rectCard.y
+			, mCardImage->GetDC(), 0, 0, mCardImage->GetWidth(), mCardImage->GetHeight()
 			, RGB(255, 0, 255));
 
 		GameObject::Render(hdc);
 	}
-	void PlayingCard::SetImage(const std::wstring& key, const std::wstring& fileName)
+
+	void PlayingCard::OnCollisionEnter(Collider* other)
+	{
+	}
+
+	void PlayingCard::OnCollisionStay(Collider* other)
+	{
+		if (KEY_DOWN(eKeyCode::LBTN))
+		{
+			GameMap::Instance().SetTileType(mTileType);
+		}
+	}
+
+	void PlayingCard::OnCollisionExit(Collider* other)
+	{
+	}
+
+	void PlayingCard::SetBGImage(const std::wstring& key, const std::wstring& fileName)
 	{
 		std::wstring path = L"..\\Resources\\loophero\\MainGame\\Card\\";
 		path += fileName;
 
-		mImage = Resources::Load<Image>(key, path);
+		mBGImage = Resources::Load<Image>(key, path);
+	}
+
+	void PlayingCard::SetCardImage(const std::wstring& key, const std::wstring& fileName)
+	{
+		std::wstring path = L"..\\Resources\\loophero\\MainGame\\CardImage\\";
+		path += fileName;
+
+		mCardImage = Resources::Load<Image>(key, path);
 	}
 }

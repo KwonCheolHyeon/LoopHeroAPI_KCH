@@ -46,6 +46,7 @@ enum class eColliderLayer
 	Greed,
 	BackGround,
 	Tile,
+	Card,
 	Player,
 	Player_Projecttile,
 	Monster,
@@ -53,6 +54,7 @@ enum class eColliderLayer
 	Warrior,
 
 	BackPack,
+	Mouse,
 	UI = _COLLIDER_LAYER - 1,
 	End = _COLLIDER_LAYER,
 };
@@ -94,3 +96,4 @@ union ColliderID
 
 #define TILE_LINE_X 8
 #define TILE_LINE_Y 3
+

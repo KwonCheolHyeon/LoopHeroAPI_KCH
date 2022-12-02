@@ -31,10 +31,13 @@ namespace ch
 		mAnimator->Play(L"SlimeIdle", true);
 		AddComponent(mAnimator);
 
+		//슬라임 기본 체력
 		mHP.baseHp = 13;
 		mATT.baseStr = 3.3;
 		mDEF.baseDef = 0;
 
+
+	//몬스터 리스폰시
 		//mHP.nowHP = mHP.baseHp * LOOP; 현재 HP 
 		//mATT.nowStr = mATT.baseStr * LOOP; 
 		//mDEF.nowDef = mDEF.baseDef * LOOP;

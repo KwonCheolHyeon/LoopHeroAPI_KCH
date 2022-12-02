@@ -133,6 +133,9 @@
     <Filter Include="Engine\UI\Base">
       <UniqueIdentifier>{16d9ca03-3174-49ad-89a3-6f620ec08d17}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Client\Item\Base">
+      <UniqueIdentifier>{0459846c-e6a1-4dd5-94b7-f2a51310f05c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -366,6 +369,12 @@
     <ClInclude Include="TileMapObject.h">
       <Filter>Client\Map\Base</Filter>
     </ClInclude>
+    <ClInclude Include="chItemBase.h">
+      <Filter>Client\Item\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="chMouseObject.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -583,6 +592,12 @@
     </ClCompile>
     <ClCompile Include="TileMapObject.cpp">
       <Filter>Client\Map\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="chItemBase.cpp">
+      <Filter>Client\Item\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="chMouseObject.cpp">
+      <Filter>Engine\Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

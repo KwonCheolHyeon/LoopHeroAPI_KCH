@@ -13,9 +13,17 @@ namespace ch {
 		virtual void Tick() override;
 		virtual void Render(HDC hdc) override;
 
-		void SetImage(const std::wstring& key, const std::wstring& fileName);
-	private:
-		Image* mImage;
+		virtual void OnCollisionEnter(Collider* other);
+		virtual void OnCollisionStay(Collider* other);
+		virtual void OnCollisionExit(Collider* other);
 
+		void SetBGImage(const std::wstring& key, const std::wstring& fileName);
+		void SetCardImage(const std::wstring& key, const std::wstring& fileName);
+
+	private:
+		Image* mBGImage;
+		Image* mCardImage;
+		int mTileType;
+		int type;
 	};
 }

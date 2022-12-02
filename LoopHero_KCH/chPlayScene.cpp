@@ -13,14 +13,16 @@
 #include "PlayingCard.h"
 #include "chApplication.h"
 #include "GameMap.h"
+#include "chMouseObject.h"
 
 
 namespace ch
 {
 	PlayScene::PlayScene()
 	{
-		ch::object::Instantiate<GameMap>(eColliderLayer::Greed);
+		CollisionManager::SetLayer(eColliderLayer::Card, eColliderLayer::Mouse, true);
 
+		ch::object::Instantiate<MouseObject>(eColliderLayer::Mouse);
 
 		chDayOBJ* day = new chDayOBJ();
 		day->SetImage(L"DayPanel", L"day_0.bmp");
@@ -45,16 +47,25 @@ namespace ch
 
 		
 		PlayingCard* chPlayingCard = new PlayingCard();
-		chPlayingCard->SetImage(L"Cards", L"card_rubashka_00.bmp");
+		chPlayingCard->SetBGImage(L"Cards01_BG", L"card_rubashka_00.bmp");
+		chPlayingCard->SetCardImage(L"Cards01_CARD", L"card_face_11.bmp"); // 산
 		chPlayingCard->Initialize();
-		chPlayingCard->SetPos({0,900-145 });
-		AddGameObject(chPlayingCard, eColliderLayer::BackGround);
-		
+		chPlayingCard->SetPos({ 0,900 - 145 });
+		AddGameObject(chPlayingCard, eColliderLayer::Card);
+
 		PlayingCard* chPlayingCard2 = new PlayingCard();
-		chPlayingCard2->SetImage(L"Cards2", L"card_rubashka_00.bmp");
+		chPlayingCard2->SetBGImage(L"Cards02_BG", L"card_rubashka_00.bmp");
+		chPlayingCard2->SetCardImage(L"Cards02_CARD", L"card_face_10.bmp"); // 돌
 		chPlayingCard2->Initialize();
-		chPlayingCard2->SetPos({102.5f,900 - 145 });
-		AddGameObject(chPlayingCard2, eColliderLayer::BackGround);
+		chPlayingCard2->SetPos({ 102.5f,900 - 145 });
+		AddGameObject(chPlayingCard2, eColliderLayer::Card);
+
+		PlayingCard* chPlayingCard3 = new PlayingCard();
+		chPlayingCard3->SetBGImage(L"Cards03_BG", L"card_rubashka_00.bmp");
+		chPlayingCard3->SetCardImage(L"Cards03_CARD", L"card_face_6.bmp"); //뱀파이어
+		chPlayingCard3->Initialize();
+		chPlayingCard3->SetPos({ 205,900 - 145 });
+		AddGameObject(chPlayingCard3, eColliderLayer::Card);
 
 		EquipmentPage* ep = new EquipmentPage();
 		ep->SetImage(L"EquipmentPage", L"s_hud_24_3.bmp");
@@ -86,6 +97,8 @@ namespace ch
 		
 		Scene::Tick();
 
+		GameMap::Instance().Tick();
+
 		if (KEY_DOWN(eKeyCode::N))
 		{
 			SceneManager::ChangeScene(eSceneType::End);
@@ -95,6 +108,7 @@ namespace ch
 
 	void PlayScene::Render(HDC hdc)
 	{
+		GameMap::Instance().Render(hdc);
 		Scene::Render(hdc);
 		
 		WindowData mainWidnow = Application::GetInstance().GetWindowData();		

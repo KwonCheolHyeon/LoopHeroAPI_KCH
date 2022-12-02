@@ -7,6 +7,8 @@
 #include "chStoneMountain.h"
 #include "newroad_0.h"
 #include "Cemetery.h"
+#include "chRock.h"
+
 namespace ch 
 {
 	GameMap::GameMap()
@@ -45,9 +47,10 @@ namespace ch
 			//int index = (y * TILE_LINE_X) + (x % TILE_LINE_X);
 			Vector2 objectPos = indexPos;
 
-			if (y >= 0 && y < 12 && x>=0 && x < 21) {
-			TileMapObject* gameObj
-				= ch::object::Instantiate<newroad_0>(objectPos, eColliderLayer::Tile);
+			if (y >= 0 && y < 12 && x >= 0 && x < 21)
+			{
+				TileMapObject* gameObj
+					= ch::object::Instantiate<newroad_0>(objectPos, eColliderLayer::Tile);
 
 				mTiles[y][x] = gameObj;
 			}
