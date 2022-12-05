@@ -8,6 +8,7 @@
 #include "newroad_0.h"
 #include "Cemetery.h"
 #include "chRock.h"
+#include "TileMapObject.h"
 
 namespace ch 
 {
@@ -17,11 +18,11 @@ namespace ch
 		//mTilesImage = Resources::Load<Image>(L"Monster", L"..\\Resources\\Image\\Tile\\s_lands_11.bmp");
 
 		// 배열 초기화
-		mTiles.resize(12);
+		mTilesArrange.resize(12);
 		for (size_t i = 0; i < 12; i++)
 		{
 
-			mTiles[i].resize(21);
+			mTilesArrange[i].resize(21);
 		}
 	}
 	GameMap::~GameMap()
@@ -52,7 +53,7 @@ namespace ch
 				TileMapObject* gameObj
 					= ch::object::Instantiate<newroad_0>(objectPos, eColliderLayer::Tile);
 
-				mTiles[y][x] = gameObj;
+				mTilesArrange[y][x] = gameObj;
 			}
 		}
 	}
@@ -79,6 +80,26 @@ namespace ch
 
 		(HPEN)SelectObject(hdc, oldPen);
 		DeleteObject(redPen);
+	}
+
+	void GameMap::CrateTile(UINT index, Vector2 indexPos)
+	{
+		TileID key;
+		key.left = indexPos.x;
+		key.right = indexPos.y;
+
+		std::unordered_map<UINT64, TileMapObject*>::iterator iter = mTiles.find(key.ID);
+		if (iter != mTiles.end())
+		{
+			iter->second->SetIndex(index);
+		}
+
+		Vector2 objectPos = indexPos * (TILE_SIZE * TILE_SCALE);
+
+		TileMapObject* tile = object::Instantiate<TileMapObject>(objectPos, eColliderLayer::Tile);
+		tile->Initialize(mImage, index);
+
+		mTiles.insert(std::make_pair(key.ID, tile));
 	}
 
 

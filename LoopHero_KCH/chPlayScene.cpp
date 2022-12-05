@@ -67,6 +67,7 @@ namespace ch
 		chPlayingCard3->SetPos({ 205,900 - 145 });
 		AddGameObject(chPlayingCard3, eColliderLayer::Card);
 
+
 		EquipmentPage* ep = new EquipmentPage();
 		ep->SetImage(L"EquipmentPage", L"s_hud_24_3.bmp");
 		ep->Initialize();

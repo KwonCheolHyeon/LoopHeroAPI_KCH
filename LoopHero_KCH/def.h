@@ -88,6 +88,7 @@ union ColliderID
 
 	UINT64 ID;
 };
+typedef ColliderID TileID;
 
 
 

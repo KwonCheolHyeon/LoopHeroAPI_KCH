@@ -112,12 +112,6 @@
     <Filter Include="Client\Map\Road\newRoad">
       <UniqueIdentifier>{47ed8336-fb2a-49e7-a3a2-e76db9a84609}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Client\TitleScene">
-      <UniqueIdentifier>{e1f5b2c1-a6c7-4f54-96e1-6f5777ddc6d8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Client\TitleScene\BTN">
-      <UniqueIdentifier>{afd9d09f-2a3e-42a1-8a05-7af54bfbcf5a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Client\Monsters\base">
       <UniqueIdentifier>{acec6f66-43cf-4a95-b123-b72d1cb129f1}</UniqueIdentifier>
     </Filter>
@@ -135,6 +129,12 @@
     </Filter>
     <Filter Include="Client\Item\Base">
       <UniqueIdentifier>{0459846c-e6a1-4dd5-94b7-f2a51310f05c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\TitleSceneOBJS">
+      <UniqueIdentifier>{e1f5b2c1-a6c7-4f54-96e1-6f5777ddc6d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\TitleSceneOBJS\BTN">
+      <UniqueIdentifier>{afd9d09f-2a3e-42a1-8a05-7af54bfbcf5a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -310,16 +310,16 @@
       <Filter>Client\Map\Road\newRoad</Filter>
     </ClInclude>
     <ClInclude Include="TitleOpmiddle.h">
-      <Filter>Client\TitleScene</Filter>
+      <Filter>Client\TitleSceneOBJS</Filter>
     </ClInclude>
     <ClInclude Include="TitleOpLeft.h">
-      <Filter>Client\TitleScene</Filter>
+      <Filter>Client\TitleSceneOBJS</Filter>
     </ClInclude>
     <ClInclude Include="TitleOpRight.h">
-      <Filter>Client\TitleScene</Filter>
+      <Filter>Client\TitleSceneOBJS</Filter>
     </ClInclude>
     <ClInclude Include="titleStarBtn.h">
-      <Filter>Client\TitleScene\BTN</Filter>
+      <Filter>Client\TitleSceneOBJS\BTN</Filter>
     </ClInclude>
     <ClInclude Include="MonsterStat.h">
       <Filter>Client\Monsters\base</Filter>
@@ -534,16 +534,16 @@
       <Filter>Client\Map\Road\newRoad</Filter>
     </ClCompile>
     <ClCompile Include="TitleOpmiddle.cpp">
-      <Filter>Client\TitleScene</Filter>
+      <Filter>Client\TitleSceneOBJS</Filter>
     </ClCompile>
     <ClCompile Include="TitleOpLeft.cpp">
-      <Filter>Client\TitleScene</Filter>
+      <Filter>Client\TitleSceneOBJS</Filter>
     </ClCompile>
     <ClCompile Include="TitleOpRight.cpp">
-      <Filter>Client\TitleScene</Filter>
+      <Filter>Client\TitleSceneOBJS</Filter>
     </ClCompile>
     <ClCompile Include="titleStarBtn.cpp">
-      <Filter>Client\TitleScene\BTN</Filter>
+      <Filter>Client\TitleSceneOBJS\BTN</Filter>
     </ClCompile>
     <ClCompile Include="MonsterStat.cpp">
       <Filter>Client\Monsters\base</Filter>

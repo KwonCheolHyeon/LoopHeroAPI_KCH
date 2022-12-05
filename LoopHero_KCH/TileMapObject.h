@@ -1,8 +1,11 @@
 #pragma once
 #include "chGameObject.h"
-
+#include "TileMapObject.h"
+#include <vector>
+#include <deque>
 namespace ch
 {
+	class Image;
 	class Collider;
 	class TileMapObject : public GameObject
 	{
@@ -11,7 +14,7 @@ namespace ch
 		TileMapObject(Vector2 position);
 		~TileMapObject();
 
-		virtual void Initialize();
+		virtual void Initialize(Image* atlas, int index);
 		virtual void Tick();
 		virtual void Render(HDC hdc);
 
@@ -26,13 +29,15 @@ namespace ch
 		
 
 	private :
+		Image* mAtlas;
 		UINT mIndex;
 		UINT mX;
 		UINT mY;
 		Vector2 mPos;
 		Vector2 mScale;
 
-	
+		std::vector<Image*> ImgVector;
+		std::deque<Image*> dequeImag;
 	};
 
 }

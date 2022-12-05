@@ -24,11 +24,19 @@ namespace ch {
 		virtual void Tick() override;
 		virtual void Render(HDC hdc) override;
 
+
 		void SetTileType(int type) { mTileType = type; }
 		int GetTileType() { return mTileType; }
 
+		Image* GetAtlasImage() { return mImage; }
+		void CrateTile(UINT index, Vector2 indexPos);
+
 	private:
-		std::vector<std::vector<TileMapObject*>> mTiles;
 		int mTileType;
+		Image* mImage;
+
+		std::vector<std::vector<TileMapObject*>> mTilesArrange;
+
+		std::unordered_map<UINT64, TileMapObject*> mTiles;
 	};
 }

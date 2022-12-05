@@ -20,6 +20,7 @@ namespace ch {
 		void SetBGImage(const std::wstring& key, const std::wstring& fileName);
 		void SetCardImage(const std::wstring& key, const std::wstring& fileName);
 
+		
 	private:
 		Image* mBGImage;
 		Image* mCardImage;
