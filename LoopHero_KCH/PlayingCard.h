@@ -6,7 +6,7 @@ namespace ch {
 	class PlayingCard : public GameObject
 	{
 	public:
-		PlayingCard();
+		PlayingCard(int type);
 		~PlayingCard();
 
 		virtual void Initialize() override;

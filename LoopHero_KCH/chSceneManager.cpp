@@ -31,7 +31,7 @@ namespace ch
 		mScenes[(UINT)eSceneType::IdlePlay] = new chIdlePlayScene();
 		mScenes[(UINT)eSceneType::IdlePlay]->Initialize();
 
-		ChangeScene(eSceneType::Title);
+		ChangeScene(eSceneType::Play);
 		// 업캐스팅
 		// 다운캐스팅
 

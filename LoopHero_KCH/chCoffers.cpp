@@ -1,31 +1,31 @@
-#include "Vampire_Mansion.h"
+#include "chCoffers.h"
 #include "chApplication.h"
 #include "chInput.h"
 #include "chImage.h"
 #include "chResources.h"
 #include "chCamera.h"
 
-namespace ch
+namespace ch 
 {
-	Vampire_Mansion::Vampire_Mansion()
+	Coffers::Coffers()
 	{
-		mImage = Resources::Load<Image>(L"Vampire_Mansion", L"..\\Resources\\loophero\\Map\\GameObj\\Vampire_Mansion.bmp");
+		mImage = Resources::Load<Image>(L"Coffers", L"..\\Resources\\loophero\\Map\\GameObj\\Tresury.bmp");
 	}
-	Vampire_Mansion::Vampire_Mansion(Vector2 pos)
+	Coffers::Coffers(Vector2 pos)
 		: TileMapObject(pos)
 	{
-		mImage = Resources::Load<Image>(L"Vampire_Mansion", L"..\\Resources\\loophero\\Map\\GameObj\\Vampire_Mansion.bmp");
+		mImage = Resources::Load<Image>(L"Coffers", L"..\\Resources\\loophero\\Map\\GameObj\\Tresury.bmp");
 	}
-	Vampire_Mansion::~Vampire_Mansion()
+	Coffers::~Coffers()
 	{
 	}
-	void Vampire_Mansion::Initialize()
+	void Coffers::Initialize()
 	{
 	}
-	void Vampire_Mansion::Tick()
+	void Coffers::Tick()
 	{
 	}
-	void Vampire_Mansion::Render(HDC hdc)
+	void Coffers::Render(HDC hdc)
 	{
 		Vector2 pos = GetPos();
 		Vector2 scale = GetScale();

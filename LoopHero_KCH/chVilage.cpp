@@ -1,31 +1,37 @@
-#include "Vampire_Mansion.h"
+#include "chVilage.h"
 #include "chApplication.h"
 #include "chInput.h"
 #include "chImage.h"
 #include "chResources.h"
 #include "chCamera.h"
 
-namespace ch
+namespace ch  
 {
-	Vampire_Mansion::Vampire_Mansion()
+
+	Vilage::Vilage()
 	{
-		mImage = Resources::Load<Image>(L"Vampire_Mansion", L"..\\Resources\\loophero\\Map\\GameObj\\Vampire_Mansion.bmp");
+		mImage = Resources::Load<Image>(L"Vilage", L"..\\Resources\\loophero\\Map\\GameObj\\Village.bmp");
 	}
-	Vampire_Mansion::Vampire_Mansion(Vector2 pos)
+
+	Vilage::Vilage(Vector2 pos)
 		: TileMapObject(pos)
 	{
-		mImage = Resources::Load<Image>(L"Vampire_Mansion", L"..\\Resources\\loophero\\Map\\GameObj\\Vampire_Mansion.bmp");
+		mImage = Resources::Load<Image>(L"Vilage", L"..\\Resources\\loophero\\Map\\GameObj\\Village.bmp");
 	}
-	Vampire_Mansion::~Vampire_Mansion()
+
+	Vilage::~Vilage()
 	{
 	}
-	void Vampire_Mansion::Initialize()
+
+	void Vilage::Initialize()
 	{
 	}
-	void Vampire_Mansion::Tick()
+
+	void Vilage::Tick()
 	{
 	}
-	void Vampire_Mansion::Render(HDC hdc)
+
+	void Vilage::Render(HDC hdc)
 	{
 		Vector2 pos = GetPos();
 		Vector2 scale = GetScale();
@@ -42,4 +48,6 @@ namespace ch
 			, mImage->GetDC(), 0, 0, mImage->GetWidth(), mImage->GetHeight()
 			, RGB(255, 0, 255));
 	}
+
 }
+

@@ -375,6 +375,12 @@
     <ClInclude Include="chMouseObject.h">
       <Filter>Engine\Manager</Filter>
     </ClInclude>
+    <ClInclude Include="chVilage.h">
+      <Filter>Client\Map\Cards\InGameresources</Filter>
+    </ClInclude>
+    <ClInclude Include="chCoffers.h">
+      <Filter>Client\Map\Cards\InGameresources</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -598,6 +604,12 @@
     </ClCompile>
     <ClCompile Include="chMouseObject.cpp">
       <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="chVilage.cpp">
+      <Filter>Client\Map\Cards\InGameresources</Filter>
+    </ClCompile>
+    <ClCompile Include="chCoffers.cpp">
+      <Filter>Client\Map\Cards\InGameresources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

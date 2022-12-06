@@ -9,12 +9,12 @@ namespace ch
 {
 	Grove::Grove()
 	{
-		mImage = Resources::Load<Image>(L"Grove", L"..\\Resources\\loophero\\Map\\Cards\\Grove.bmp");
+		mImage = Resources::Load<Image>(L"Grove", L"..\\Resources\\loophero\\Map\\GameObj\\Grove.bmp");
 	}
 	Grove::Grove(Vector2 pos)
 		: TileMapObject(pos)
 	{
-		mImage = Resources::Load<Image>(L"Grove", L"..\\Resources\\loophero\\Map\\Cards\\Grove.bmp");
+		mImage = Resources::Load<Image>(L"Grove", L"..\\Resources\\loophero\\Map\\GameObj\\Grove.bmp");
 	}
 	Grove::~Grove()
 	{

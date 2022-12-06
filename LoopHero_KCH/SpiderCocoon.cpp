@@ -9,12 +9,12 @@ namespace ch
 {
 	SpiderCocoon::SpiderCocoon()
 	{
-		mImage = Resources::Load<Image>(L"SpiderCocoon", L"..\\Resources\\loophero\\Map\\Cards\\SpiderCocoon.bmp");
+		mImage = Resources::Load<Image>(L"SpiderCocoon", L"..\\Resources\\loophero\\Map\\GameObj\\SpiderCocoon.bmp");
 	}
 	SpiderCocoon::SpiderCocoon(Vector2 pos)
 		: TileMapObject(pos)
 	{
-		mImage = Resources::Load<Image>(L"SpiderCocoon", L"..\\Resources\\loophero\\Map\\Cards\\SpiderCocoon.bmp");
+		mImage = Resources::Load<Image>(L"SpiderCocoon", L"..\\Resources\\loophero\\Map\\GameObj\\SpiderCocoon.bmp");
 	}
 	SpiderCocoon::~SpiderCocoon()
 	{

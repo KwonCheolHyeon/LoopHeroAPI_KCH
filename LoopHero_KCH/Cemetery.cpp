@@ -9,12 +9,12 @@ namespace ch
 {
 	Cemetery::Cemetery()
 	{
-		mImage = Resources::Load<Image>(L"cemetery", L"..\\Resources\\loophero\\Map\\Cards\\cemetery.bmp");
+		mImage = Resources::Load<Image>(L"cemetery", L"..\\Resources\\loophero\\Map\\GameObj\\cemetery.bmp");
 	}
 	Cemetery::Cemetery(Vector2 pos)
 		: TileMapObject(pos)
 	{
-		mImage = Resources::Load<Image>(L"cemetery", L"..\\Resources\\loophero\\Map\\Cards\\cemetery.bmp");
+		mImage = Resources::Load<Image>(L"cemetery", L"..\\Resources\\loophero\\Map\\GameObj\\cemetery.bmp");
 	}
 	Cemetery::~Cemetery()
 	{

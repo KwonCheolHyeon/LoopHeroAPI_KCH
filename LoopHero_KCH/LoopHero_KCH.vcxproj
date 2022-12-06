@@ -139,6 +139,7 @@
     <ClInclude Include="chButton.h" />
     <ClInclude Include="chCamera.h" />
     <ClInclude Include="chCampfire.h" />
+    <ClInclude Include="chCoffers.h" />
     <ClInclude Include="chCollider.h" />
     <ClInclude Include="chCollisionManager.h" />
     <ClInclude Include="chComponent.h" />
@@ -167,6 +168,7 @@
     <ClInclude Include="chStoneMountain.h" />
     <ClInclude Include="chTitleScene.h" />
     <ClInclude Include="chUiBase.h" />
+    <ClInclude Include="chVilage.h" />
     <ClInclude Include="EquipmentPage.h" />
     <ClInclude Include="FightPageOBJ.h" />
     <ClInclude Include="FightPos.h" />
@@ -220,6 +222,7 @@
     <ClCompile Include="chButton.cpp" />
     <ClCompile Include="chCamera.cpp" />
     <ClCompile Include="chCampfire.cpp" />
+    <ClCompile Include="chCoffers.cpp" />
     <ClCompile Include="chCollider.cpp" />
     <ClCompile Include="chCollisionManager.cpp" />
     <ClCompile Include="chComponent.cpp" />
@@ -248,6 +251,7 @@
     <ClCompile Include="chStoneMountain.cpp" />
     <ClCompile Include="chTitleScene.cpp" />
     <ClCompile Include="chUiBase.cpp" />
+    <ClCompile Include="chVilage.cpp" />
     <ClCompile Include="EquipmentPage.cpp" />
     <ClCompile Include="FightPageOBJ.cpp" />
     <ClCompile Include="FightPos.cpp" />

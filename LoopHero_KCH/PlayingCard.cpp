@@ -7,10 +7,10 @@
 
 namespace ch 
 {
-	PlayingCard::PlayingCard()
+	PlayingCard::PlayingCard(int type)
 		: mBGImage(nullptr)
 		, mCardImage(nullptr)
-		, mTileType(1)
+		, mTileType(type)
 	{
 		SetPos(Vector2::Zero);
 		SetScale({ 2.5f,2.5f });

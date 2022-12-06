@@ -9,12 +9,12 @@ namespace ch
 {
 	StoneMountain::StoneMountain()
 	{
-		mImage = Resources::Load<Image>(L"stoneMountain", L"..\\Resources\\Image\\Tile\\s_lands_11.bmp");
+		mImage = Resources::Load<Image>(L"stoneMountain", L"..\\Resources\\loophero\\Map\\GameObj\\StoneMountain.bmp");
 	}
 	StoneMountain::StoneMountain(Vector2 pos)
 		: TileMapObject(pos)
 	{
-		mImage = Resources::Load<Image>(L"stoneMountain", L"..\\Resources\\Image\\Tile\\s_lands_11.bmp");
+		mImage = Resources::Load<Image>(L"stoneMountain", L"..\\Resources\\loophero\\Map\\GameObj\\StoneMountain.bmp");
 	}
 	StoneMountain::~StoneMountain()
 	{

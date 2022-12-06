@@ -1,4 +1,5 @@
 #include "GameMap.h"
+#include "TileMapObject.h"
 #include "chApplication.h"
 #include "chInput.h"
 #include "chImage.h"
@@ -8,21 +9,26 @@
 #include "newroad_0.h"
 #include "Cemetery.h"
 #include "chRock.h"
-#include "TileMapObject.h"
+#include "Vampire_Mansion.h"
+#include "SpiderCocoon.h"
+#include "Grove.h"
+#include "chVilage.h"
+#include "chCoffers.h"
 
 namespace ch 
 {
+	GameMap GameMap::inst;
 	GameMap::GameMap()
 	{
 		//s_lands_11.bmp
 		//mTilesImage = Resources::Load<Image>(L"Monster", L"..\\Resources\\Image\\Tile\\s_lands_11.bmp");
 
 		// 배열 초기화
-		mTilesArrange.resize(12);
-		for (size_t i = 0; i < 12; i++)
+		mTiles.resize(11);
+		for (size_t i = 0; i < 11; i++)
 		{
 
-			mTilesArrange[i].resize(21);
+			mTiles[i].resize(21);
 		}
 	}
 	GameMap::~GameMap()
@@ -48,15 +54,85 @@ namespace ch
 			//int index = (y * TILE_LINE_X) + (x % TILE_LINE_X);
 			Vector2 objectPos = indexPos;
 
-			if (y >= 0 && y < 12 && x >= 0 && x < 21)
+			if (y >= 0 && y < 11 && x >= 0 && x < 21)
 			{
-				TileMapObject* gameObj
-					= ch::object::Instantiate<newroad_0>(objectPos, eColliderLayer::Tile);
+				if (mTileType == 1)
+				{
+					TileMapObject* gameObj = ch::object::Instantiate<StoneMountain>(objectPos, eColliderLayer::Tile);
 
-				mTilesArrange[y][x] = gameObj;
+					mTiles[y][x] = gameObj;
+				}
+				else if (mTileType == 2)
+				{
+					
+					TileMapObject* gameObj = ch::object::Instantiate<Rock>(objectPos, eColliderLayer::Tile);
+
+					mTiles[y][x] = gameObj;
+
+				}
+				else if (mTileType == 3)
+				{
+
+					TileMapObject* gameObj = ch::object::Instantiate<Vampire_Mansion>(objectPos, eColliderLayer::Tile);
+
+					mTiles[y][x] = gameObj;
+
+				}
+				else if (mTileType == 4)
+				{
+
+					TileMapObject* gameObj = ch::object::Instantiate<SpiderCocoon>(objectPos, eColliderLayer::Tile);
+
+					mTiles[y][x] = gameObj;
+
+				}
+				else if (mTileType == 5)//제거 카드
+				{
+					if (mTiles[y][x] != nullptr) 
+					{
+						mTiles[y][x]->Death();
+					}
+				}
+				else if (mTileType == 6)
+				{
+
+					TileMapObject* gameObj = ch::object::Instantiate<Vilage>(objectPos, eColliderLayer::Tile);
+
+					mTiles[y][x] = gameObj;
+
+				}
+				else if (mTileType == 7)
+				{
+
+					TileMapObject* gameObj = ch::object::Instantiate<Grove>(objectPos, eColliderLayer::Tile);
+
+					mTiles[y][x] = gameObj;
+
+				}
+				else if (mTileType == 8)
+				{
+					TileMapObject* gameObj = ch::object::Instantiate<Cemetery>(objectPos, eColliderLayer::Tile);
+
+					mTiles[y][x] = gameObj;
+				}
+				else if (mTileType == 9)
+				{
+					TileMapObject* gameObj = ch::object::Instantiate<Coffers>(objectPos, eColliderLayer::Tile);
+
+					mTiles[y][x] = gameObj;
+
+				}
+				else if (mTileType == 10)
+				{
+					TileMapObject* gameObj = ch::object::Instantiate<Coffers>(objectPos, eColliderLayer::Tile);
+
+					mTiles[y][x] = gameObj;
+
+				}
 			}
 		}
 	}
+
 	void GameMap::Render(HDC hdc)
 	{
 		WindowData mainWidnow = Application::GetInstance().GetWindowData();
@@ -81,26 +157,5 @@ namespace ch
 		(HPEN)SelectObject(hdc, oldPen);
 		DeleteObject(redPen);
 	}
-
-	void GameMap::CrateTile(UINT index, Vector2 indexPos)
-	{
-		TileID key;
-		key.left = indexPos.x;
-		key.right = indexPos.y;
-
-		std::unordered_map<UINT64, TileMapObject*>::iterator iter = mTiles.find(key.ID);
-		if (iter != mTiles.end())
-		{
-			iter->second->SetIndex(index);
-		}
-
-		Vector2 objectPos = indexPos * (TILE_SIZE * TILE_SCALE);
-
-		TileMapObject* tile = object::Instantiate<TileMapObject>(objectPos, eColliderLayer::Tile);
-		tile->Initialize(mImage, index);
-
-		mTiles.insert(std::make_pair(key.ID, tile));
-	}
-
 
 }

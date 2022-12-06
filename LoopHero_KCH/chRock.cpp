@@ -9,13 +9,13 @@ namespace ch
 {
 	Rock::Rock()
 	{
-		mImage = Resources::Load<Image>(L"Rock", L"..\\Resources\\loophero\\Map\\Cards\\Rock.bmp");
+		mImage = Resources::Load<Image>(L"Rock", L"..\\Resources\\loophero\\Map\\GameObj\\Rock.bmp");
 	}
 	
 	Rock::Rock(Vector2 pos)
 		: TileMapObject(pos)
 	{
-		mImage = Resources::Load<Image>(L"Rock", L"..\\Resources\\loophero\\Map\\Cards\\Rock.bmp");
+		mImage = Resources::Load<Image>(L"Rock", L"..\\Resources\\loophero\\Map\\GameObj\\Rock.bmp");
 	}
 	Rock::~Rock()
 	{
