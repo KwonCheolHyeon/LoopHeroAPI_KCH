@@ -24,7 +24,10 @@ namespace ch
 		void SetScale(Vector2 scale) { mScale = scale; }
 		Vector2 GetScale() { return mScale; }
 
-		
+		int GetTileType() { return mTileType; }
+		void SetTileType(int type) { mTileType = type; }
+	protected:
+		int mTileType;
 
 	private :
 		

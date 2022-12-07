@@ -159,6 +159,7 @@
     <ClInclude Include="chMonster.h" />
     <ClInclude Include="chMouseObject.h" />
     <ClInclude Include="chObject.h" />
+    <ClInclude Include="chWheat.h" />
     <ClInclude Include="chPanel.h" />
     <ClInclude Include="chPlashkaOBJ.h" />
     <ClInclude Include="chPlayScene.h" />
@@ -205,6 +206,7 @@
     <ClInclude Include="Slime.h" />
     <ClInclude Include="SpiderCocoon.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TileHeaderFiles.h" />
     <ClInclude Include="TileMapObject.h" />
     <ClInclude Include="TitleOpLeft.h" />
     <ClInclude Include="TitleOpmiddle.h" />
@@ -242,6 +244,7 @@
     <ClCompile Include="chMonster.cpp" />
     <ClCompile Include="chMouseObject.cpp" />
     <ClCompile Include="chObject.cpp" />
+    <ClCompile Include="chWheat.cpp" />
     <ClCompile Include="chPanel.cpp" />
     <ClCompile Include="chPlashkaOBJ.cpp" />
     <ClCompile Include="chPlayScene.cpp" />

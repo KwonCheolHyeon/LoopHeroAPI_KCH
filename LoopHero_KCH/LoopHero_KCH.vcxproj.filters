@@ -381,6 +381,12 @@
     <ClInclude Include="chCoffers.h">
       <Filter>Client\Map\Cards\InGameresources</Filter>
     </ClInclude>
+    <ClInclude Include="chWheat.h">
+      <Filter>Client\Map\Cards\InGameresources</Filter>
+    </ClInclude>
+    <ClInclude Include="TileHeaderFiles.h">
+      <Filter>Engine\Common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -609,6 +615,9 @@
       <Filter>Client\Map\Cards\InGameresources</Filter>
     </ClCompile>
     <ClCompile Include="chCoffers.cpp">
+      <Filter>Client\Map\Cards\InGameresources</Filter>
+    </ClCompile>
+    <ClCompile Include="chWheat.cpp">
       <Filter>Client\Map\Cards\InGameresources</Filter>
     </ClCompile>
   </ItemGroup>

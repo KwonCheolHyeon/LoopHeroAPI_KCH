@@ -31,11 +31,15 @@ namespace ch {
 
 		int GetTileType() { return mTileType; }
 
-
+		double checkTileType;
+		
 	private:
-		std::vector<std::vector<TileMapObject*>> mTiles;
+		
 		int mTileType;
-
+		std::vector<std::vector<TileMapObject*>> mTiles;
 		static GameMap inst;
+
+		void Map1Create();
+		Vector2 MapPosCalc(int y,int x);
 	};
 }
