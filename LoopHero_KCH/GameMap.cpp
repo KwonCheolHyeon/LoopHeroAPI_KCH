@@ -5,37 +5,26 @@
 #include "chImage.h"
 #include "chResources.h"
 #include "chObject.h"
+#include "chTime.h"
 #include "TileHeaderFiles.h"
 namespace ch 
 {
+
 	GameMap GameMap::inst;
 	GameMap::GameMap()
 	{
-
-		//s_lands_11.bmp
-		//mTilesImage = Resources::Load<Image>(L"Monster", L"..\\Resources\\Image\\Tile\\s_lands_11.bmp");
-
 		// 배열 초기화
 		mTiles.resize(11);
 		for (size_t i = 0; i < 11; i++)
 		{
 			mTiles[i].resize(21);
 		}
-
-		/*
-		for (int i = 0; i < 11; i++)
-		{
-			for (int j = 0; j < 21; j++)
-			{
-				
-			}
-		}
-		*/
-	
+		
 	}
 
 	GameMap::~GameMap()
 	{
+
 	}
 	void GameMap::Initialize()
 	{
@@ -47,7 +36,8 @@ namespace ch
 	void GameMap::Tick()
 	{
 		//맵 배열의 숫자 
-		
+		checkTileType += Time::DeltaTime();
+
 		if (KEY_DOWN(eKeyCode::LBTN))
 		{
 			Vector2  mousePos = Input::GetMousePos();
@@ -62,15 +52,13 @@ namespace ch
 			//int index = (y * TILE_LINE_X) + (x % TILE_LINE_X);
 			Vector2 objectPos = indexPos;
 
-
 			if (y >= 0 && y < 11 && x >= 0 && x < 21)
 			{
 				if (mTileType == 1)
 				{
 					if (mTiles[y][x] == nullptr)
 					{
-						//TileMapObject* gameObj = ch::object::Instantiate<StoneMountain>(objectPos, eColliderLayer::Tile); //산
-						TileMapObject* gameObj = ch::object::Instantiate<newroad_2>(MapPosCalc(y, x), eColliderLayer::Tile); //테스트
+						TileMapObject* gameObj = ch::object::Instantiate<StoneMountain>(objectPos, eColliderLayer::Tile); //산
 						gameObj->SetTileType(1);
 						mTiles[y][x] = gameObj;
 					}
@@ -139,7 +127,6 @@ namespace ch
 						mTiles[y][x] = gameObj;
 					}
 				}
-
 				else if (mTileType == 9)
 				{
 					if (mTiles[y][x] == nullptr)
@@ -149,7 +136,6 @@ namespace ch
 						mTiles[y][x] = gameObj;
 					}
 				}
-
 				else if (mTileType == 10)
 				{
 					if (mTiles[y][x] == nullptr)
@@ -161,28 +147,13 @@ namespace ch
 							mTiles[y][x] = gameObj;
 
 						}
-					
 					}
 				}
+
+
 			}
-
-
-			if(checkTileType >= 1.0f)
-			{
-				for (int i = 0; i < 11; i++)
-				{
-					for (int j = 0; j < 21; j++)
-					{
-						mTiles[i][j]->GetTileType();
-					}
-				}
-				checkTileType = 0;
-			}
-
-			
-			
-
 		}
+
 	}
 
 	void GameMap::Render(HDC hdc)
@@ -210,9 +181,9 @@ namespace ch
 		DeleteObject(redPen);
 	}
 
+
 	Vector2 GameMap::MapPosCalc(int y, int x)
 	{
-
 		Vector2 indexPos(x, y);
 		indexPos.x = x * (TILE_SIZE * TILE_SCALE);
 		indexPos.y = y * (TILE_SIZE * TILE_SCALE);
@@ -294,35 +265,165 @@ namespace ch
 		gameObj->SetTileType(99);
 		mTiles[8][15] = gameObj;
 
+		gameObj = ch::object::Instantiate<newroad_4>(MapPosCalc(8, 14), eColliderLayer::Tile); //4번 길
+		gameObj->SetTileType(99);
+		mTiles[8][14] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_3>(MapPosCalc(7, 14), eColliderLayer::Tile); //3번 길
+		gameObj->SetTileType(99);
+		mTiles[7][14] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_0>(MapPosCalc(7,13 ), eColliderLayer::Tile); //세로 길
+		gameObj->SetTileType(99);
+		mTiles[7][13] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_2>(MapPosCalc(7,12), eColliderLayer::Tile); //2번 길    //////////캠프장
+		gameObj->SetTileType(99);
+		mTiles[7][12] = gameObj;
+
+
+		gameObj = ch::object::Instantiate<newroad_5>(MapPosCalc(8,12 ), eColliderLayer::Tile); //5번길
+		gameObj->SetTileType(99);
+		mTiles[8][12] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_0>(MapPosCalc(8,11), eColliderLayer::Tile); //가로 길
+		gameObj->SetTileType(99);
+		mTiles[8][11] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_0>(MapPosCalc(8, 10), eColliderLayer::Tile); //가로 길
+		gameObj->SetTileType(99);
+		mTiles[8][10] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_0>(MapPosCalc(8, 9), eColliderLayer::Tile); //가로 길
+		gameObj->SetTileType(99);
+		mTiles[8][9] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_0>(MapPosCalc(8, 8), eColliderLayer::Tile); //가로 길
+		gameObj->SetTileType(99);
+		mTiles[8][8] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_4>(MapPosCalc(8, 7), eColliderLayer::Tile); //가로 길
+		gameObj->SetTileType(99);
+		mTiles[8][7] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_1>(MapPosCalc(7,7 ), eColliderLayer::Tile); //세로 길
+		gameObj->SetTileType(99);
+		mTiles[7][7] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_3>(MapPosCalc(6, 7), eColliderLayer::Tile); //3번 길
+		gameObj->SetTileType(99);
+		mTiles[6][7] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_0>(MapPosCalc(6, 6), eColliderLayer::Tile); //가로 길
+		gameObj->SetTileType(99);
+		mTiles[6][6] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_4>(MapPosCalc(6, 5), eColliderLayer::Tile); //4번 길
+		gameObj->SetTileType(99);
+		mTiles[6][5] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_1>(MapPosCalc(5,5), eColliderLayer::Tile); //세로 길
+		gameObj->SetTileType(99);
+		mTiles[5][5] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_2>(MapPosCalc(4, 5), eColliderLayer::Tile); //2번 길
+		gameObj->SetTileType(99);
+		mTiles[4][5] = gameObj;
+
+		gameObj = ch::object::Instantiate<newroad_5>(MapPosCalc(4,6), eColliderLayer::Tile); //5번길
+		gameObj->SetTileType(99);
+		mTiles[4][6] = gameObj;
+	}
+
+	void GameMap::mapBuildCheck(int mTileNum)
+	{
+		if (mTileNum == 1) 
+		{
+			
+
+		}
+		else if (mTileNum == 2)
+		{
+		
+		}
+		else if (mTileNum == 3)
+		{
+
+		}
+		else if (mTileNum == 4)
+		{
+
+		}
+		else if (mTileNum == 5)
+		{
+
+		}
+		else if (mTileNum == 6)
+		{
+
+		}
+		else if (mTileNum == 7)
+		{
+
+		}
+		else if (mTileNum == 8)
+		{
+
+		}
+		else if (mTileNum == 9)
+		{
+
+		}
+		else if (mTileNum == 10)
+		{
+
+		}
+
+
 
 	}
 
+	void GameMap::onRoad() 
+	{
 	
+	}
+
+	void GameMap::aroundRoad()
+	{
+
+	}
+
+	void GameMap::exceptRoad()
+	{
+
+	}
+
+
 
 }
 
 /*
-		TileMapObject* gameObj = ch::object::Instantiate<newroad_0>(MapPosCalc( , ), eColliderLayer::Tile); //가로 길
+		gameObj = ch::object::Instantiate<newroad_0>(MapPosCalc( , ), eColliderLayer::Tile); //가로 길
 		gameObj->SetTileType(99);
 		mTiles[y][x] = gameObj;
 
-		TileMapObject* gameObj = ch::object::Instantiate<newroad_1>(MapPosCalc( , ), eColliderLayer::Tile); //세로 길
+		gameObj = ch::object::Instantiate<newroad_1>(MapPosCalc( , ), eColliderLayer::Tile); //세로 길
 		gameObj->SetTileType(99);
 		mTiles[y][x] = gameObj;
 
-		TileMapObject* gameObj = ch::object::Instantiate<newroad_2>(MapPosCalc( , ), eColliderLayer::Tile); //2번 길
+		gameObj = ch::object::Instantiate<newroad_2>(MapPosCalc( , ), eColliderLayer::Tile); //2번 길
 		gameObj->SetTileType(99);
 		mTiles[y][x] = gameObj;
 
-		TileMapObject* gameObj = ch::object::Instantiate<newroad_3>(MapPosCalc( , ), eColliderLayer::Tile); //3번 길
+		gameObj = ch::object::Instantiate<newroad_3>(MapPosCalc( , ), eColliderLayer::Tile); //3번 길
 		gameObj->SetTileType(99);
 		mTiles[y][x] = gameObj;
 
-		TileMapObject* gameObj = ch::object::Instantiate<newroad_4>(MapPosCalc( , ), eColliderLayer::Tile); //4번 길
+		gameObj = ch::object::Instantiate<newroad_4>(MapPosCalc( , ), eColliderLayer::Tile); //4번 길
 		gameObj->SetTileType(99);
 		mTiles[y][x] = gameObj;
 
-		TileMapObject* gameObj = ch::object::Instantiate<newroad_5>(MapPosCalc( , ), eColliderLayer::Tile); //5번길
+		gameObj = ch::object::Instantiate<newroad_5>(MapPosCalc( , ), eColliderLayer::Tile); //5번길
 		gameObj->SetTileType(99);
 		mTiles[y][x] = gameObj;
 		*/

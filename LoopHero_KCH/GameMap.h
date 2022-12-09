@@ -40,6 +40,15 @@ namespace ch {
 		static GameMap inst;
 
 		void Map1Create();
+
+		
+		void mapBuildCheck(int a);
+		void onRoad();
+		void aroundRoad();
+		void exceptRoad();
+
+
 		Vector2 MapPosCalc(int y,int x);
+		GameObject ins ;
 	};
 }

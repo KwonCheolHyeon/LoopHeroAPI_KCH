@@ -387,6 +387,9 @@
     <ClInclude Include="TileHeaderFiles.h">
       <Filter>Engine\Common</Filter>
     </ClInclude>
+    <ClInclude Include="WarriorMini.h">
+      <Filter>Client\Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -619,6 +622,9 @@
     </ClCompile>
     <ClCompile Include="chWheat.cpp">
       <Filter>Client\Map\Cards\InGameresources</Filter>
+    </ClCompile>
+    <ClCompile Include="WarriorMini.cpp">
+      <Filter>Client\Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

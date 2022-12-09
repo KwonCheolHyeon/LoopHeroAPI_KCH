@@ -70,6 +70,7 @@ namespace ch
 		{
 			GameMap::Instance().SetTileType(mTileType);
 		}
+
 	}
 
 	void PlayingCard::OnCollisionExit(Collider* other)

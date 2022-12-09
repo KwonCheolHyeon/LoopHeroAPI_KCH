@@ -22,6 +22,8 @@ namespace ch
 	{
 		CollisionManager::SetLayer(eColliderLayer::Card, eColliderLayer::Mouse, true);
 
+		GameMap::Instance().Initialize();
+
 		ch::object::Instantiate<MouseObject>(eColliderLayer::Mouse);
 
 		chDayOBJ* day = new chDayOBJ();

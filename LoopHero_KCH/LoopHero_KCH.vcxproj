@@ -213,6 +213,7 @@
     <ClInclude Include="TitleOpRight.h" />
     <ClInclude Include="titleStarBtn.h" />
     <ClInclude Include="Vampire_Mansion.h" />
+    <ClInclude Include="WarriorMini.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cemetery.cpp" />
@@ -292,6 +293,7 @@
     <ClCompile Include="TitleOpRight.cpp" />
     <ClCompile Include="titleStarBtn.cpp" />
     <ClCompile Include="Vampire_Mansion.cpp" />
+    <ClCompile Include="WarriorMini.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LoopHero_KCH.rc" />
