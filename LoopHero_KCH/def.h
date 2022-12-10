@@ -46,6 +46,7 @@ enum class eColliderLayer
 	Greed,
 	BackGround,
 	Tile,
+	TilePlace,
 	Card,
 	Player,
 	Player_Projecttile,

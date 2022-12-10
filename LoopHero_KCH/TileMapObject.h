@@ -26,9 +26,16 @@ namespace ch
 
 		int GetTileType() { return mTileType; }
 		void SetTileType(int type) { mTileType = type; }
+
+		int GetTileBase() { return mTileBase; }
+		void SetTileBase(int type) { mTileBase = type; }
+
+		int GetMapBaseCode() { return MapBaseCode; }
+		void SetMapBaseCode(int type) { MapBaseCode = type; }
 	protected:
 		int mTileType;
-
+		int mTileBase;
+		int MapBaseCode;
 	private :
 		
 		UINT mIndex;

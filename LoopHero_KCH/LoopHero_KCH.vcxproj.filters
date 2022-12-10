@@ -390,6 +390,12 @@
     <ClInclude Include="WarriorMini.h">
       <Filter>Client\Character</Filter>
     </ClInclude>
+    <ClInclude Include="chPlace.h">
+      <Filter>Client\Map\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="chBasePlace.h">
+      <Filter>Client\Map\Base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -625,6 +631,12 @@
     </ClCompile>
     <ClCompile Include="WarriorMini.cpp">
       <Filter>Client\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="chPlace.cpp">
+      <Filter>Client\Map\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="chBasePlace.cpp">
+      <Filter>Client\Map\Base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

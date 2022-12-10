@@ -44,9 +44,20 @@ namespace ch {
 		
 		void mapBuildCheck(int a);
 		void onRoad();
-		void aroundRoad();
-		void exceptRoad();
+		void SangHa();
+		void ExSangHa();
 
+		void aroundRoad();
+		void exAroundRoad();
+		
+		void aroundRoadCheck();
+		void aroundVilageCheck();
+
+
+		//처음 맵 초기화
+		void initSangHa(int y,int x);
+		void initOnRoad();
+		void initMap();
 
 		Vector2 MapPosCalc(int y,int x);
 		GameObject ins ;
