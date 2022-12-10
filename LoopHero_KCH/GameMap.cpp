@@ -29,7 +29,7 @@ namespace ch
 	void GameMap::Initialize()
 	{
 		initMap();//√ ±‚»≠
-		aroundRoad();
+		
 	}
 
 	void GameMap::Tick()
@@ -540,7 +540,7 @@ namespace ch
 			for (size_t j = 0; j < 21; j++)
 			{
 				TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i, j), eColliderLayer::BackGround); // π´¥˝
-				gameObj->SetTileBase(1);
+				gameObj->SetTileBase(0);
 				gameObj->SetTileType(0);
 				gameObj->SetMapBaseCode(0);
 				mTiles[i][j] = gameObj;
