@@ -26,23 +26,26 @@ namespace ch {
 
 		void SetTileType(int type) {
 			mTileType = type;
-	
+			chCardSelect = true;
 		}
 
 		int GetTileType() { return mTileType; }
 
 		double checkTileType;
 		
+		bool chCardSelect;//카드 선택시 선택 가능지역 체크
 	private:
 		
 		int mTileType;
-		std::vector<std::vector<TileMapObject*>> mTiles;
+		
+		std::vector<std::vector<TileMapObject*>> mTiles; //설치가능한 타일
+		std::vector<std::vector<TileMapObject*>> roadTiles; //길은 삭제하면 안댐
 		static GameMap inst;
 
 		void Map1Create();
 
 		
-		void mapBuildCheck(int a);
+		void mapBuildCheck(int a, int y,int x);
 		void onRoad();
 		void SangHa();
 		void ExSangHa();
@@ -50,8 +53,7 @@ namespace ch {
 		void aroundRoad();
 		void exAroundRoad();
 		
-		void aroundRoadCheck();
-		void aroundVilageCheck();
+		void initGreen();//초록색(건설 가능) 부분 제거
 
 
 		//처음 맵 초기화

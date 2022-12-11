@@ -45,6 +45,7 @@ enum class eColliderLayer
 	Default,
 	Greed,
 	BackGround,
+	Road,
 	Tile,
 	TilePlace,
 	Card,
