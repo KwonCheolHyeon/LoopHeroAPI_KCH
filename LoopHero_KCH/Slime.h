@@ -21,6 +21,7 @@ namespace ch
 		void takeDamage(double damage);
 		double calcDEF(double damage);
 		void ITEMs();
+
 	private:
 		Image* mImage;
 		Animator* mAnimator;

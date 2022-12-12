@@ -6,6 +6,9 @@
 #include "Slime.h"
 #include "FigjtPageTimeAni.h"
 #include "pesochAni.h"
+#include "chLager.h"
+#include "WarriorMini.h"
+
 namespace ch
 {
 	FightPageOBJ::FightPageOBJ()
@@ -51,7 +54,8 @@ namespace ch
 		ch::object::Instantiate<FigjtPageTimeAni>(eColliderLayer::Tile);
 		ch::object::Instantiate<LoopWarrior>(eColliderLayer::Player);
 		ch::object::Instantiate<Slime>(eColliderLayer::Monster);
-		
+		//ch::object::Instantiate<Lager>(eColliderLayer::Tile);
+		ch::object::Instantiate<WarriorMini>(eColliderLayer::Player);
 		
 	}
 

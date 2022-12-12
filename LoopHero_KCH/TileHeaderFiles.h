@@ -18,3 +18,4 @@
 #include  "newroad_5.h"
 #include "chPlace.h"
 #include "chBasePlace.h"
+#include "chLager.h"

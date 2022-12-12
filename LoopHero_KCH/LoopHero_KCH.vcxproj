@@ -154,6 +154,7 @@
     <ClInclude Include="chInput.h" />
     <ClInclude Include="chItemBase.h" />
     <ClInclude Include="chItemPanelOBJ.h" />
+    <ClInclude Include="chLager.h" />
     <ClInclude Include="chLogoScene.h" />
     <ClInclude Include="chMedow.h" />
     <ClInclude Include="chMissile.h" />
@@ -242,6 +243,7 @@
     <ClCompile Include="chInput.cpp" />
     <ClCompile Include="chItemBase.cpp" />
     <ClCompile Include="chItemPanelOBJ.cpp" />
+    <ClCompile Include="chLager.cpp" />
     <ClCompile Include="chLogoScene.cpp" />
     <ClCompile Include="chMedow.cpp" />
     <ClCompile Include="chMissile.cpp" />

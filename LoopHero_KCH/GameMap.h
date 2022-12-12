@@ -52,9 +52,10 @@ namespace ch {
 
 		void aroundRoad();
 		void exAroundRoad();
-		
-		void initGreen();//초록색(건설 가능) 부분 제거
+		void aroundVillage();
 
+
+		void initGreen();//초록색(건설 가능) 부분 제거
 
 		//처음 맵 초기화
 		void initSangHa(int y,int x);

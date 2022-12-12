@@ -136,6 +136,9 @@
     <Filter Include="Client\TitleSceneOBJS\BTN">
       <UniqueIdentifier>{afd9d09f-2a3e-42a1-8a05-7af54bfbcf5a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Client\Map\Lager">
+      <UniqueIdentifier>{92367973-7399-4334-8221-311d6e143e09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -396,6 +399,9 @@
     <ClInclude Include="chBasePlace.h">
       <Filter>Client\Map\Base</Filter>
     </ClInclude>
+    <ClInclude Include="chLager.h">
+      <Filter>Client\Map\Lager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -637,6 +643,9 @@
     </ClCompile>
     <ClCompile Include="chBasePlace.cpp">
       <Filter>Client\Map\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="chLager.cpp">
+      <Filter>Client\Map\Lager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
