@@ -8,6 +8,7 @@
 #include "chObject.h"
 #include "chTime.h"
 #include "TileHeaderFiles.h"
+#include "WarriorMini.h"
 namespace ch
 {
 	GameMap GameMap::inst;
@@ -33,7 +34,7 @@ namespace ch
 	void GameMap::Initialize()
 	{
 		initMap();//초기화
-		
+		ch::object::Instantiate<WarriorMini>(eColliderLayer::PlayerMini);
 	}
 
 	void GameMap::Tick()
@@ -60,93 +61,26 @@ namespace ch
 				mapBuildCheck(mTileType, y, x);
 
 				/*
-				if (mTileType == 1)
-				{
-					
-
-				}
-				else if (mTileType == 2)
-				{
-					if (mTiles[y][x]->GetTileType() == 0)
-					{
-						TileMapObject* gameObj = ch::object::Instantiate<Rock>(objectPos, eColliderLayer::Tile); //바위
-						gameObj->SetTileType(2);
-						mTiles[y][x] = gameObj;
-					}
-				}
-
-				else if (mTileType == 3)
-				{
-					mapBuildCheck(mTileType, y, x);
-					if (mTiles[y][x] == nullptr)
-					{
-						TileMapObject* gameObj = ch::object::Instantiate<Vampire_Mansion>(objectPos, eColliderLayer::Tile); // 뱀파이어집
-						gameObj->SetTileType(3);
-						mTiles[y][x] = gameObj;
-					}
-				}
-				else if (mTileType == 4)
-				{
-					if (mTiles[y][x] == nullptr)
-					{
-						TileMapObject* gameObj = ch::object::Instantiate<SpiderCocoon>(objectPos, eColliderLayer::Tile); // 거미고치
-						gameObj->SetTileType(4);
-						mTiles[y][x] = gameObj;
-					}
-				}
-				else if (mTileType == 5)//제거 카드
-				{
-					if (mTiles[y][x]->GetMapBaseCode() == 99 && mTiles[y][x] != nullptr) //길일 경우
-					{
-						mTiles[y][x]->Death();
-						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(y, x), eColliderLayer::BackGround); // 무덤
-						gameObj->SetTileType(0);
-						mTiles[y][x] = gameObj;
-					}
-					else if ((mTiles[y][x]->GetMapBaseCode() == 0 || mTiles[y][x]->GetMapBaseCode() == 10) && mTiles[y][x] != nullptr) //길외의 경우 
-					{
-						mTiles[y][x]->Death();
-						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(y, x), eColliderLayer::BackGround); // 무덤
-						gameObj->SetTileType(0);
-						mTiles[y][x] = gameObj;
-					}
-
-				}
-				else if (mTileType == 6)
-				{
-					if (mTiles[y][x] == nullptr)
-					{
-						TileMapObject* gameObj = ch::object::Instantiate<Vilage>(objectPos, eColliderLayer::Tile); // 마을
-						gameObj->SetTileType(6);
-						mTiles[y][x] = gameObj;
-
-					}
-				}
+				
 				else if (mTileType == 7)
 				{
 					if (mTiles[y][x] == nullptr)
 					{
-						TileMapObject* gameObj = ch::object::Instantiate<Grove>(objectPos, eColliderLayer::Tile); // 숲
-						gameObj->SetTileType(7);
-						mTiles[y][x] = gameObj;
+						
 					}
 				}
 				else if (mTileType == 8)
 				{
 					if (mTiles[y][x] == nullptr)
 					{
-						TileMapObject* gameObj = ch::object::Instantiate<Cemetery>(objectPos, eColliderLayer::Tile); // 무덤
-						gameObj->SetTileType(8);
-						mTiles[y][x] = gameObj;
+						
 					}
 				}
 				else if (mTileType == 9)
 				{
 					if (mTiles[y][x] == nullptr)
 					{
-						TileMapObject* gameObj = ch::object::Instantiate<Coffers>(objectPos, eColliderLayer::Tile); // 금고
-						gameObj->SetTileType(9);
-						mTiles[y][x] = gameObj;
+					
 					}
 				}
 				else if (mTileType == 10)
@@ -199,6 +133,24 @@ namespace ch
 		{
 			chCardSelect = false;
 			onRoad();
+
+		}
+		else if (mTileType == 7 && chCardSelect == true) // 숲
+		{
+			chCardSelect = false;
+			onRoad();
+
+		}
+		else if (mTileType == 8 && chCardSelect == true) // 무덤
+		{
+			chCardSelect = false;
+			onRoad();
+
+		}
+		else if (mTileType == 9 && chCardSelect == true) // 금고
+		{
+			chCardSelect = false;
+			cofferCheck();
 
 		}
 		else if (mTileType == 10 && chCardSelect == true) // 밀밭
@@ -254,7 +206,6 @@ namespace ch
 		(HPEN)SelectObject(hdc, oldPen);
 		DeleteObject(redPen);
 	}
-
 
 	Vector2 GameMap::MapPosCalc(int y, int x)
 	{
@@ -411,11 +362,12 @@ namespace ch
 		roadTiles[7][13] = roadgameObj;
 		
 
-		ch::object::Instantiate<Lager>(eColliderLayer::Tile);
+		
+		ch::object::Instantiate<Lager>(eColliderLayer::Tile);  //캠프장
 		roadgameObj = ch::object::Instantiate<newroad_2>(MapPosCalc(7, 12), eColliderLayer::Road); //2번 길    //////////캠프장
 		roadgameObj->SetTileType(0);
 		roadgameObj->SetTileBase(0);
-		roadgameObj->SetMapBaseCode(99);
+		roadgameObj->SetMapBaseCode(100);
 		roadTiles[7][12] = roadgameObj;
 		
 
@@ -606,19 +558,48 @@ namespace ch
 		}
 		else if (mTileNum == 7)
 		{
+			if (mTiles[y][x]->GetTileBase() == 1) { //설치 가능 구역 
 
+				if (KEY_DOWN(eKeyCode::LBTN))
+				{
+					initGreen();
+				}
+				TileMapObject* gameObj = ch::object::Instantiate<Grove>(MapPosCalc(y, x), eColliderLayer::Tile); // 숲
+				gameObj->SetTileType(7);
+				mTiles[y][x] = gameObj;
+				mTileType = 0;
+			}
 		}
 		else if (mTileNum == 8)
 		{
+			if (mTiles[y][x]->GetTileBase() == 1) { //설치 가능 구역 
 
+				if (KEY_DOWN(eKeyCode::LBTN))
+				{
+					initGreen();
+				}
+				TileMapObject* gameObj = ch::object::Instantiate<Cemetery>(MapPosCalc(y, x), eColliderLayer::Tile); // 무덤
+				gameObj->SetTileType(8);
+				mTiles[y][x] = gameObj;
+				mTileType = 0;
+			}
 		}
 		else if (mTileNum == 9)
 		{
+			if (mTiles[y][x]->GetTileBase() == 1) { //설치 가능 구역 
 
+				if (KEY_DOWN(eKeyCode::LBTN))
+				{
+					initGreen();
+				}
+				TileMapObject* gameObj = ch::object::Instantiate<Coffers>(MapPosCalc(y, x), eColliderLayer::Tile); // 금고
+				gameObj->SetTileType(9);
+				mTiles[y][x] = gameObj;
+				mTileType = 0;
+			}
 		}
 		else if (mTileNum == 10)
 		{
-
 			if (mTiles[y][x]->GetTileBase() == 1) { //설치 가능 구역 
 
 				if (KEY_DOWN(eKeyCode::LBTN))
@@ -630,11 +611,8 @@ namespace ch
 				mTiles[y][x] = gameObj;
 				mTileType = 0;
 			}
-
 		}
 	}
-
-
 
 	void GameMap::onRoad()//길위  
 	{
@@ -651,7 +629,6 @@ namespace ch
 			}
 		}
 	}
-
 
 	void GameMap::aroundRoad()//길가
 	{
@@ -679,7 +656,7 @@ namespace ch
 			{
 				if (roadTiles[i][j]->GetMapBaseCode() == 0 && mTiles[i][j]->GetTileType() == 0) //기본 코드 이면서 그 위에 tile이 없을때
 				{
-					TileMapObject* gameObj = ch::object::Instantiate<Place>(MapPosCalc(i, j), eColliderLayer::TilePlace); // 무덤
+					TileMapObject* gameObj = ch::object::Instantiate<Place>(MapPosCalc(i, j), eColliderLayer::TilePlace); //
 					gameObj->SetTileBase(1);
 					mTiles[i][j] = gameObj;
 				}
@@ -701,7 +678,7 @@ namespace ch
 
 				mTiles[i][j] = gameObj;
 				roadTiles[i][j] = gameObj;
-
+				
 			}
 		}
 
@@ -798,7 +775,6 @@ namespace ch
 		}
 	}
 
-
 	void GameMap::aroundVillage() 
 	{
 		for (size_t i = 0; i < 11; i++)
@@ -834,9 +810,105 @@ namespace ch
 				}
 			}
 		}
-	
-	
 	}
+
+	void GameMap::cofferCheck() 
+	{
+		exAroundRoad();
+		for (size_t i = 0; i < 11; i++)
+		{
+			for (size_t j = 0; j < 21; j++)
+			{	
+				if (( (roadTiles[i][j]->GetMapBaseCode() == 0 || roadTiles[i][j]->GetMapBaseCode() == 10) && mTiles[i][j]->GetTileType() >= 1 ) || roadTiles[i][j]->GetMapBaseCode() == 99) //첫번째 조건 (길가 또는 길이아닌 경우) 그리고 그 타일에 타일이 있을때 또는 길상하좌우
+				{
+					if (mTiles[i - 1][j] != nullptr && mTiles[i-1][j]->GetTileBase() == 1)
+					{
+						mTiles[i-1][j]->Death();
+						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i-1, j), eColliderLayer::BackGround); // 무덤
+						gameObj->SetTileBase(0);
+						gameObj->SetTileType(0);
+						mTiles[i-1][j] = gameObj;
+					}
+					if (mTiles[i + 1][j] != nullptr && mTiles[i+1][j]->GetTileBase() == 1)
+					{
+						mTiles[i+1][j]->Death();
+						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i+1, j), eColliderLayer::BackGround); // 무덤
+						gameObj->SetTileBase(0);
+						gameObj->SetTileType(0);
+						mTiles[i+1][j] = gameObj;
+					}
+					if (mTiles[i][j-1] != nullptr && mTiles[i][j-1]->GetTileBase() == 1)
+					{
+						mTiles[i][j-1]->Death();
+						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i, j-1), eColliderLayer::BackGround); // 무덤
+						gameObj->SetTileBase(0);
+						gameObj->SetTileType(0);
+						mTiles[i][j-1] = gameObj;
+					}
+					if (mTiles[i][j + 1] != nullptr && mTiles[i][j+1]->GetTileBase() == 1)
+					{
+						mTiles[i][j+1]->Death();
+						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i, j+1), eColliderLayer::BackGround); // 무덤
+						gameObj->SetTileBase(0);
+						gameObj->SetTileType(0);
+						mTiles[i][j+1] = gameObj;
+					}
+					if (mTiles[i - 1][j-1] != nullptr && mTiles[i - 1][j-1]->GetTileBase() == 1)
+					{
+						mTiles[i - 1][j-1]->Death();
+						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i - 1, j-1), eColliderLayer::BackGround); // 무덤
+						gameObj->SetTileBase(0);
+						gameObj->SetTileType(0);
+						mTiles[i - 1][j-1] = gameObj;
+					}
+					if (mTiles[i - 1][j + 1] != nullptr && mTiles[i - 1][j + 1]->GetTileBase() == 1)
+					{
+						mTiles[i - 1][j + 1]->Death();
+						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i - 1, j + 1), eColliderLayer::BackGround); // 무덤
+						gameObj->SetTileBase(0);
+						gameObj->SetTileType(0);
+						mTiles[i - 1][j + 1] = gameObj;
+					}
+					if (mTiles[i+1][j - 1] != nullptr && mTiles[i+1][j - 1]->GetTileBase() == 1)
+					{
+						mTiles[i+1][j - 1]->Death();
+						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i+1, j - 1), eColliderLayer::BackGround); // 무덤
+						gameObj->SetTileBase(0);
+						gameObj->SetTileType(0);
+						mTiles[i+1][j - 1] = gameObj;
+					}
+					if (mTiles[i+1][j + 1] != nullptr && mTiles[i+1][j + 1]->GetTileBase() == 1)
+					{
+						mTiles[i+1][j + 1]->Death();
+						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i+1, j + 1), eColliderLayer::BackGround); // 무덤
+						gameObj->SetTileBase(0);
+						gameObj->SetTileType(0);
+						mTiles[i+1][j + 1] = gameObj;
+					}
+				}
+				if (i == 0 || i==10 || j ==0 || j==20) 
+				{
+					mTiles[i][j]->Death();
+					//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+					TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i, j), eColliderLayer::BackGround); // 무덤
+					gameObj->SetTileBase(0);
+					gameObj->SetTileType(0);
+					mTiles[i][j] = gameObj;
+				}
+				
+			}
+		}
+		
+	}
+
 
 
 }
@@ -850,7 +922,7 @@ namespace ch
 	0 = 기본
 	10 = 길가
 	99 = 길
-	
+	100 = savePoin
 	
 	mTiles  : 설치한 타일을 여기다 설치
 
@@ -862,7 +934,7 @@ namespace ch
 		mTileBase; // 설치가능한 타일일 경우 1 아닌 경우 0
 
 		MapBaseCode; // 길 코드와 길가 코드 , 그외 구분용
-
+		
 
 
 	*/

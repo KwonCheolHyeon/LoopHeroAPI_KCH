@@ -69,6 +69,7 @@ namespace ch
 		if (KEY_DOWN(eKeyCode::LBTN))
 		{
 			GameMap::Instance().SetTileType(mTileType);
+
 		}
 
 	}

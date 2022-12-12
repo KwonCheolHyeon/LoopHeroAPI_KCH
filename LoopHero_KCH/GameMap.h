@@ -25,6 +25,7 @@ namespace ch {
 		virtual void Render(HDC hdc) ;
 
 		void SetTileType(int type) {
+			initGreen();
 			mTileType = type;
 			chCardSelect = true;
 		}
@@ -34,6 +35,8 @@ namespace ch {
 		double checkTileType;
 		
 		bool chCardSelect;//카드 선택시 선택 가능지역 체크
+
+		
 	private:
 		
 		int mTileType;
@@ -46,20 +49,17 @@ namespace ch {
 
 		
 		void mapBuildCheck(int a, int y,int x);
-		void onRoad();
-		void SangHa();
-		void ExSangHa();
 
+		void onRoad();
 		void aroundRoad();
 		void exAroundRoad();
 		void aroundVillage();
-
-
+		void cofferCheck();
 		void initGreen();//초록색(건설 가능) 부분 제거
+		
 
 		//처음 맵 초기화
 		void initSangHa(int y,int x);
-		void initOnRoad();
 		void initMap();
 
 		Vector2 MapPosCalc(int y,int x);

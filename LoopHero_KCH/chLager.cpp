@@ -10,7 +10,7 @@ namespace ch
 	Lager::Lager()
 	{
 		SetName(L"Lager");
-		SetPos({ 750, 437.5f });
+		SetPos({ 762.5f, 515 });
 		SetScale({ 5.0f, 5.0f });
 
 		mAnimator = new Animator();

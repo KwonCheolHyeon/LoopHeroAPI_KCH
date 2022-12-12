@@ -49,6 +49,7 @@ enum class eColliderLayer
 	Tile,
 	TilePlace,
 	Card,
+	PlayerMini,
 	Player,
 	Player_Projecttile,
 	Monster,
