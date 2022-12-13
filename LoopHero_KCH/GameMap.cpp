@@ -9,6 +9,7 @@
 #include "chTime.h"
 #include "TileHeaderFiles.h"
 #include "WarriorMini.h"
+
 namespace ch
 {
 	GameMap GameMap::inst;
@@ -34,13 +35,14 @@ namespace ch
 	void GameMap::Initialize()
 	{
 		initMap();//초기화
-		ch::object::Instantiate<WarriorMini>(eColliderLayer::PlayerMini);
+		miniWarrior = ch::object::Instantiate<WarriorMini>(MapPosCalc(7, 12),(eColliderLayer::PlayerMini));
 	}
 
 	void GameMap::Tick()
 	{
 		//시간 체크
 		//checkTileType += Time::DeltaTime();
+		Movetime = Time::DeltaTime();//움직이는 시간
 
 		if (KEY_DOWN(eKeyCode::LBTN))
 		{
@@ -59,45 +61,20 @@ namespace ch
 			if (y >= 0 && y < 11 && x >= 0 && x < 21)
 			{
 				mapBuildCheck(mTileType, y, x);
-
-				/*
-				
-				else if (mTileType == 7)
-				{
-					if (mTiles[y][x] == nullptr)
-					{
-						
-					}
-				}
-				else if (mTileType == 8)
-				{
-					if (mTiles[y][x] == nullptr)
-					{
-						
-					}
-				}
-				else if (mTileType == 9)
-				{
-					if (mTiles[y][x] == nullptr)
-					{
-					
-					}
-				}
-				else if (mTileType == 10)
-				{
-					if (mTiles[y][x] == nullptr)
-					{
-						if (mTiles[y - 1][x]->GetTileType() == 6 || mTiles[y + 1][x]->GetTileType() == 6 || mTiles[y][x - 1]->GetTileType() == 6 || mTiles[y][x + 1]->GetTileType() == 6)
-						{
-							TileMapObject* gameObj = ch::object::Instantiate<Wheat>(objectPos, eColliderLayer::Tile); // 밀밭
-							gameObj->SetTileType(10);
-							mTiles[y][x] = gameObj;
-						}
-					}
-				}
-			*/
 			}
 		}
+		
+
+		if (miniMoveOn)
+		{
+			miniMoveOn = false;
+			
+		
+			
+		}
+
+		
+		
 
 
 		if (mTileType == 1 && chCardSelect == true)//산
@@ -159,27 +136,6 @@ namespace ch
 			aroundVillage();
 
 		}
-
-		
-
-
-		if (KEY_DOWN(eKeyCode::Q)) 
-		{
-			onRoad();
-		}
-		if (KEY_DOWN(eKeyCode::W))
-		{
-			aroundRoad();
-		}
-		if (KEY_DOWN(eKeyCode::E))
-		{
-			exAroundRoad();
-		}
-		if (KEY_DOWN(eKeyCode::R))
-		{
-			initGreen();
-		}
-
 	}
 
 	void GameMap::Render(HDC hdc)
@@ -217,6 +173,19 @@ namespace ch
 		Vector2 objectPos = indexPos;
 
 		return objectPos;
+	}
+
+	Vector2 GameMap::MapPosCalcOffset(int y, int x) 
+	{
+		Vector2 offset = {15.0f,15.0f};
+		Vector2 indexPos(x, y);
+		indexPos.x = x * (TILE_SIZE * TILE_SCALE);
+		indexPos.y = y * (TILE_SIZE * TILE_SCALE);
+		indexPos.y += (TILE_SIZE * TILE_SCALE);
+
+		Vector2 objectPos = indexPos;
+
+		return objectPos + offset;
 	}
 
 	void GameMap::Map1Create()
@@ -363,11 +332,11 @@ namespace ch
 		
 
 		
-		ch::object::Instantiate<Lager>(eColliderLayer::Tile);  //캠프장
-		roadgameObj = ch::object::Instantiate<newroad_2>(MapPosCalc(7, 12), eColliderLayer::Road); //2번 길    //////////캠프장
-		roadgameObj->SetTileType(0);
+		ch::object::Instantiate<Lager>(MapPosCalc(7, 12),(eColliderLayer::Tile));  // 캠프장
+		roadgameObj = ch::object::Instantiate<newroad_2>(MapPosCalc(7, 12), eColliderLayer::Road); //2번 길    // 캠프장
+		roadgameObj->SetTileType(100);
 		roadgameObj->SetTileBase(0);
-		roadgameObj->SetMapBaseCode(100);
+		roadgameObj->SetMapBaseCode(99);
 		roadTiles[7][12] = roadgameObj;
 		
 

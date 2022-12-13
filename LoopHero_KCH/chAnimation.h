@@ -21,7 +21,7 @@ namespace ch
 				, offset(0.0f, 0.0f)
 				, duration(0.0f)
 			{
-
+				
 			}
 		};
 

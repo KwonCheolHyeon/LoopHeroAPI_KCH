@@ -10,6 +10,7 @@ namespace ch
 	{
 	public:
 		Lager();
+		Lager(Vector2 pos);
 		~Lager();
 
 		
@@ -20,7 +21,7 @@ namespace ch
 	private:
 		Image* mImage;
 		Animator* mAnimator;
-
+		Vector2 lagerOffset = { 15.0f,15.0f };
 
 	};
 

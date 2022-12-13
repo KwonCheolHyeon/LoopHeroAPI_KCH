@@ -43,6 +43,9 @@ namespace ch
 		dif *= TILE_SCALE;
 		pos.y -= dif;
 
+
+		//BitBlt(hdc, pos.x, pos.y, rect.x, rect.y, mImage->GetDC(),0,0, SRCCOPY);
+		
 		TransparentBlt(hdc, pos.x, pos.y, rect.x, rect.y
 			, mImage->GetDC(), 0, 0, mImage->GetWidth(), mImage->GetHeight()
 			, RGB(255, 0, 255));

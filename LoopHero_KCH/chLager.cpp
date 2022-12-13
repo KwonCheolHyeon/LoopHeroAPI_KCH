@@ -10,10 +10,25 @@ namespace ch
 	Lager::Lager()
 	{
 		SetName(L"Lager");
-		SetPos({ 762.5f, 515 });
+		
 		SetScale({ 5.0f, 5.0f });
 
 		mAnimator = new Animator();
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Map\\LagerAni3", L"LagerIdle");
+		mAnimator->Play(L"LagerIdle", true);
+		AddComponent(mAnimator);
+	}
+	Lager::Lager(Vector2 pos)
+
+	{
+		pos = lagerOffset + pos;
+		SetName(L"Lager");
+		SetPos(pos);
+		SetScale({ 5.0f, 5.0f });
+		
+
+		mAnimator = new Animator();
+		
 		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Map\\LagerAni3", L"LagerIdle");
 		mAnimator->Play(L"LagerIdle", true);
 		AddComponent(mAnimator);
