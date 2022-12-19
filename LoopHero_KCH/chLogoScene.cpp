@@ -36,7 +36,7 @@ namespace ch
 	{
 
 		Scene::Tick();
-		Camera::SetCameraEffect(eCameraEffect::FadeOut);
+		//Camera::SetCameraEffect(eCameraEffect::FadeOut);
 
 		nextLogo += Time::DeltaTime();
 
@@ -44,7 +44,7 @@ namespace ch
 		if (nextLogo >= 5.0f && logo2start) 
 		{
 			
-			Camera::SetCameraEffect(eCameraEffect::FadeIn);
+			//Camera::SetCameraEffect(eCameraEffect::FadeIn);
 
 			LogoAni2* logo1 = new LogoAni2();
 			logo1->SetImage(L"LogoObject1", L"s_devolver_logo_1.bmp");
@@ -63,9 +63,6 @@ namespace ch
 	{
 		Scene::Render(hdc);
 		
-		
-
-
 		
 	}
 
