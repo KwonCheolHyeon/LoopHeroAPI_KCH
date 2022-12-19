@@ -402,6 +402,12 @@
     <ClInclude Include="chLager.h">
       <Filter>Client\Map\Lager</Filter>
     </ClInclude>
+    <ClInclude Include="chSlimeSpawn.h">
+      <Filter>Client\Monsters\Slime</Filter>
+    </ClInclude>
+    <ClInclude Include="chSlimeMinIcon.h">
+      <Filter>Client\Monsters\Slime</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -646,6 +652,12 @@
     </ClCompile>
     <ClCompile Include="chLager.cpp">
       <Filter>Client\Map\Lager</Filter>
+    </ClCompile>
+    <ClCompile Include="chSlimeSpawn.cpp">
+      <Filter>Client\Monsters\Slime</Filter>
+    </ClCompile>
+    <ClCompile Include="chSlimeMinIcon.cpp">
+      <Filter>Client\Monsters\Slime</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

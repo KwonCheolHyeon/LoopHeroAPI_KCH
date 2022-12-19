@@ -82,7 +82,7 @@ namespace ch
 
 			return temp;
 		}
-
+		
 		void operator +=(const Vector2& other)
 		{
 			x += other.x;

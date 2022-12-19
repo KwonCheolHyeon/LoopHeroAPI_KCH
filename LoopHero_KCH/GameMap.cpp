@@ -9,12 +9,14 @@
 #include "chTime.h"
 #include "TileHeaderFiles.h"
 #include "WarriorMini.h"
+#include "chSlimeMinIcon.h"
 
 namespace ch
 {
 	GameMap GameMap::inst;
 	GameMap::GameMap()
 	{
+		
 		// 배열 초기화
 		mTiles.resize(11);
 		for (size_t i = 0; i < 11; i++)
@@ -26,6 +28,8 @@ namespace ch
 		{
 			roadTiles[i].resize(21);
 		}
+	
+		
 	}
 
 	GameMap::~GameMap()
@@ -35,14 +39,15 @@ namespace ch
 	void GameMap::Initialize()
 	{
 		initMap();//초기화
-		miniWarrior = ch::object::Instantiate<WarriorMini>(MapPosCalc(7, 12),(eColliderLayer::PlayerMini));
+		miniWarrior = ch::object::Instantiate<WarriorMini>(MapPosCalc(7, 12), (eColliderLayer::PlayerMini));
+		
 	}
+
+
 
 	void GameMap::Tick()
 	{
-		//시간 체크
-		//checkTileType += Time::DeltaTime();
-		Movetime = Time::DeltaTime();//움직이는 시간
+		
 
 		if (KEY_DOWN(eKeyCode::LBTN))
 		{
@@ -50,7 +55,6 @@ namespace ch
 
 			int y = (mousePos.y - (TILE_SIZE * TILE_SCALE)) / (TILE_SIZE * TILE_SCALE);
 			int x = mousePos.x / (TILE_SIZE * TILE_SCALE);
-
 			Vector2 indexPos(x, y);
 			indexPos.x = x * (TILE_SIZE * TILE_SCALE);
 			indexPos.y = y * (TILE_SIZE * TILE_SCALE);
@@ -63,19 +67,6 @@ namespace ch
 				mapBuildCheck(mTileType, y, x);
 			}
 		}
-		
-
-		if (miniMoveOn)
-		{
-			miniMoveOn = false;
-			
-		
-			
-		}
-
-		
-		
-
 
 		if (mTileType == 1 && chCardSelect == true)//산
 		{
@@ -136,6 +127,8 @@ namespace ch
 			aroundVillage();
 
 		}
+
+		
 	}
 
 	void GameMap::Render(HDC hdc)
@@ -190,7 +183,7 @@ namespace ch
 
 	void GameMap::Map1Create()
 	{
-
+		
 		TileMapObject* roadgameObj = ch::object::Instantiate<newroad_2>(MapPosCalc(3, 6), eColliderLayer::Road); //2번 길
 		roadgameObj->SetTileType(0);
 		roadgameObj->SetTileBase(0);
@@ -878,6 +871,7 @@ namespace ch
 		
 	}
 
+	
 
 
 }

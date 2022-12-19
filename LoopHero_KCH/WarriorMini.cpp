@@ -8,11 +8,9 @@
 #include "chAnimator.h"
 #include "chObject.h"
 #include "chTime.h"
-
+#include "TileMapObject.h"
 namespace ch 
 {
-   
-    
     WarriorMini::WarriorMini()
     {
         SetName(L"WarriorMini");
@@ -30,8 +28,12 @@ namespace ch
         mAnimator->Play(L"Warrior_Idle", true);
         AddComponent(mAnimator);
     }
+
     WarriorMini::WarriorMini(Vector2 pos)
     {
+        distanceOne = 0.0f;
+        gameSpeed = 0;
+        gameSpeedCount = 1;
         pos = miniOffset + pos;
         SetName(L"WarriorMini");
         SetPos(pos);
@@ -46,55 +48,137 @@ namespace ch
         mAnimator->CreateAnimations(L"..\\Resources\\loophero\\character\\Warrior_Icon", L"Warrior_Idle");
         mAnimator->Play(L"Warrior_Idle", true);
         AddComponent(mAnimator);
+
+      
+        for (int i = 0; i < 11; i++) 
+        {
+            for (int j = 0; j < 21; j++) 
+            {
+                if (roadTilesCopy[i][j]->GetTileType() == 100) 
+                {
+                    pY = i;
+                    pX = j;
+                }
+            }
+        }
+        pIndex = Vector2(pX,pY);
+        Pdir = dirSelect(pIndex.x,pIndex.y);
+        
     }
+
     WarriorMini::~WarriorMini()
     {
 
     }
+
     void WarriorMini::Tick()
     {
-        miniMoveSpeed = Time::DeltaTime() * gameSpeed;
+        gameSpeed = (20 * Time::DeltaTime() * gameSpeedCount);
 
         GameObject::Tick();
 
         Vector2 pos = GetPos();
 
-        
-        
+        if (distanceOne >= TILE_SIZE * TILE_SCALE)
+        {
+            distanceOne = 0;
+            Pdir=dirSelect(pIndex.x,pIndex.y);
 
+        }
 
-        SetPos(pos);
+        moveTo(Pdir, pos);
+
+        distanceOne += gameSpeed;//움직이는 거리
+
+        //시간 조절 테스트
+        if (KEY_DOWN(eKeyCode::NUM_2)) 
+        {
+            gameSpeedCount = 2;
+        }
+        if (KEY_DOWN(eKeyCode::NUM_1))
+        {
+            gameSpeedCount = 1;
+        }
+        if (KEY_DOWN(eKeyCode::NUM_0))
+        {
+            gameSpeedCount = 0;
+        }
+       
+       
 
     }
     void WarriorMini::Render(HDC hdc)
     {
         GameObject::Render(hdc);
     }
-    void WarriorMini::chMove()
+  
+ 
+    void WarriorMini::moveTo(int dir, Vector2 pos)
+    {
+        if (dir == 1) //오른쪽
+        {
+            pos.x += gameSpeed;
+        }
+        else if(dir == 2)//위쪽
+        {
+            pos.y -= gameSpeed;
+        }
+        else if (dir == 3)//오른쪽
+        {
+            pos.x -= gameSpeed;
+        }
+        else if (dir == 4)
+        {
+            pos.y += gameSpeed;
+        }
+
+        SetPos(pos);
+    }
+
+    int WarriorMini::dirSelect(int pX,int pY) 
     {
 
-    }
-    void roadCheck(int dir,Vector2 pos) 
-    {
-        
-        if (dir==1) //오른쪽
+        if (roadTilesCopy[pY][pX+1]->GetMapBaseCode() == 99 && prevPX != pX+1)//오른쪽
         {
-            pos.x += 20 * Time::DeltaTime();
+            prevPX = pX;
+            prevPY = pY;
+            
+            pX = pX + 1;
+            pIndex.x = pX;
+            pIndex.y = pY;
+            return 1;
         }
-        else if (dir == 2) //위
+        else if (roadTilesCopy[pY-1][pX]->GetMapBaseCode() == 99 && prevPY != pY-1) //위쪽
         {
-            pos.y -= 20.0f * Time::DeltaTime();
-        }
-        else if (dir == 3) // 왼쪽
-        {
-            pos.x -= 20.0f * Time::DeltaTime();
+            prevPX = pX;
+            prevPY = pY;
 
+            pY = pY-1;
+            pIndex.x = pX;
+            pIndex.y = pY;
+            return 2;
         }
-        else if (dir == 4) // 아래
+        else if (roadTilesCopy[pY][pX-1]->GetMapBaseCode() == 99 && prevPX != pX-1 )//왼쪽
         {
-            pos.y += 20.0f * Time::DeltaTime();
+            prevPX = pX;
+            prevPY = pY;
+
+            pX = pX - 1;
+            pIndex.x = pX;
+            pIndex.y = pY;
+            return 3;
         }
-    
+        else if (roadTilesCopy[pY+1][pX]->GetMapBaseCode() == 99 && prevPY != pY+1)//아래
+        {
+            prevPX = pX;
+            prevPY = pY;
+
+            pY = pY + 1;
+            pIndex.x = pX;
+            pIndex.y = pY;
+            return 4;
+        }
     
     }
+
 }

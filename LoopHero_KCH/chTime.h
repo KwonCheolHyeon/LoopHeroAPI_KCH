@@ -13,6 +13,12 @@ namespace ch
 
 		static float DeltaTime() { return mDeltaTime; }
 
+		static float DayTime() { return mDayTime; }
+
+		//DayTime 
+		static float mDayTime;
+		static int mDays;
+
 	private:
 		//CPU 고유 진동수 ( 1초당 몇번 ) 1초 12000번 진동하는 CPU
 		static LARGE_INTEGER mCpuFrequency;

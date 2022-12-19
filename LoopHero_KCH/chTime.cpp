@@ -19,6 +19,10 @@ namespace ch
 		QueryPerformanceCounter(&mPrevFrequency);
 	}
 
+	//초기화
+	int Time::mDays = 0;
+	float Time::mDayTime = 0;
+
 	void Time::Tick()
 	{
 		QueryPerformanceCounter(&mCurFrequency);
@@ -29,6 +33,17 @@ namespace ch
 
 		// 다시 이전의 값을 새로운 지금 값으로 세팅
 		mPrevFrequency.QuadPart = mCurFrequency.QuadPart;
+
+		//DayTime
+		mDayTime += mDeltaTime;
+
+		mDays = 0;
+		if (mDayTime >= 5.0f) 
+		{
+			mDays = 1;
+			mDayTime = 0;
+		}
+		
 	}
 
 	void Time::Render(HDC hdc)

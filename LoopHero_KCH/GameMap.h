@@ -14,6 +14,7 @@ namespace ch {
 		static GameMap& Instance()
 		{
 			static GameMap inst;
+			
 			return inst;
 		}
 
@@ -37,19 +38,27 @@ namespace ch {
 		bool chCardSelect;//카드 선택시 선택 가능지역 체크
 
 
-		//미니 워리얼
-		GameObject *miniWarrior;
-		bool miniMoveOn = true;
-		double Movetime;
+		
+		//미니 아이콘 관련
+		
+		GameObject* miniWarrior;
+
+		std::vector<std::vector<TileMapObject*>>& GetRoadTiles()
+		{
+			return roadTiles;
+		}
+		
+		
 	protected:
+		
 		Vector2 MapPosCalcOffset(int y, int x);
-		std::vector<std::vector<TileMapObject*>> mTiles; //설치가능한 타일
-		 //길은 삭제하면 안댐
 		std::vector<std::vector<TileMapObject*>> roadTiles;
 	private:
 		
 		int mTileType;
-		
+
+		std::vector<std::vector<TileMapObject*>> mTiles; //설치가능한 타일
+		//길은 삭제하면 안댐
 		
 		static GameMap inst;
 
@@ -71,5 +80,16 @@ namespace ch {
 		void initMap();
 		Vector2 MapPosCalc(int y, int x);
 		GameObject ins ;
+
+	public:
+		double InGameDay;
+
+		bool nextDay;
+
+		bool GetnextDay()
+		{
+			return nextDay;
+		}
+
 	};
 }

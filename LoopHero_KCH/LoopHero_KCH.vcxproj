@@ -162,6 +162,8 @@
     <ClInclude Include="chMouseObject.h" />
     <ClInclude Include="chObject.h" />
     <ClInclude Include="chPlace.h" />
+    <ClInclude Include="chSlimeMinIcon.h" />
+    <ClInclude Include="chSlimeSpawn.h" />
     <ClInclude Include="chWheat.h" />
     <ClInclude Include="chPanel.h" />
     <ClInclude Include="chPlashkaOBJ.h" />
@@ -251,6 +253,8 @@
     <ClCompile Include="chMouseObject.cpp" />
     <ClCompile Include="chObject.cpp" />
     <ClCompile Include="chPlace.cpp" />
+    <ClCompile Include="chSlimeMinIcon.cpp" />
+    <ClCompile Include="chSlimeSpawn.cpp" />
     <ClCompile Include="chWheat.cpp" />
     <ClCompile Include="chPanel.cpp" />
     <ClCompile Include="chPlashkaOBJ.cpp" />
