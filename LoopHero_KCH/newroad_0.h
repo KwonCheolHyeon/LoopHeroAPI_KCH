@@ -16,9 +16,11 @@ namespace ch {
 		virtual void Render(HDC hdc) override;
 		
 		void SlimeSpawn();
-		Vector2 MapPosCalc(Vector2 pos);
 
-		float InGameDay;
+		
+		Vector2 InMapPosCalc(Vector2 pos);
+
+
 	private:
 		Image* mImage;
 		Vector2 mypos;

@@ -177,7 +177,7 @@
     <ClInclude Include="chVilage.h" />
     <ClInclude Include="EquipmentPage.h" />
     <ClInclude Include="FightPageOBJ.h" />
-    <ClInclude Include="FightPos.h" />
+    <ClInclude Include="FightStart.h" />
     <ClInclude Include="FigjtPageTimeAni.h" />
     <ClInclude Include="GMapBASE.h" />
     <ClInclude Include="Grove.h" />
@@ -268,7 +268,7 @@
     <ClCompile Include="chVilage.cpp" />
     <ClCompile Include="EquipmentPage.cpp" />
     <ClCompile Include="FightPageOBJ.cpp" />
-    <ClCompile Include="FightPos.cpp" />
+    <ClCompile Include="FightStart.cpp" />
     <ClCompile Include="FigjtPageTimeAni.cpp" />
     <ClCompile Include="GMapBASE.cpp" />
     <ClCompile Include="Grove.cpp" />

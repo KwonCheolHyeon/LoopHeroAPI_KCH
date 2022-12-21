@@ -22,7 +22,10 @@ namespace ch
 		: TileMapObject(pos)
 	{
 		mImage = Resources::Load<Image>(L"Road0", L"..\\Resources\\loophero\\Map\\Road\\newroad_0.bmp");
+
+
 		mypos = pos;
+		srand(time(NULL));
 	}
 	newroad_0::~newroad_0()
 	{
@@ -63,26 +66,24 @@ namespace ch
 
 	void newroad_0::SlimeSpawn()
 	{
+		
 		int random = rand() % 100 + 1; // 1~100;
 		if (random >= 96)
 		{
 			ch::object::Instantiate<SlimeMinIcon>(mypos, eColliderLayer::Road);
-
+			GameMap::roadTiles[InMapPosCalc(mypos).y][InMapPosCalc(mypos).x]->SetMonsters(1);
 		}
 	}
 
-	Vector2 newroad_0::MapPosCalc(Vector2 pos)
+	Vector2 newroad_0::InMapPosCalc(Vector2 pos) 
 	{
-		int x = pos.x;
-		int y = pos.y;
+		pos.y -= (TILE_SIZE * TILE_SCALE);
+		int x = pos.x / (TILE_SIZE * TILE_SCALE);
+		int y = pos.y / (TILE_SIZE * TILE_SCALE);
+		
 		Vector2 indexPos(x, y);
-		indexPos.x = x * (TILE_SIZE * TILE_SCALE);
-		indexPos.y = y * (TILE_SIZE * TILE_SCALE);
-		indexPos.y += (TILE_SIZE * TILE_SCALE);
 
-		Vector2 objectPos = indexPos;
-
-		return objectPos;
+		return indexPos;
 	}
 
 }

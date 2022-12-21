@@ -46,6 +46,39 @@ namespace ch
 
 	}
 
+	Slime::Slime(Vector2 pos)
+	{
+		SetName(L"SlimeMonster");
+		SetPos(pos);
+		SetScale({ 3.0f, 3.0f });
+
+		if (mImage == nullptr)
+		{
+			mImage = Resources::Load<Image>(L"Monster", L"..\\Resources\\loophero\\monster\\Slime\\idle\\s_slime_idle_0.bmp");
+		}
+		mAnimator = new Animator();
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Slime\\idle", L"SlimeIdle");
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Slime\\attack", L"Slimeattack", { 2,2 }, 0.3f);
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Slime\\hurt", L"SlimeHurt", { 2,2 }, 0.3f);
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Slime\\death", L"SlimeDeath", { 2,2 }, 0.3f);
+
+		mAnimator->Play(L"SlimeIdle", true);
+		AddComponent(mAnimator);
+
+		//슬라임 기본 체력
+		mHP.baseHp = 13;
+		mATT.baseStr = 3.3;
+		mDEF.baseDef = 0;
+
+
+		//몬스터 리스폰시
+			//mHP.nowHP = mHP.baseHp * LOOP; 현재 HP 
+			//mATT.nowStr = mATT.baseStr * LOOP; 
+			//mDEF.nowDef = mDEF.baseDef * LOOP;
+		mSPD.spd = 0.6;
+
+	}
+
 	Slime::~Slime()
 	{
 
@@ -64,6 +97,7 @@ namespace ch
 		if (attSpdChek >= ( 1 / mSPD.spd)) //공격속도
 		{
 			mAttack();
+			attSpdChek = 0;
 		}
 
 

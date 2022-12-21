@@ -9,6 +9,9 @@
 #include "chObject.h"
 #include "chTime.h"
 #include "TileMapObject.h"
+#include "FightPageOBJ.h"
+
+
 namespace ch 
 {
     WarriorMini::WarriorMini()
@@ -83,7 +86,16 @@ namespace ch
         {
             distanceOne = 0;
             Pdir=dirSelect(pIndex.x,pIndex.y);
+            if (GameMap::roadTiles[prevPY][prevPX]->GetMonsterCount() > 0) //몬스터가 있는지? 체크
+            {//전투씬
+                int a = 0;
+                FightPageOBJ* fpg = new FightPageOBJ(prevPY, prevPX);
+                fpg->SetImage(L"FightPage", L"s_fight_window_0.bmp");
+                fpg->Initialize();
 
+               SceneManager::GetPlayScene()->AddGameObject(fpg, eColliderLayer::BackGround);
+
+            }
         }
 
         moveTo(Pdir, pos);

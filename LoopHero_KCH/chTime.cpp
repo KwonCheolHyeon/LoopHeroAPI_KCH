@@ -38,7 +38,7 @@ namespace ch
 		mDayTime += mDeltaTime;
 
 		mDays = 0;
-		if (mDayTime >= 5.0f) 
+		if (mDayTime >= 10.0f) 
 		{
 			mDays = 1;
 			mDayTime = 0;

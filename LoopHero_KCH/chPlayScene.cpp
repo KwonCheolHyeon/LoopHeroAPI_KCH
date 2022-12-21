@@ -133,12 +133,8 @@ namespace ch
 	}
 
 	void PlayScene::Initialize()
-	{/*
-		FightPageOBJ* fpg = new FightPageOBJ();
-		fpg->SetImage(L"FightPage", L"s_fight_window_0.bmp");
-		fpg->Initialize();
-
-		AddGameObject(fpg, eColliderLayer::BackGround);*/
+	{
+		
 	}
 
 	void PlayScene::Tick()

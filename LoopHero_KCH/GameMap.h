@@ -48,11 +48,13 @@ namespace ch {
 			return roadTiles;
 		}
 		
-		
+		Vector2 MapPosCalcOffset(int y, int x);
+		static std::vector<std::vector<TileMapObject*>> roadTiles;
+
+		static std::vector<std::vector<TileMapObject*>> monsterTiles;
 	protected:
 		
-		Vector2 MapPosCalcOffset(int y, int x);
-		std::vector<std::vector<TileMapObject*>> roadTiles;
+		
 	private:
 		
 		int mTileType;

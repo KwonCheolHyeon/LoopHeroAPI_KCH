@@ -31,7 +31,7 @@ namespace ch
 	
 		
 	}
-
+	std::vector<std::vector<TileMapObject*>> GameMap::roadTiles;
 	GameMap::~GameMap()
 	{
 
@@ -43,7 +43,7 @@ namespace ch
 		
 	}
 
-
+	
 
 	void GameMap::Tick()
 	{
@@ -188,6 +188,7 @@ namespace ch
 		roadgameObj->SetTileType(0);
 		roadgameObj->SetTileBase(0);
 		roadgameObj->SetMapBaseCode(99);
+		
 		roadTiles[3][6] = roadgameObj;
 		
 

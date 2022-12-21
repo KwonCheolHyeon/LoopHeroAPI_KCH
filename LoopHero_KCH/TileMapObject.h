@@ -30,13 +30,30 @@ namespace ch
 		int GetTileBase() { return mTileBase; }
 		void SetTileBase(int type) { mTileBase = type; }
 
+
 		int GetMapBaseCode() { return MapBaseCode; }
 		void SetMapBaseCode(int type) { MapBaseCode = type; }
+
+		
+
+		//몬스터 저장 함수
+		int GetMonsterCount() { return monsterCount; }//현재 이타일의 몬스터의 개수를 구해줌
+		void SetMonsters(int monsterIndex);// 각배열에 몬스터 고유번호 집어 넣어주는 함수
+		
+		void clearMonsters(); // 맵 클리어시 맵의 몬스터 초기화 해주는 함수
 
 	protected:
 		int mTileType; // 설치한 타일
 		int mTileBase; // 설치가능한 타일일 경우 1 아닌 경우 0
 		int MapBaseCode; // 길 코드와 길가 코드 , 그외 구분용
+		
+
+
+		//몬스터 저장
+		int monsterIndex; // 몬스터 고유 번호 0 = 비었음 1 = 슬라임,  2 = 거미, 3 = 뱀파이어, 4  = 해골, 5 = 하피  
+		int monsterCount; //몬스터가 몇마리 있는지?
+		int chMonsters[6]; // 각 배열에 몬스터 고유 번호를 집어 넣을 생각
+
 
 	private :
 		

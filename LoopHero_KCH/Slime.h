@@ -10,6 +10,7 @@ namespace ch
 	{
 	public:
 		Slime();
+		Slime(Vector2 pos);
 		~Slime();
 
 		virtual void Tick() override;

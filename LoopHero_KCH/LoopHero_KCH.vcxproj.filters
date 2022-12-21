@@ -267,7 +267,7 @@
     <ClInclude Include="FigjtPageTimeAni.h">
       <Filter>Client\FightScene\FightPage</Filter>
     </ClInclude>
-    <ClInclude Include="FightPos.h">
+    <ClInclude Include="FightStart.h">
       <Filter>Client\FightScene</Filter>
     </ClInclude>
     <ClInclude Include="chIdlePlayScene.h">
@@ -521,7 +521,7 @@
     <ClCompile Include="FigjtPageTimeAni.cpp">
       <Filter>Client\FightScene\FightPage</Filter>
     </ClCompile>
-    <ClCompile Include="FightPos.cpp">
+    <ClCompile Include="FightStart.cpp">
       <Filter>Client\FightScene</Filter>
     </ClCompile>
     <ClCompile Include="chIdlePlayScene.cpp">

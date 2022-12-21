@@ -7,17 +7,23 @@
 #include "FigjtPageTimeAni.h"
 #include "pesochAni.h"
 #include "WarriorMini.h"
+#include "FightStart.h"
 
 namespace ch
 {
-	FightPageOBJ::FightPageOBJ()
+	FightPageOBJ::FightPageOBJ(int y,int x)
 		: mImage(nullptr)
 	{
 		SetPos({ 280 ,(900 / 2)-350 });
 		SetScale({ 2.5f, 2.5f });
+		tileYpos = y;
+		tileXpos = x;
 	}
 	FightPageOBJ::~FightPageOBJ()
 	{
+		
+		
+		
 	}
 	
 	void FightPageOBJ::Tick()
@@ -48,14 +54,24 @@ namespace ch
 
 		mImage = Resources::Load<Image>(key, path);
 	}
+	
 	void FightPageOBJ::Initialize()
 	{
 		ch::object::Instantiate<FigjtPageTimeAni>(eColliderLayer::Tile);
+
+
+		/*
 		ch::object::Instantiate<LoopWarrior>(eColliderLayer::Player);
 		ch::object::Instantiate<Slime>(eColliderLayer::Monster);
-		
-		ch::object::Instantiate<WarriorMini>(eColliderLayer::Player);
-		
+		*/
 	}
+
+	void FightPageOBJ::FightStarts()
+	{
+
+
+
+	}
+
 
 }
