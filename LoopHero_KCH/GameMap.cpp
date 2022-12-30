@@ -28,10 +28,10 @@ namespace ch
 		{
 			roadTiles[i].resize(21);
 		}
-	
-		
 	}
+
 	std::vector<std::vector<TileMapObject*>> GameMap::roadTiles;
+
 	GameMap::~GameMap()
 	{
 
@@ -39,7 +39,7 @@ namespace ch
 	void GameMap::Initialize()
 	{
 		initMap();//√ ±‚»≠
-		miniWarrior = ch::object::Instantiate<WarriorMini>(MapPosCalc(7, 12), (eColliderLayer::PlayerMini));
+		ch::object::Instantiate<WarriorMini>(MapPosCalc(7, 12), (eColliderLayer::MiniIcon));
 		
 	}
 

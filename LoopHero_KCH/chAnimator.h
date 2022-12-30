@@ -8,6 +8,12 @@ namespace ch
 	class Animator : public Component
 	{
 	public:
+		enum class Mode
+		{
+			GameObject,
+			UIGameObject,
+		};
+
 		struct Event
 		{
 			void operator=(std::function<void()> func)
@@ -31,7 +37,7 @@ namespace ch
 			Event mEndEvent;
 		};
 
-		Animator();
+		Animator(Mode mode = Mode::GameObject);
 		~Animator();
 
 		virtual void Tick() override;
@@ -50,11 +56,14 @@ namespace ch
 		std::function<void()>& GetCompleteEvent(const std::wstring key);
 		std::function<void()>& GetEndEvent(const std::wstring key);
 
+		void SetRect(GameObject* rect) { SetOwner(rect); }
+		Mode GetMode() { return mMode; }
+
 	private:
 		std::map<std::wstring, Animation*> mAnimations;
 		std::map<std::wstring, Events*> mEvents;
 
-
+		Mode mMode;
 		Animation* mPlayAnimaion;
 		bool mbLoop;
 		Image* mSPriteSheet;

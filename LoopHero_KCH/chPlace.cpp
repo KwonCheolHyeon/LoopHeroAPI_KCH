@@ -8,13 +8,13 @@ namespace ch
 {
 	Place::Place()
 	{
-		mImage = Resources::Load<Image>(L"Pla", L"..\\Resources\\loophero\\Map\\Base\\Medow2.bmp");
+		mImage = Resources::Load<Image>(L"Pla", L"..\\Resources\\loophero\\Map\\Base\\placeNew.bmp");
 	}
 
 	Place::Place(Vector2 pos)
 		: TileMapObject(pos)
 	{
-		mImage = Resources::Load<Image>(L"Pla", L"..\\Resources\\loophero\\Map\\Base\\Medow2.bmp");
+		mImage = Resources::Load<Image>(L"Pla", L"..\\Resources\\loophero\\Map\\Base\\placeNew.bmp");
 		
 	}
 

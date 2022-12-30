@@ -6,7 +6,7 @@
 
 namespace ch
 {
-	Animator::Animator()
+	Animator::Animator(Mode mode)
 		: Component(eComponentType::Aimator)
 		, mPlayAnimaion(nullptr)
 		, mbLoop(false)

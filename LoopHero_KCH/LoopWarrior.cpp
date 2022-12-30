@@ -9,6 +9,9 @@
 #include "chCamera.h"
 #include "chCollider.h"
 #include "Maths.h"
+#include "FightPageOBJ.h"
+#include "LoopMonster.h"
+
 namespace ch 
 {
 	
@@ -33,8 +36,44 @@ namespace ch
 		
 
 		AddComponent(mAnimator);
-		
+		srand(time(NULL));
 	}
+
+	LoopWarrior::LoopWarrior(Vector2 pos)
+	{
+		SetName(L"Warrior");
+		SetPos(pos);
+		SetScale({ 2.5f, 2.5f });
+		pHp.maxHp = pHp.wepHp + pHp.minHp;
+
+		if (mImage == nullptr)
+		{
+			mImage = Resources::Load<Image>(L"Warrior", L"..\\Resources\\loophero\\character\\warrior\\idle\\idle_01.bmp");
+		}
+
+		mAnimator = new Animator();
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\character\\warrior\\idle", L"WarriorIdle");//전투 기본모션
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\character\\warrior\\attack", L"Warriorattack", { 2,2 }, 0.3f);//전투 모션
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\character\\warrior\\hurt", L"WarrioraHurt", { 2,2 }, 0.3f); // 데미지 받을때 모션
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\character\\warrior\\death", L"WarrioraDeath", { 2,2 }, 0.3f); // 죽음 모션
+		mAnimator->Play(L"WarriorIdle", true);
+
+
+		AddComponent(mAnimator);
+		srand(time(NULL));
+
+		pSpd.AttSpeed = 1;
+		pHp.maxHp = pHp.minHp + pHp.wepHp;
+		pHp.nowHp = pHp.maxHp;
+		
+		pDef.maxDef = 3;
+		pDef.minDef = 1;
+
+		monsterCount = 0;
+		FightDone = false;
+	}
+
+	bool LoopWarrior::FightDone;
 
 	LoopWarrior::~LoopWarrior()
 	{
@@ -44,8 +83,8 @@ namespace ch
 	void LoopWarrior::Tick()
 	{
 
-		playerRegenTime += (Time::DeltaTime() * gameSpeed); // 1초당 리젠 시간;
-
+		playerRegenTime += (Time::DeltaTime()); // 1초당 리젠 시간;
+		playerAttSpd += Time::DeltaTime();
 
 		GameObject::Tick();
 		Vector2 pos = GetPos();
@@ -61,6 +100,7 @@ namespace ch
 		if (KEY_DOWN(eKeyCode::A))
 		{
 			mAnimator->Play(L"Warriorattack", false);
+			Attack();
 		}
 
 		if (KEY_DOWN(eKeyCode::H))
@@ -77,9 +117,25 @@ namespace ch
 		if(playerRegenTime >= 1.0f)//초당 회복
 		{
 			pRegenHP();
+			mAnimator->Play(L"WarriorIdle", false);
 			playerRegenTime = 0;
 		}
 		
+
+		if (playerAttSpd >= (1 / pSpd.AttSpeed)) //공격속도
+		{
+			if (FightPageOBJ::enemys[monsterCount]->GetHp() >= 0)
+			{
+				mAnimator->Play(L"Warriorattack", false);
+				Attack();
+				
+				playerAttSpd = 0;
+
+				EndFightCheck();
+			}
+		}
+
+	
 	}
 
 	void LoopWarrior::Render(HDC hdc)
@@ -87,23 +143,35 @@ namespace ch
 		GameObject::Render(hdc);
 	}
 
-	void LoopWarrior::setTarget() //전투시 타겟 설정
+	void LoopWarrior::EndFightCheck() //전투 종료 확인
 	{
-
-
+		if (monsterCount == FightPageOBJ::fightPageMonsterCount)//전투 종료
+		{
+			FightDone = true;
+		}
 	}
 
 	void LoopWarrior::Attack() // 공격
 	{
+
 		if (pCritical()) //크리티컬 
 		{
-		
-		}
-		else 
-		{
-		
-		}
+			FightPageOBJ::enemys[monsterCount]->mTakeDamage(pAttSelect() * 2);
 
+			if (FightPageOBJ::enemys[monsterCount]->GetHp() <= 0)//공격하고나서 해당 적 체력이 바닥이면 다음 친구 공격
+			{
+				monsterCount++;
+			}
+		}
+		else
+		{
+			FightPageOBJ::enemys[monsterCount]->mTakeDamage(pAttSelect());
+
+			if (FightPageOBJ::enemys[monsterCount]->GetHp() <= 0)
+			{
+				monsterCount++;
+			}
+		}
 	}
 
 	void LoopWarrior::takeDamage(double damage) // 데미지 받을때
@@ -111,14 +179,15 @@ namespace ch
 		if (pAvoid()) //회피 성공
 		{
 			//회피했다고 글 
-
 		}
 		else
 		{
+			mAnimator->Play(L"WarrioraHurt", false);
 			pHp.nowHp -= calcDEF(damage);//데미지 받을때
 			if ( pCounterAtt() ) //반격확률 계산하고 성공시 공격
 			{
 				Attack();
+				playerAttSpd = 0;
 			}
 		}
 		
@@ -128,10 +197,12 @@ namespace ch
 	{
 		double Finaldmg = 0;
 
-		Finaldmg = 0.5 * damage * (20.3125 / (18.75 + pDef.nowDef - (0.5 * damage)) - (1 / 12));//방어력 계산식
+		Finaldmg = 0.5 * damage * (20.3125 / (18.75 + pDefSelect() - (0.5 * damage)) - (1 / 12));//방어력 계산식
 
 		return Finaldmg;
 	}
+
+
 
 	void LoopWarrior::pRegenHP() // 체력 재생   Tick();
 	{
@@ -160,9 +231,9 @@ namespace ch
 
 	void LoopWarrior::randStat()//아이템에 따른 스텟 정해줌 Tick();
 	{
-		pAtt.nowAtt = rand() % (pAtt.maxAtt- pAtt.minAtt) + pAtt.minAtt;
+		pAtt.nowAtt = rand() % (pAtt.maxAtt- pAtt.minAtt + 1) + pAtt.minAtt;
 
-		pDef.nowDef = rand() % (pDef.maxDef- pDef.minDef) + pDef.minDef;
+		pDef.nowDef = rand() % (pDef.maxDef- pDef.minDef +1) + pDef.minDef;
 
 		pEvade.perEvade = pEvade.minEvade + pEvade.wepEvade; //회피율
 
@@ -223,6 +294,20 @@ namespace ch
 		{
 			return false;
 		}
+	}
+
+	double LoopWarrior::pDefSelect() 
+	{
+		float nowDef =rand() % (pDef.maxDef - pDef.minDef + 1) + pDef.minDef;
+
+		return nowDef;
+	}
+
+	int LoopWarrior::pAttSelect()
+	{
+		int nowAtt = rand() % (pAtt.maxAtt - pAtt.minAtt + 1) + pAtt.minAtt;
+
+		return nowAtt;
 	}
 
 	

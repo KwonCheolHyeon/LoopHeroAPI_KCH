@@ -17,13 +17,15 @@ namespace ch
 
 		// 프로그램 시작 했을때 cpu의 클럿 수
 		QueryPerformanceCounter(&mPrevFrequency);
+
+		gameSpeed = 1;
 	}
 
 	//초기화
 	int Time::mDays = 0;
 	float Time::mDayTime = 0;
-
-	void Time::Tick()
+	int Time::gameSpeed;
+;	void Time::Tick()
 	{
 		QueryPerformanceCounter(&mCurFrequency);
 
@@ -35,7 +37,7 @@ namespace ch
 		mPrevFrequency.QuadPart = mCurFrequency.QuadPart;
 
 		//DayTime
-		mDayTime += mDeltaTime;
+		mDayTime += mDeltaTime * gameSpeed;//몇 배속
 
 		mDays = 0;
 		if (mDayTime >= 10.0f) 

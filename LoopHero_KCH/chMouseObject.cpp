@@ -47,6 +47,7 @@ namespace ch
 
 	void MouseObject::OnCollisionStay(Collider* other)
 	{
+
 	}
 
 	void MouseObject::OnCollisionExit(Collider* other)

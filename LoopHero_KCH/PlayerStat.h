@@ -4,16 +4,16 @@ namespace ch {
 
 	struct HP//체력    
 	{
-		double minHp = 280;
-		double wepHp = 0;
-		double maxHp ;//
-		double nowHp;
+		double minHp = 280; //최소 시작 hp
+		double wepHp = 0; //무기 hp
+		double maxHp; //maxhp = minHp + wepHp; //무기를 바꾸면 증가됨
+		double nowHp;//지금 hp = minhp + wepHp;
 		double MagicHp=0;
 	};
 	struct ATT//공격력  ///// attack()
 	{
-		int minAtt;
-		int maxAtt;
+		int minAtt = 4;
+		int maxAtt = 6;
 		int nowAtt;
 	};
 	struct DEF // 방어력   // takeDamage()
@@ -28,11 +28,10 @@ namespace ch {
 	};
 	struct ATTSPEED   ///// attack()
 	{
-		int attSpeed = 4;
+		int attSpeed = 1;
 	};
 	struct COUNTER //반격 확률
 	{
-		
 		int wepCounter=0;//아이템 카운터공격 확률
 		int perCounter = wepCounter;//최종 카운터 공격 확률
 	};
@@ -77,7 +76,10 @@ namespace ch {
 		int exp=0;
 	};
 	
-	
+	struct AttSpd 
+	{
+		double AttSpeed;
+	};
 
 
 }

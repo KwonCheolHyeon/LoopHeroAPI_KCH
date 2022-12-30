@@ -16,7 +16,7 @@ namespace ch
 	{
 		monsterCount = 0;
 		monsterIndex = 0;
-		for (int i = 0; i < 6; i++) 
+		for (int i = 0; i < 5; i++) 
 		{
 			chMonsters[i] = 0;
 		}
@@ -49,39 +49,34 @@ namespace ch
 		if (monsterCount == 0) 
 		{
 			chMonsters[0] = monsIndex;
-			monsterCount++;
+			monsterCount++;//1개
 		}
 		else if(monsterCount == 1)
 		{
 			chMonsters[1] = monsIndex;
-			monsterCount++;
+			monsterCount++;//2개
 		}
 		else if (monsterCount == 2)
 		{
 			chMonsters[2] = monsIndex;
-			monsterCount++;
+			monsterCount++;//3개
 		}
 		else if (monsterCount == 3)
 		{
 			chMonsters[3] = monsIndex;
-			monsterCount++;
+			monsterCount++;//4개
 		}
 		else if (monsterCount == 4)
 		{
 			chMonsters[4] = monsIndex;
 			monsterCount++;
 		}
-		else if (monsterCount == 5)
-		{
-			chMonsters[5] = monsIndex;
-		}
-		
 
 	}
 
 	void TileMapObject::clearMonsters()
 	{
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 5; i++)
 		{
 			chMonsters[i] = 0;
 		}

@@ -1,10 +1,14 @@
 #include "chSlimeMinIcon.h"
+
 #include "chSceneManager.h"
 #include "chScene.h"
 #include "chImage.h"
 #include "chResources.h"
 #include "chAnimator.h"
+#include "GameMap.h"
+#include "TileMapObject.h"
 #include "chCollider.h"
+
 
 namespace ch 
 {
@@ -21,14 +25,15 @@ namespace ch
 	SlimeMinIcon::SlimeMinIcon(Vector2 pos)
 	{
 		int i = 0;
-		miniOffset[0] = { 10,10 };
-		miniOffset[1] = { 45,10 };
-		miniOffset[2] = { 10,45 };
+		miniOffset[0] = { 5,5 };
+		miniOffset[1] = { 45,5 };
+		miniOffset[2] = { 5,45 };
 		miniOffset[3] = { 45,45 };
-		miniOffset[4] = { 30,25 };
-		miniOffset[5] = { 30,30 };
+		miniOffset[4] = { 25,25 };
+	
 		
-		i = 5;
+		i = MonsterSetPos(pos);
+		
 		pos = miniOffset[i] + pos;
 
 		SetName(L"SlimeMiniIcon");
@@ -61,4 +66,23 @@ namespace ch
 		GameObject::Render(hdc);
 	}
 
+	int SlimeMinIcon::MonsterSetPos(Vector2 pos)
+	{
+		int monsterCount = GameMap::roadTiles[InMapPosCalc(pos).y][InMapPosCalc(pos).x]->GetMonsterCount();
+
+
+
+		return monsterCount-1;
+	}
+
+	Vector2 SlimeMinIcon::InMapPosCalc(Vector2 pos)
+	{
+		pos.y -= (TILE_SIZE * TILE_SCALE);
+		int x = pos.x / (TILE_SIZE * TILE_SCALE);
+		int y = pos.y / (TILE_SIZE * TILE_SCALE);
+
+		Vector2 indexPos(x, y);
+
+		return indexPos;
+	}
 }

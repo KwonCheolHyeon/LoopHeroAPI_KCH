@@ -1,7 +1,7 @@
 #include "chUiBase.h"
 #include "chResources.h"
 #include "chImage.h"
-
+#include "chGameObject.h"
 namespace ch {
 	UiBase::UiBase(eUIType type)
 		: mType(type)
@@ -67,6 +67,11 @@ namespace ch {
 			if (child->mbEnable)
 				child->Tick();
 		}
+
+		for (GameObject* gameObj : mGameObjects)
+		{
+			gameObj->Tick();
+		}
 	}
 
 	void UiBase::Render(HDC hdc)
@@ -79,6 +84,10 @@ namespace ch {
 		{
 			if (child->mbEnable)
 				child->OnRender(hdc);
+		}
+		for (GameObject* gameObj : mGameObjects)
+		{
+			gameObj->Render(hdc);
 		}
 	}
 
@@ -102,5 +111,13 @@ namespace ch {
 	{
 		mChilds.push_back(uiBase);
 		uiBase->mParent = this;
+	}
+
+	void UiBase::AddGameObject(GameObject* gameObj)
+	{
+		if (gameObj == nullptr)
+			return;
+
+		mGameObjects.push_back(gameObj);
 	}
 }

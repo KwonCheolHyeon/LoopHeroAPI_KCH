@@ -21,7 +21,7 @@ namespace ch
 	public:
 		int loopTIme = 1; ////////현재 루프 UI 에 넣어도 될듯///////
 		int gameSpeedCount = 1;
-
+		static int Loop;
 
 	public:
 		
@@ -42,7 +42,7 @@ namespace ch
 
 		std::vector<std::vector<TileMapObject*>>& roadTilesCopy = GameMap::Instance().GetRoadTiles();
 
-		
+		FightPageOBJ* fpg2;
 	private:
 		
 		Image* mImage;

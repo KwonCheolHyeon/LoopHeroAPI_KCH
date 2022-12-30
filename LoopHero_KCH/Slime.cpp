@@ -2,13 +2,13 @@
 #include "chTime.h"
 #include "chSceneManager.h"
 #include "chInput.h"
-#include "chMissile.h"
 #include "chScene.h"
 #include "chImage.h"
 #include "chResources.h"
 #include "chAnimator.h"
 #include "chCollider.h"
-
+#include "WarriorMini.h"
+#include "FightPageOBJ.h"
 
 namespace ch
 {
@@ -22,6 +22,7 @@ namespace ch
 		{
 			mImage = Resources::Load<Image>(L"Monster", L"..\\Resources\\loophero\\monster\\Slime\\idle\\s_slime_idle_0.bmp");
 		}
+
 		mAnimator = new Animator();
 		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Slime\\idle", L"SlimeIdle");
 		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Slime\\attack", L"Slimeattack", { 2,2 }, 0.3f);
@@ -72,9 +73,9 @@ namespace ch
 
 
 		//몬스터 리스폰시
-			//mHP.nowHP = mHP.baseHp * LOOP; 현재 HP 
-			//mATT.nowStr = mATT.baseStr * LOOP; 
-			//mDEF.nowDef = mDEF.baseDef * LOOP;
+		mHP.nowHP = mHP.baseHp * WarriorMini::Loop; 
+		mATT.nowStr = mATT.baseStr * WarriorMini::Loop;
+		mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
 		mSPD.spd = 0.6;
 
 	}
@@ -92,7 +93,7 @@ namespace ch
 
 		SetPos(pos);
 
-		attSpdChek += Time::DeltaTime();
+		attSpdChek += Time::DayTime();
 
 		if (attSpdChek >= ( 1 / mSPD.spd)) //공격속도
 		{
@@ -130,30 +131,41 @@ namespace ch
 
 	void Slime::mSetTarget()
 	{//플레이어 선택
-
+		
+		
 	}
 
 	void Slime::mAttack()
 	{
 		//공격
-
+		FightPageOBJ::Testplayer->takeDamage(mATT.nowStr);
 		attSpdChek = 0;
 	}
 
 	void Slime::takeDamage(double damage) //데미지 받을때
 	{
-		mHP.nowHP -= calcDEF(damage);//데미지 받을때
 		
+		mHP.nowHP -= calcDEF(damage);//데미지 받을때
+		if (mHP.nowHP <= 0) 
+		{
+			mAnimator->Play(L"SlimeDeath", false);//죽음 애니메이션
+			
+		}
+		mAnimator->Play(L"SlimeHurt", false);
 	}
+
+
 
 	double Slime::calcDEF(double damage) // 방어력 계산
 	{
 		double Finaldmg = 0;
 
-		Finaldmg = 0.5 * damage * (20.3125 / (18.75 + mDEF.nowDef - (0.5 * damage)) - (1 / 12));//방어력 계산식
+		Finaldmg = damage - mDEF.baseDef;
 
 		return Finaldmg;
 	}
+
+
 
 	void Slime::ITEMs()
 	{

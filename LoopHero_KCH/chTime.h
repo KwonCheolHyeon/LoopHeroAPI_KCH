@@ -18,6 +18,7 @@ namespace ch
 		//DayTime 
 		static float mDayTime;
 		static int mDays;
+		static int gameSpeed;
 
 	private:
 		//CPU 고유 진동수 ( 1초당 몇번 ) 1초 12000번 진동하는 CPU

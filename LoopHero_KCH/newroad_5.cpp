@@ -5,7 +5,7 @@
 #include "chResources.h"
 #include "chCamera.h"
 #include "chObject.h"
-#include "chSlimeMinIcon.h"
+#include "chMiniIconStore.h"
 #include "GameMap.h"
 #include "chTime.h"
 
@@ -56,12 +56,21 @@ namespace ch
 	}
 	void newroad_5::SlimeSpawn()
 	{
-
-		int random = rand() % 100 + 1; // 1~100;
-		if (random >= 96)
+		
+		
+		if (GameMap::roadTiles[InMapPosCalc(mypos).y][InMapPosCalc(mypos).x]->GetMonsterCount() < 5) //몬스터가 5마리 이하일때
 		{
-			ch::object::Instantiate<SlimeMinIcon>(mypos, eColliderLayer::Road);
-			GameMap::roadTiles[InMapPosCalc(mypos).y][InMapPosCalc(mypos).x]->SetMonsters(1);
+			int random = rand() % 100 + 1; // 1~100;
+			if (random >= 96)
+			{
+				
+				GameMap::roadTiles[InMapPosCalc(mypos).y][InMapPosCalc(mypos).x]->SetMonsters(1);//몬스터 추가 하면서 타일에 몬스터 타입을 저장 슬라임이라 1
+				int Gy = InMapPosCalc(mypos).y;
+				int Gx = InMapPosCalc(mypos).x;
+
+				MiniIconStore::gameObjsStore[Gy][Gx][GameMap::roadTiles[InMapPosCalc(mypos).y][InMapPosCalc(mypos).x]->GetMonsterCount()-1]
+					= ch::object::Instantiate<MiniIconStore>(1, mypos, eColliderLayer::MiniIcon);
+			}
 		}
 	}
 

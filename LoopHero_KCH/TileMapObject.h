@@ -8,6 +8,12 @@ namespace ch
 	class TileMapObject : public GameObject
 	{
 	public:
+		enum emonsterType
+		{
+			Slime,
+			Spider,
+		};
+
 		TileMapObject();
 		TileMapObject(Vector2 position);
 		~TileMapObject();
@@ -37,6 +43,7 @@ namespace ch
 		
 
 		//몬스터 저장 함수
+		int GetMonsterType(int a) { return chMonsters[a]; }
 		int GetMonsterCount() { return monsterCount; }//현재 이타일의 몬스터의 개수를 구해줌
 		void SetMonsters(int monsterIndex);// 각배열에 몬스터 고유번호 집어 넣어주는 함수
 		
@@ -52,7 +59,7 @@ namespace ch
 		//몬스터 저장
 		int monsterIndex; // 몬스터 고유 번호 0 = 비었음 1 = 슬라임,  2 = 거미, 3 = 뱀파이어, 4  = 해골, 5 = 하피  
 		int monsterCount; //몬스터가 몇마리 있는지?
-		int chMonsters[6]; // 각 배열에 몬스터 고유 번호를 집어 넣을 생각
+		int chMonsters[5]; // 각 배열에 몬스터 고유 번호를 집어 넣을 생각
 
 
 	private :

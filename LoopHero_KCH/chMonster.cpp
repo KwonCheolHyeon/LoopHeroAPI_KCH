@@ -10,6 +10,7 @@
 #include "chAnimator.h"
 #include "chCollider.h"
 #include "chCamera.h"
+#include "LoopMonster.h"
 
 namespace ch
 {

@@ -23,7 +23,7 @@ namespace ch
 		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\FightPage\\closeIdle", L"closeIdle", { 1,1 }, 0.5f);
 		mAnimator->Play(L"openIdle", false);
 		AddComponent(mAnimator);
-		ch::object::Instantiate<pesochAni>(eColliderLayer::Player);
+		ch::object::Instantiate<pesochAni>(eColliderLayer::PlayerMonster);
 		
 	}
 

@@ -51,7 +51,7 @@ namespace ch {
 		Vector2 MapPosCalcOffset(int y, int x);
 		static std::vector<std::vector<TileMapObject*>> roadTiles;
 
-		static std::vector<std::vector<TileMapObject*>> monsterTiles;
+		//static std::vector<std::vector<TileMapObject*>> monsterTiles;
 	protected:
 		
 		

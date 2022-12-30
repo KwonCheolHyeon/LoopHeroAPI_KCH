@@ -29,7 +29,7 @@ namespace ch
 		Logo1->SetImage(L"s_game_logo_0", L"s_game_logo_0.bmp");
 		Logo1->Initialize();
 
-		AddGameObject(Logo1, eColliderLayer::Player);
+		AddGameObject(Logo1, eColliderLayer::PlayerMonster);
 
 		TitleOpmiddle* TitleOp = new TitleOpmiddle();
 		TitleOp->SetImage(L"newescmenu_0", L"newescmenu_0.bmp");

@@ -139,6 +139,9 @@
     <Filter Include="Client\Map\Lager">
       <UniqueIdentifier>{92367973-7399-4334-8221-311d6e143e09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Client\Monsters\Spider">
+      <UniqueIdentifier>{31d8b7e1-0aa2-4ffd-b1fc-4fac6aaba677}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -239,9 +242,6 @@
     </ClInclude>
     <ClInclude Include="LoopHero_KCH.h">
       <Filter>main\소스 파일\헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="LoopMonster.h">
-      <Filter>Client\Monsters</Filter>
     </ClInclude>
     <ClInclude Include="LoopWarrior.h">
       <Filter>Client\Character\Warrior</Filter>
@@ -408,6 +408,24 @@
     <ClInclude Include="chSlimeMinIcon.h">
       <Filter>Client\Monsters\Slime</Filter>
     </ClInclude>
+    <ClInclude Include="chUiManager.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="chHUD.h">
+      <Filter>Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIGameObject.h">
+      <Filter>Engine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SpiderMini.h">
+      <Filter>Client\Monsters\Spider</Filter>
+    </ClInclude>
+    <ClInclude Include="chMiniIconStore.h">
+      <Filter>Client\Monsters\base</Filter>
+    </ClInclude>
+    <ClInclude Include="LoopMonster.h">
+      <Filter>Client\Monsters\base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -490,9 +508,6 @@
     </ClCompile>
     <ClCompile Include="chMissile.cpp">
       <Filter>Engine\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="LoopMonster.cpp">
-      <Filter>Client\Monsters</Filter>
     </ClCompile>
     <ClCompile Include="LoopWarrior.cpp">
       <Filter>Client\Character\Warrior</Filter>
@@ -658,6 +673,24 @@
     </ClCompile>
     <ClCompile Include="chSlimeMinIcon.cpp">
       <Filter>Client\Monsters\Slime</Filter>
+    </ClCompile>
+    <ClCompile Include="chUiManager.cpp">
+      <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="chHUD.cpp">
+      <Filter>Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIGameObject.cpp">
+      <Filter>Engine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="SpiderMini.cpp">
+      <Filter>Client\Monsters\Spider</Filter>
+    </ClCompile>
+    <ClCompile Include="chMiniIconStore.cpp">
+      <Filter>Client\Monsters\base</Filter>
+    </ClCompile>
+    <ClCompile Include="LoopMonster.cpp">
+      <Filter>Client\Monsters\base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

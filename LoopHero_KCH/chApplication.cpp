@@ -5,7 +5,7 @@
 #include "chResources.h"
 #include "chCollisionManager.h"
 #include "chCamera.h"
-
+#include "chUiManager.h"
 namespace ch
 {
 	//Application Application::mInstance;
@@ -17,7 +17,7 @@ namespace ch
 		Input::Initialize();
 		SceneManager::Initialize();
 		Camera::Initialize();
-		
+		UIManager::Initialize();
 
 	}
 
@@ -36,7 +36,7 @@ namespace ch
 		Camera::Tick();
 		SceneManager::Tick();
 		CollisionManager::Tick();
-
+		UIManager::Tick();
 		// clear
 		//Brush brush(mWindowData.backBuffer, mBrushes[(UINT)eBrushColor::Gray]);
 		HBRUSH hPrevBrush = (HBRUSH)SelectObject(mWindowData.backBuffer, mBrushes[(UINT)eBrushColor::Black]);
@@ -67,7 +67,7 @@ namespace ch
 	{
 		SceneManager::Release();
 		Resources::Release();
-
+		UIManager::Release();
 		ReleaseDC(mWindowData.hWnd, mWindowData.hdc);
 		ReleaseDC(mWindowData.hWnd, mWindowData.backBuffer);
 	}

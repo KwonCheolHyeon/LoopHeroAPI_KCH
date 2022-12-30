@@ -4,12 +4,15 @@
 
 #include <string>
 #include <vector>
+#include <stack>
+#include <queue>
 #include <list>
 #include <map>
 #include <set>
 #include <bitset>
 #include <functional>
 #include <filesystem>
+#include <assert.h>
 
 #include "def.h"
 #include "Maths.h"

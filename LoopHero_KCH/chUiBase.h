@@ -3,7 +3,7 @@
 
 
 namespace ch {
-
+	class GameObject;
 	class Image;
 	class UiBase : public Entity
 	{
@@ -54,6 +54,7 @@ namespace ch {
 
 		void ImageLoad(const std::wstring& key, const std::wstring& path);
 		void AddChild(UiBase* uiBase);
+		void AddGameObject(GameObject* gameObj);
 
 		eUIType GetType() { return mType; }
 		bool GetIsFullScreen() { return mbFullScreen; }
@@ -61,6 +62,10 @@ namespace ch {
 		void SetParent(UiBase* parent) { mParent = parent; }
 		void SetPos(Vector2 pos) { mPos = pos; }
 		Vector2 GetPos() { return mPos; }
+
+		void SetScale(Vector2 scale) { mScale = scale; }
+		Vector2 GetScale() { return mScale; }
+
 		void SetSize(Vector2 size) { mSize = size; }
 		Vector2 GetSize() { return mSize; }
 
@@ -70,6 +75,7 @@ namespace ch {
 		Vector2 mPos;
 		Vector2 mSize;
 		Vector2 mScreenPos;
+		Vector2 mScale;
 
 	private:
 		virtual void OnInit() {};
@@ -81,6 +87,7 @@ namespace ch {
 
 	private:
 		std::vector<UiBase*> mChilds;
+		std::vector<GameObject*> mGameObjects;
 
 		eUIType mType;
 		bool mbFullScreen;

@@ -10,7 +10,9 @@
 #include "chTime.h"
 #include "TileMapObject.h"
 #include "FightPageOBJ.h"
-
+#include "chUiManager.h"
+#include "LoopWarrior.h"
+#include "chMiniIconStore.h"
 
 namespace ch 
 {
@@ -31,7 +33,7 @@ namespace ch
         mAnimator->Play(L"Warrior_Idle", true);
         AddComponent(mAnimator);
     }
-
+    
     WarriorMini::WarriorMini(Vector2 pos)
     {
         distanceOne = 0.0f;
@@ -48,7 +50,7 @@ namespace ch
         }
 
         mAnimator = new Animator();
-        mAnimator->CreateAnimations(L"..\\Resources\\loophero\\character\\Warrior_Icon", L"Warrior_Idle");
+        mAnimator->CreateAnimations(L"..\\Resources\\loophero\\character\\Player_Icon", L"Warrior_Idle");
         mAnimator->Play(L"Warrior_Idle", true);
         AddComponent(mAnimator);
 
@@ -66,8 +68,10 @@ namespace ch
         }
         pIndex = Vector2(pX,pY);
         Pdir = dirSelect(pIndex.x,pIndex.y);
-        
+        Loop = 1;
+       
     }
+    int WarriorMini::Loop;
 
     WarriorMini::~WarriorMini()
     {
@@ -88,15 +92,36 @@ namespace ch
             Pdir=dirSelect(pIndex.x,pIndex.y);
             if (GameMap::roadTiles[prevPY][prevPX]->GetMonsterCount() > 0) //몬스터가 있는지? 체크
             {//전투씬
-                int a = 0;
-                FightPageOBJ* fpg = new FightPageOBJ(prevPY, prevPX);
-                fpg->SetImage(L"FightPage", L"s_fight_window_0.bmp");
-                fpg->Initialize();
+               
+               gameSpeedCount = 0;
 
-               SceneManager::GetPlayScene()->AddGameObject(fpg, eColliderLayer::BackGround);
+               FightPageOBJ* fpg = new FightPageOBJ(prevPY, prevPX);
+               fpg->SetImage(L"FightPage", L"s_fight_window_0.bmp");
+               fpg->Initialize();
+               Time::gameSpeed = 0;
+               SceneManager::GetPlayScene()->AddGameObject(fpg, eColliderLayer::BackGroundOBJ);
+               fpg2 = fpg;
 
             }
+            if(GameMap::roadTiles[prevPY][prevPX]->GetTileType() == 100)
+            {
+                Loop += 1;
+            }
         }
+
+        if (LoopWarrior::FightDone == true) 
+        {
+            LoopWarrior::FightDone == false;
+            
+            GameMap::roadTiles[prevPY][prevPX]->clearMonsters();
+            MiniIconStore::ClearGameObjs(prevPY, prevPX);
+            FightPageOBJ::objDeath();
+            fpg2->Death();
+           
+            Time::gameSpeed = 1;
+            gameSpeedCount = 1;
+        }
+
 
         moveTo(Pdir, pos);
 

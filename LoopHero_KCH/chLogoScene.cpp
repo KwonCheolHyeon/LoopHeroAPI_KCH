@@ -36,14 +36,13 @@ namespace ch
 	{
 
 		Scene::Tick();
-		//Camera::SetCameraEffect(eCameraEffect::FadeOut);
+		
 
 		nextLogo += Time::DeltaTime();
 
 		
 		if (nextLogo >= 5.0f && logo2start) 
 		{
-			
 			//Camera::SetCameraEffect(eCameraEffect::FadeIn);
 
 			LogoAni2* logo1 = new LogoAni2();
@@ -62,8 +61,7 @@ namespace ch
 	void LogoScene::Render(HDC hdc)
 	{
 		Scene::Render(hdc);
-		
-		
+
 	}
 
 

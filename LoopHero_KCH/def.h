@@ -42,24 +42,19 @@ enum class eComponentType
 #define _COLLIDER_LAYER 16
 enum class eColliderLayer
 {
-	Default,
+	Deault,
 	Greed,
 	BackGround,
 	Road,
 	Tile,
 	TilePlace,
 	Card,
-	PlayerMini,
-	Player,
-	Player_Projecttile,
-	Monster,
-	Monster_Projecttile,
-	Warrior,
-
-	BackPack,
+	MiniIcon,
+	BackGroundOBJ,
+	TimeOBJ,
+	PlayerMonster,
 	Mouse,
-	UI = _COLLIDER_LAYER - 1,
-	End = _COLLIDER_LAYER,
+	UI
 };
 
 enum class eCameraEffect
@@ -71,10 +66,12 @@ enum class eCameraEffect
 
 enum class eUIType
 {
+	BackGroundPanel,
 	HP,
 	MP,
 	SHOP,
 	INVENTORY,
+	StartBtn,
 	OPTION,
 
 

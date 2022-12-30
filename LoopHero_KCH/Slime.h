@@ -22,6 +22,7 @@ namespace ch
 		void takeDamage(double damage);
 		double calcDEF(double damage);
 		void ITEMs();
+		void checkHP();
 
 	private:
 		Image* mImage;

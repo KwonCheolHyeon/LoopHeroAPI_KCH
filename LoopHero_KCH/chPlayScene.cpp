@@ -47,7 +47,6 @@ namespace ch
 		chItemPanel->Initialize();
 		AddGameObject(chItemPanel, eColliderLayer::BackGround);
 
-		
 		PlayingCard* chPlayingCard = new PlayingCard(1);
 		chPlayingCard->SetBGImage(L"Cards01_BG", L"card_rubashka_00.bmp");
 		chPlayingCard->SetCardImage(L"Cards01_CARD", L"card_face_11.bmp"); // »ê

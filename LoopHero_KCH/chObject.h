@@ -27,6 +27,16 @@ namespace ch
 			return gameObject;
 		}
 
+		template <typename T>
+		static __forceinline T* Instantiate(int monsterIndex, Vector2 position, eColliderLayer type)
+		{
+			T* gameObject = new T(monsterIndex, position);
+			Scene* scene = SceneManager::GetPlayScene();
+			scene->AddGameObject(dynamic_cast<GameObject*>(gameObject), type);
+
+			return gameObject;
+		}
+
 		static __forceinline void Destroy(GameObject* gameObj)
 		{
 			gameObj->Death();

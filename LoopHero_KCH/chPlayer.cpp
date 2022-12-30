@@ -121,7 +121,7 @@ namespace ch
 			Missile* missile = new Missile();
 
 			Scene* playScene = SceneManager::GetPlayScene();
-			playScene->AddGameObject(missile, eColliderLayer::Player_Projecttile);
+			playScene->AddGameObject(missile, eColliderLayer::PlayerMonster);
 
 			Vector2 playerPos = GetPos();
 			Vector2 playerScale = GetScale() / 2.0f;
@@ -133,7 +133,7 @@ namespace ch
 		{
 			BackPack* backPack = new BackPack();
 			Scene* playScene = SceneManager::GetPlayScene();
-			playScene->AddGameObject(backPack, eColliderLayer::Player_Projecttile);
+			playScene->AddGameObject(backPack, eColliderLayer::PlayerMonster);
 		}
 
 		SetPos(pos);
@@ -173,7 +173,7 @@ namespace ch
 		Missile* missile = new Missile();
 
 		Scene* playScene = SceneManager::GetPlayScene();
-		playScene->AddGameObject(missile, eColliderLayer::Player_Projecttile);
+		playScene->AddGameObject(missile, eColliderLayer::PlayerMonster);
 
 		Vector2 playerPos = GetPos();
 		Vector2 playerScale = GetScale() / 2.0f;
