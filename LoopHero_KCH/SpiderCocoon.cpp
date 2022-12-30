@@ -7,7 +7,6 @@
 #include "chObject.h"
 #include "GameMap.h"
 #include "chTime.h"
-#include"SpiderMini.h"
 #include "chMiniIconStore.h"
 
 namespace ch 

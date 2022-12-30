@@ -62,7 +62,7 @@ namespace ch
 			mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Spider\\idle", L"SpiderIdle");
 			mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Spider\\attack", L"Spiderattack", { 2,2 }, 0.3f);
 			mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Spider\\hurt", L"SpiderHurt", { 2,2 }, 0.3f);
-			//mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Spider\\death", L"SlimeDeath", { 2,2 }, 0.3f); 거미 죽음
+			mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Spider\\death", L"SpiderDeath", { 2,2 }, 0.3f);//거미 죽음
 
 			mAnimator->Play(L"SpiderIdle", true);
 			AddComponent(mAnimator);
@@ -82,26 +82,92 @@ namespace ch
 		}
 		else if (monsIndex == 3) //뱀파이어
 		{
-		
+			SetName(L"VampireMonster");
+			SetPos(pos);
+			SetScale({ 3.0f, 3.0f });
+
+			mAnimator = new Animator();
+			mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Vampire\\Idle", L"VampireIdle");
+			mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Vampire\\attack", L"Vampireattack", { 2,2 }, 0.3f);
+			mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Vampire\\hurt", L"VampireHurt", { 2,2 }, 0.3f);
+			mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Vampire\\death", L"VampireDeath", { 2,2 }, 0.3f); //죽음
+
+			mAnimator->Play(L"VampireIdle", true);
+			AddComponent(mAnimator);
+
+			//슬라임 기본 체력
+			mHP.baseHp = 8;
+			mATT.baseStr = 3.1;
+			mDEF.baseDef = 0.4;
+
+
+			//몬스터 리스폰시
+			mHP.nowHP = mHP.baseHp * WarriorMini::Loop;// 현재 HP 
+			mATT.nowStr = mATT.baseStr * WarriorMini::Loop;
+			mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
+			mSPD.spd = 0.91;
+			MonsterIndex = monsIndex;
 		
 		}
-		else if (monsIndex == 4) 
+		else if (monsIndex == 4) //들개
 		{
-		
+			SetName(L"DogMonster");
+			SetPos(pos);
+			SetScale({ 3.0f, 3.0f });
+
+			mAnimator = new Animator();
+			mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Dog\\idle", L"DogIdle");
+			mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Dog\\attack", L"Dogattack", { 2,2 }, 0.3f);
+			mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Dog\\hurt", L"DogHurt", { 2,2 }, 0.3f);
+			mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Dog\\death", L"DogDeath", { 2,2 }, 0.3f); //죽음
+
+			mAnimator->Play(L"DogIdle", true);
+			AddComponent(mAnimator);
+
+			//슬라임 기본 체력
+			mHP.baseHp = 8;
+			mATT.baseStr = 3.1;
+			mDEF.baseDef = 0.4;
+
+
+			//몬스터 리스폰시
+			mHP.nowHP = mHP.baseHp * WarriorMini::Loop;// 현재 HP 
+			mATT.nowStr = mATT.baseStr * WarriorMini::Loop;
+			mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
+			mSPD.spd = 0.91;
+			MonsterIndex = monsIndex;
 		
 		}
-		else if (monsIndex == 5) 
+		else if (monsIndex == 5) //스켈레톤
 		{
-		
+		SetName(L"SkeletonMonster");
+		SetPos(pos);
+		SetScale({ 3.0f, 3.0f });
+
+		mAnimator = new Animator();
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Skeleton\\idle", L"SkeletonIdle");
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Skeleton\\attack", L"Skeletonattack", { 2,2 }, 0.3f);
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Skeleton\\hurt", L"SkeletonHurt", { 2,2 }, 0.3f);
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Skeleton\\death", L"SkeletonDeath", { 2,2 }, 0.3f); //죽음
+
+		mAnimator->Play(L"SkeletonIdle", true);
+		AddComponent(mAnimator);
+
+		//슬라임 기본 체력
+		mHP.baseHp = 8;
+		mATT.baseStr = 3.1;
+		mDEF.baseDef = 0.4;
+
+
+		//몬스터 리스폰시
+		mHP.nowHP = mHP.baseHp * WarriorMini::Loop;// 현재 HP 
+		mATT.nowStr = mATT.baseStr * WarriorMini::Loop;
+		mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
+		mSPD.spd = 0.91;
+		MonsterIndex = monsIndex;
 		
 		}
-		else if (monsIndex == 6) 
-		{
 		
-		
-		}
-	
-	
 	}
 
 	Monsters::~Monsters()
@@ -155,6 +221,21 @@ namespace ch
 			mAnimator->Play(L"Spiderattack", false);
 			FightPageOBJ::Testplayer->takeDamage(mATT.nowStr);
 		}
+		else if (MonsterIndex == 3)
+		{
+			mAnimator->Play(L"Vampireattack", false);
+			FightPageOBJ::Testplayer->takeDamage(mATT.nowStr);
+		}
+		else if (MonsterIndex == 4)
+		{
+			mAnimator->Play(L"Dogattack", false);
+			FightPageOBJ::Testplayer->takeDamage(mATT.nowStr);
+		}
+		else if (MonsterIndex == 5)
+		{
+			mAnimator->Play(L"Skeletonattack", false);
+			FightPageOBJ::Testplayer->takeDamage(mATT.nowStr);
+		}
 	}
 
 	void Monsters::mTakeDamage(double damage) //데미지 받을때
@@ -180,13 +261,52 @@ namespace ch
 			mHP.nowHP -= mCalcDef(damage);//데미지 받을때
 			if (mHP.nowHP <= 0)
 			{
-				mAnimator->Play(L"SpiderHurt", false);//죽음 애니메이션
+				mAnimator->Play(L"SpiderDeath", false);//죽음 애니메이션
 			}
 			else
 			{
 				mAnimator->Play(L"SpiderHurt", false);
 			}
 		
+		}
+		else if (MonsterIndex == 3)
+		{
+			mHP.nowHP -= mCalcDef(damage);//데미지 받을때
+			if (mHP.nowHP <= 0)
+			{
+				mAnimator->Play(L"VampireDeath", false);//죽음 애니메이션
+			}
+			else
+			{
+				mAnimator->Play(L"VampireHurt", false);
+			}
+
+		}
+		else if (MonsterIndex == 4)
+		{
+			mHP.nowHP -= mCalcDef(damage);//데미지 받을때
+			if (mHP.nowHP <= 0)
+			{
+				mAnimator->Play(L"DogDeath", false);//죽음 애니메이션
+			}
+			else
+			{
+				mAnimator->Play(L"DogHurt", false);
+			}
+
+		}
+		else if (MonsterIndex == 5)
+		{
+			mHP.nowHP -= mCalcDef(damage);//데미지 받을때
+			if (mHP.nowHP <= 0)
+			{
+				mAnimator->Play(L"SkeletonDeath", false);//죽음 애니메이션
+			}
+			else
+			{
+				mAnimator->Play(L"SkeletonHurt", false);
+			}
+
 		}
 
 		

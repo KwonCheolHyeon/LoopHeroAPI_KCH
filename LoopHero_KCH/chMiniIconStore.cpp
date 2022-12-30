@@ -65,26 +65,77 @@ namespace ch
         }
         else if (index == 3) 
         {
-        
+            int i = 0;
+            miniOffset[0] = { 5,5 };
+            miniOffset[1] = { 45,5 };
+            miniOffset[2] = { 5,45 };
+            miniOffset[3] = { 45,45 };
+            miniOffset[4] = { 25,25 };
+
+
+            i = MonsterSetPos(pos);
+
+            pos = miniOffset[i] + pos;
+
+            SetName(L"VamIcon");
+            SetPos(pos);
+            SetScale({ 1.0f, 1.0f });
+
+            mAnimator = new Animator();
+            mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Monster_Icon\\Vampire_Icon", L"Vam_iIdle");
+            mAnimator->Play(L"Vam_iIdle", true);
+            AddComponent(mAnimator);
         
         }
         else if (index == 4)
         {
+            int i = 0;
+            miniOffset[0] = { 5,5 };
+            miniOffset[1] = { 45,5 };
+            miniOffset[2] = { 5,45 };
+            miniOffset[3] = { 45,45 };
+            miniOffset[4] = { 25,25 };
 
+
+            i = MonsterSetPos(pos);
+
+            pos = miniOffset[i] + pos;
+
+            SetName(L"DogIcon");
+            SetPos(pos);
+            SetScale({ 1.0f, 1.0f });
+
+            mAnimator = new Animator();
+            mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Monster_Icon\\Dog_Icon", L"Dog_iIdle");
+            mAnimator->Play(L"Dog_iIdle", true);
+            AddComponent(mAnimator);
 
         }
         else if (index == 5)
         {
+            int i = 0;
+            miniOffset[0] = { 5,5 };
+            miniOffset[1] = { 45,5 };
+            miniOffset[2] = { 5,45 };
+            miniOffset[3] = { 45,45 };
+            miniOffset[4] = { 25,25 };
 
+
+            i = MonsterSetPos(pos);
+
+            pos = miniOffset[i] + pos;
+
+            SetName(L"Skeleton_icon");
+            SetPos(pos);
+            SetScale({ 1.0f, 1.0f });
+
+            mAnimator = new Animator();
+            mAnimator->CreateAnimations(L"..\\Resources\\loophero\\monster\\Monster_Icon\\Skeleton_Icon", L"Skeleton_iIdle");
+            mAnimator->Play(L"Skeleton_iIdle", true);
+            AddComponent(mAnimator);
 
         }
-        else if (index == 6)
-        {
-
-
-        }
-
-
+     
 
     }
     MiniIconStore *MiniIconStore::gameObjsStore[11][21][6];
