@@ -42,7 +42,7 @@ enum class eComponentType
 #define _COLLIDER_LAYER 16
 enum class eColliderLayer
 {
-	Deault,
+	//Deault,
 	Greed,
 	BackGround,
 	Road,

@@ -96,16 +96,16 @@ namespace ch
 			AddComponent(mAnimator);
 
 			//슬라임 기본 체력
-			mHP.baseHp = 8;
-			mATT.baseStr = 3.1;
-			mDEF.baseDef = 0.4;
+			mHP.baseHp = 18;
+			mATT.baseStr =5.8;
+			mDEF.baseDef = 0.5;
 
 
 			//몬스터 리스폰시
 			mHP.nowHP = mHP.baseHp * WarriorMini::Loop;// 현재 HP 
 			mATT.nowStr = mATT.baseStr * WarriorMini::Loop;
 			mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
-			mSPD.spd = 0.91;
+			mSPD.spd = 0.5;
 			MonsterIndex = monsIndex;
 		
 		}
@@ -125,16 +125,16 @@ namespace ch
 			AddComponent(mAnimator);
 
 			//슬라임 기본 체력
-			mHP.baseHp = 8;
-			mATT.baseStr = 3.1;
-			mDEF.baseDef = 0.4;
+			mHP.baseHp = 16;
+			mATT.baseStr = 3.6;
+			mDEF.baseDef = 0.2;
 
 
 			//몬스터 리스폰시
 			mHP.nowHP = mHP.baseHp * WarriorMini::Loop;// 현재 HP 
 			mATT.nowStr = mATT.baseStr * WarriorMini::Loop;
 			mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
-			mSPD.spd = 0.91;
+			mSPD.spd = 0.75;
 			MonsterIndex = monsIndex;
 		
 		}
@@ -154,16 +154,16 @@ namespace ch
 		AddComponent(mAnimator);
 
 		//슬라임 기본 체력
-		mHP.baseHp = 8;
-		mATT.baseStr = 3.1;
-		mDEF.baseDef = 0.4;
+		mHP.baseHp = 12;
+		mATT.baseStr = 9;
+		mDEF.baseDef = 0.3;
 
 
 		//몬스터 리스폰시
 		mHP.nowHP = mHP.baseHp * WarriorMini::Loop;// 현재 HP 
 		mATT.nowStr = mATT.baseStr * WarriorMini::Loop;
 		mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
-		mSPD.spd = 0.91;
+		mSPD.spd = 0.35;
 		MonsterIndex = monsIndex;
 		
 		}
@@ -184,7 +184,7 @@ namespace ch
 
 		SetPos(pos);
 
-		if (mHP.nowHP >= 0) 
+		if (mHP.nowHP > 0) 
 		{
 			attSpdChek += Time::DeltaTime();
 		}
@@ -246,13 +246,10 @@ namespace ch
 			if (mHP.nowHP <= 0)
 			{
 				mAnimator->Play(L"SlimeDeath", false);//죽음 애니메이션
-				
-
 			}
 			else 
 			{
 				mAnimator->Play(L"SlimeHurt", false);
-			
 			}
 			
 		}

@@ -117,6 +117,13 @@ namespace ch
 		chPlayingCard10->SetPos({ 922.5f,900 - 145 });
 		AddGameObject(chPlayingCard10, eColliderLayer::Card);
 
+		PlayingCard* chPlayingCard11 = new PlayingCard(11);
+		chPlayingCard11->SetBGImage(L"Cards03_BG", L"card_rubashka_00.bmp");
+		chPlayingCard11->SetCardImage(L"Cards11_CARD", L"card_face_47.bmp"); //초원 카드
+		chPlayingCard11->Initialize();
+		chPlayingCard11->SetPos({ 1025,900 - 145 });
+		AddGameObject(chPlayingCard11, eColliderLayer::Card);
+
 
 
 		EquipmentPage* ep = new EquipmentPage();

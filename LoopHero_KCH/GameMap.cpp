@@ -125,7 +125,11 @@ namespace ch
 		{
 			chCardSelect = false;
 			aroundVillage();
-
+		}
+		else if (mTileType == 11 && chCardSelect == true) //초원
+		{
+			chCardSelect = false;
+			exAroundRoad();
 		}
 
 		
@@ -575,6 +579,21 @@ namespace ch
 				mTileType = 0;
 			}
 		}
+		else if (mTileNum == 11)
+		{
+		if (mTiles[y][x]->GetTileBase() == 1) { //설치 가능 구역 
+
+			if (KEY_DOWN(eKeyCode::LBTN))
+			{
+				initGreen();
+			}
+			TileMapObject* gameObj = ch::object::Instantiate<Medow>(MapPosCalc(y, x), eColliderLayer::Tile); // 초원
+			gameObj->SetTileType(11);
+			mTiles[y][x] = gameObj;
+			mTileType = 0;
+		}
+		}
+
 	}
 
 	void GameMap::onRoad()//길위  
