@@ -29,9 +29,9 @@ namespace ch
 
 		mAnimator = new Animator();
 
-		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Boss\\appear", L"appearLeach", Vector2(0,-60));
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Boss\\appear", L"appearLeach", Vector2(0,-115));
 
-		mAnimator->Play(L"appearLeach", true);
+		mAnimator->Play(L"appearLeach", false);
 
 		AddComponent(mAnimator);
 	}

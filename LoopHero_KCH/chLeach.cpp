@@ -33,7 +33,7 @@ namespace ch
 		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Boss\\leach\\attack", L"leachattack", { 0,0 }, 0.3f);
 		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Boss\\leach\\hurt", L"leachHurt", { 0,0}, 0.3f);
 		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Boss\\leach\\death", L"leachDeath", { 0,0 }, 0.3f);
-		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Boss\\leach\\firstStart", L"leachFirst", { 0,0 }, 0.3f);
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Boss\\leach\\firstStart", L"leachFirst", { 0,0 }, 0.3f);///6초 대기 시간 추가 해주기
 
 		mAnimator->Play(L"leachFirst", false);
 		AddComponent(mAnimator);
@@ -56,7 +56,7 @@ namespace ch
 	{
 	}
 
-	void Leach::Tick()
+	void Leach::Tick() // 6초뒤 작동
 	{
 		GameObject::Tick();
 

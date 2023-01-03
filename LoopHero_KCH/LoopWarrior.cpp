@@ -56,9 +56,9 @@ namespace ch
 
 		mAnimator = new Animator();
 		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\character\\warrior\\idle", L"WarriorIdle");//전투 기본모션
-		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\character\\warrior\\attack", L"Warriorattack", { 2,2 }, 0.3f);//전투 모션
-		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\character\\warrior\\hurt", L"WarrioraHurt", { 2,2 }, 0.3f); // 데미지 받을때 모션
-		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\character\\warrior\\death", L"WarrioraDeath", { 2,2 }, 0.3f); // 죽음 모션
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\character\\warrior\\attack", L"Warriorattack", { 0,0 }, 0.3f);//전투 모션
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\character\\warrior\\hurt", L"WarrioraHurt", {0,0 }, 0.2f); // 데미지 받을때 모션
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\character\\warrior\\death", L"WarrioraDeath", { 0,0 }, 0.2f); // 죽음 모션
 		mAnimator->Play(L"WarriorIdle", true);
 
 
@@ -94,7 +94,7 @@ namespace ch
 		Vector2 scale = GetScale();
 
 		SetPos(pos);
-
+		
 		if(playerRegenTime >= 1.0f)//초당 회복
 		{
 			pRegenHP();
