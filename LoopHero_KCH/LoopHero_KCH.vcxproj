@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="bossAppear.h" />
     <ClInclude Include="Cemetery.h" />
     <ClInclude Include="chAnimation.h" />
     <ClInclude Include="chAnimator.h" />
@@ -147,6 +148,7 @@
     <ClInclude Include="chDayOBJ.h" />
     <ClInclude Include="chEndScene.h" />
     <ClInclude Include="chEntity.h" />
+    <ClInclude Include="cheyeOfSight.h" />
     <ClInclude Include="chGameObject.h" />
     <ClInclude Include="chHelthBarPanelOBJ.h" />
     <ClInclude Include="chHUD.h" />
@@ -154,8 +156,10 @@
     <ClInclude Include="chImage.h" />
     <ClInclude Include="chInput.h" />
     <ClInclude Include="chItemBase.h" />
+    <ClInclude Include="chItemBG.h" />
     <ClInclude Include="chItemPanelOBJ.h" />
     <ClInclude Include="chLager.h" />
+    <ClInclude Include="chLeach.h" />
     <ClInclude Include="chLogoScene.h" />
     <ClInclude Include="chMedow.h" />
     <ClInclude Include="chMiniIconStore.h" />
@@ -226,6 +230,7 @@
     <ClInclude Include="WarriorMini.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bossAppear.cpp" />
     <ClCompile Include="Cemetery.cpp" />
     <ClCompile Include="chAnimation.cpp" />
     <ClCompile Include="chAnimator.cpp" />
@@ -243,6 +248,7 @@
     <ClCompile Include="chDayOBJ.cpp" />
     <ClCompile Include="chEndScene.cpp" />
     <ClCompile Include="chEntity.cpp" />
+    <ClCompile Include="cheyeOfSight.cpp" />
     <ClCompile Include="chGameObject.cpp" />
     <ClCompile Include="chHelthBarPanelOBJ.cpp" />
     <ClCompile Include="chHUD.cpp" />
@@ -250,8 +256,10 @@
     <ClCompile Include="chImage.cpp" />
     <ClCompile Include="chInput.cpp" />
     <ClCompile Include="chItemBase.cpp" />
+    <ClCompile Include="chItemBG.cpp" />
     <ClCompile Include="chItemPanelOBJ.cpp" />
     <ClCompile Include="chLager.cpp" />
+    <ClCompile Include="chLeach.cpp" />
     <ClCompile Include="chLogoScene.cpp" />
     <ClCompile Include="chMedow.cpp" />
     <ClCompile Include="chMiniIconStore.cpp" />

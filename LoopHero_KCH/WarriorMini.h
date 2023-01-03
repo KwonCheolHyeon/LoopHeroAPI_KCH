@@ -4,7 +4,7 @@
 #include "TileMapObject.h"
 namespace ch
 {
-
+	class FightPageOBJ;
 	class Image;
 	class WarriorMini : public GameObject
 	{
@@ -16,6 +16,8 @@ namespace ch
 		virtual void Tick() override;
 		virtual void Render(HDC hdc) override;
 
+		//몬스터에 체크
+		bool fullItemCheck();
 		
 
 	public:

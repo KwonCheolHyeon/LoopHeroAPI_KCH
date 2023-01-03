@@ -11,6 +11,12 @@
 #include "WarriorMini.h"
 #include "chSlimeMinIcon.h"
 
+
+
+#include "cheyeOfSight.h"
+#include "bossAppear.h"
+#include "chLeach.h"
+
 namespace ch
 {
 	GameMap GameMap::inst;
@@ -40,14 +46,15 @@ namespace ch
 	{
 		initMap();//초기화
 		ch::object::Instantiate<WarriorMini>(MapPosCalc(7, 12), (eColliderLayer::MiniIcon));
-		
+		ch::object::Instantiate<eyeOfSight>((eColliderLayer::MiniIcon));
+		//ch::object::Instantiate<bossAppear>(MapPosCalc(7, 12),(eColliderLayer::MiniIcon)); // 리치 소환
+		ch::object::Instantiate<Leach>(1,MapPosCalc(7, 12), (eColliderLayer::MiniIcon)); //리치 소환
 	}
 
 	
 
 	void GameMap::Tick()
 	{
-		
 
 		if (KEY_DOWN(eKeyCode::LBTN))
 		{
@@ -131,6 +138,8 @@ namespace ch
 			chCardSelect = false;
 			exAroundRoad();
 		}
+
+
 
 		
 	}

@@ -30,6 +30,7 @@ namespace ch
 		mAnimator = new Animator();
 		
 		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Map\\LagerAni3", L"LagerIdle");
+		
 		mAnimator->Play(L"LagerIdle", true);
 		AddComponent(mAnimator);
 	}

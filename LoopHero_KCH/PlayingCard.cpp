@@ -17,8 +17,6 @@ namespace ch
 
 		Collider* collider = new Collider();
 		AddComponent(collider);
-
-		
 		collider->SetOffset(Vector2(50, 80));
 	}
 	PlayingCard::~PlayingCard()

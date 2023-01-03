@@ -142,6 +142,15 @@
     <Filter Include="Client\Monsters\Spider">
       <UniqueIdentifier>{31d8b7e1-0aa2-4ffd-b1fc-4fac6aaba677}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Client\BossOBJs">
+      <UniqueIdentifier>{8fe93f36-bc11-4e12-b035-d21c0c50fc43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\BossOBJs\appear">
+      <UniqueIdentifier>{0afc41ab-887c-4412-834a-6aacdc20f8df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client\BossOBJs\leach">
+      <UniqueIdentifier>{f80c27b4-77e0-4eb4-8a1c-021d1fec732b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -426,6 +435,18 @@
     <ClInclude Include="LoopMonster.h">
       <Filter>Client\Monsters\base</Filter>
     </ClInclude>
+    <ClInclude Include="cheyeOfSight.h">
+      <Filter>Client\BackGroundImage</Filter>
+    </ClInclude>
+    <ClInclude Include="chItemBG.h">
+      <Filter>Client\Item</Filter>
+    </ClInclude>
+    <ClInclude Include="bossAppear.h">
+      <Filter>Client\BossOBJs\appear</Filter>
+    </ClInclude>
+    <ClInclude Include="chLeach.h">
+      <Filter>Client\BossOBJs\leach</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -691,6 +712,18 @@
     </ClCompile>
     <ClCompile Include="LoopMonster.cpp">
       <Filter>Client\Monsters\base</Filter>
+    </ClCompile>
+    <ClCompile Include="cheyeOfSight.cpp">
+      <Filter>Client\BackGroundImage</Filter>
+    </ClCompile>
+    <ClCompile Include="chItemBG.cpp">
+      <Filter>Client\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="bossAppear.cpp">
+      <Filter>Client\BossOBJs\appear</Filter>
+    </ClCompile>
+    <ClCompile Include="chLeach.cpp">
+      <Filter>Client\BossOBJs\leach</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

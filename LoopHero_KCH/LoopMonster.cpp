@@ -9,6 +9,8 @@
 #include "WarriorMini.h"
 #include "FightPageOBJ.h"
 #include "LoopWarrior.h"
+#include "chObject.h"
+#include "chItemBG.h"
 
 namespace ch
 {
@@ -167,7 +169,8 @@ namespace ch
 		MonsterIndex = monsIndex;
 		
 		}
-		
+		srand(time(NULL));
+		death = false;
 	}
 
 	Monsters::~Monsters()
@@ -188,6 +191,12 @@ namespace ch
 		{
 			attSpdChek += Time::DeltaTime();
 		}
+		
+		if(death == true)
+		{
+			death = false;
+			mItems();
+		}
 
 		if (attSpdChek >= (1 / mSPD.spd)) //공격속도
 		{
@@ -201,13 +210,6 @@ namespace ch
 	{
 		GameObject::Render(hdc);
 	}
-
-	void Monsters::mSetTarget()
-	{//플레이어 선택
-
-
-	}
-
 	void Monsters::mAttack()
 	{
 		//공격
@@ -246,6 +248,7 @@ namespace ch
 			if (mHP.nowHP <= 0)
 			{
 				mAnimator->Play(L"SlimeDeath", false);//죽음 애니메이션
+				death = true;
 			}
 			else 
 			{
@@ -259,6 +262,7 @@ namespace ch
 			if (mHP.nowHP <= 0)
 			{
 				mAnimator->Play(L"SpiderDeath", false);//죽음 애니메이션
+				death = true;
 			}
 			else
 			{
@@ -272,6 +276,7 @@ namespace ch
 			if (mHP.nowHP <= 0)
 			{
 				mAnimator->Play(L"VampireDeath", false);//죽음 애니메이션
+				death = true;
 			}
 			else
 			{
@@ -285,6 +290,7 @@ namespace ch
 			if (mHP.nowHP <= 0)
 			{
 				mAnimator->Play(L"DogDeath", false);//죽음 애니메이션
+				death = true;
 			}
 			else
 			{
@@ -298,15 +304,13 @@ namespace ch
 			if (mHP.nowHP <= 0)
 			{
 				mAnimator->Play(L"SkeletonDeath", false);//죽음 애니메이션
+				death = true;
 			}
 			else
 			{
 				mAnimator->Play(L"SkeletonHurt", false);
 			}
-
 		}
-
-		
 	}
 
 
@@ -324,8 +328,80 @@ namespace ch
 
 	void Monsters::mItems()
 	{
-		//아이템 관련 함수
+		int rank = rand() % 4; // 0~3;
+		int item = rand() % 4; // 0~3;
+		int itemType = rand() % 5; // 0~4
+
+		if (MonsterIndex == 1)
+		{
+			rank = 0;
+			item = rand() % 4;
+			itemType = 0;
+		}
+		else if (MonsterIndex == 2) // 거미
+		{
+			int rank = rand() % 4;
+			if (rank == 0) 
+			{
+				item = rand() % 4;
+				itemType = 0;
+			}
+			else
+			{
+				item = rand() % 4; // 0~3;
+				itemType = rand() % 4 + 1; // 0~4
+			}
+		}
+		else if (MonsterIndex == 3) // 뱀파이어
+		{
+			rank = rand() % 3 + 1;
+			item = rand() % 4;
+			itemType = rand() % 4 + 1;
+		}
+		else if (MonsterIndex == 4) // 들개
+		{
+			rank = rand() % 3 + 1;
+			item = rand() % 4;
+			itemType = rand() % 4 + 1;
+		}
+		else if (MonsterIndex == 5) // 스켈레톤
+		{
+			rank = rand() % 3 + 1;
+			item = rand() % 4;
+			itemType = rand() % 4 + 1;
+		}
+
+		if (fullItemCheck())
+		{
+			ch::object::Instantiate<ItemBG>(rank, item, itemType, (eColliderLayer::Card));
+		}
 	}
+
+	bool Monsters::fullItemCheck()
+	{
+		int count = 0;
+
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 4; j++)
+			{
+				if (ItemBG::bagChecks[i][j] != nullptr)
+				{
+					count++;
+				}
+			}
+		}
+
+		if (count >= 12)
+		{
+			return false;
+		}
+		else if (count < 12)
+		{
+			return true;
+		}
+	}
+
 
 	void Monsters::checkHp()
 	{

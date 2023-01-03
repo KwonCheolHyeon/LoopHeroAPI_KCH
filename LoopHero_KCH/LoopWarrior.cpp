@@ -11,6 +11,9 @@
 #include "Maths.h"
 #include "FightPageOBJ.h"
 #include "LoopMonster.h"
+#include "chObject.h"
+#include "chItemBG.h"
+
 
 namespace ch 
 {
@@ -92,28 +95,6 @@ namespace ch
 
 		SetPos(pos);
 
-		if (KEY_DOWN(eKeyCode::I))
-		{
-			mAnimator->Play(L"WarriorIdle", false);
-		}
-
-		if (KEY_DOWN(eKeyCode::A))
-		{
-			mAnimator->Play(L"Warriorattack", false);
-			Attack();
-		}
-
-		if (KEY_DOWN(eKeyCode::H))
-		{
-			mAnimator->Play(L"WarrioraHurt", false);
-		}
-
-		if (KEY_DOWN(eKeyCode::D))
-		{
-			mAnimator->Play(L"WarrioraDeath", false);
-		}
-		
-
 		if(playerRegenTime >= 1.0f)//초당 회복
 		{
 			pRegenHP();
@@ -135,6 +116,7 @@ namespace ch
 			}
 		}
 
+		
 	
 	}
 
@@ -227,6 +209,9 @@ namespace ch
 			mAnimator->Play(L"WarrioraDeath", false);
 		}
 		//hp관련 끝
+
+
+
 	}
 
 	void LoopWarrior::randStat()//아이템에 따른 스텟 정해줌 Tick();

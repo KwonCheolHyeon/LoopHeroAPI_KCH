@@ -13,6 +13,8 @@
 #include "chUiManager.h"
 #include "LoopWarrior.h"
 #include "chMiniIconStore.h"
+#include "chItemBG.h"
+
 
 namespace ch 
 {
@@ -141,7 +143,8 @@ namespace ch
             gameSpeedCount = 0;
         }
        
-       
+
+      
 
     }
     void WarriorMini::Render(HDC hdc)
@@ -218,4 +221,29 @@ namespace ch
     
     }
 
+
+    bool WarriorMini::fullItemCheck()
+    {
+        int count = 0;
+
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (ItemBG::bagChecks[i][j] != nullptr)
+                {
+                    count++;
+                }             
+            }
+        }
+
+        if (count >= 12)
+        {
+            return false;
+        }
+        else if (count < 12)
+        {
+            return true;
+        }
+    }
 }

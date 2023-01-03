@@ -93,6 +93,10 @@ namespace ch
 		component->mOwner = this;
 	}
 
+
+
+
+
 	void GameObject::DeathLoop()
 	{
 		if (mDeathTimeOn == true)

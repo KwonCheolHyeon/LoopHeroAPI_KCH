@@ -34,6 +34,17 @@ namespace ch
 		
 		SetPos(mousePos);
 		
+		
+		float a = mousePos.x;
+		float b = mousePos.y;
+		if (KEY_DOWN(eKeyCode::LBTN))
+		{
+			a;
+			b;
+			int c = 0;
+		}
+		
+		
 	}
 
 	void MouseObject::Render(HDC hdc)

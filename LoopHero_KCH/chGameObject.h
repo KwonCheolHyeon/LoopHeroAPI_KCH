@@ -25,6 +25,9 @@ namespace ch
 		Vector2 GetPos() { return mPos; }
 		void SetScale(Vector2 scale) { mScale = scale; }
 		Vector2 GetScale() { return mScale; }
+		//내가 추가한거
+		void SetOffset(Vector2 pos) { mOffset = pos; }
+
 		void Death() { mDead = true; }
 		bool IsDeath() { return mDead; }
 		void SetDeathTime(float time);
@@ -50,6 +53,8 @@ namespace ch
 		std::vector<Component*> mComponents;
 		Vector2 mPos;
 		Vector2 mScale;
+		//내가 추가한거 
+		Vector2 mOffset;
 		bool mDead;
 		float mDeathTime;
 		bool mDeathTimeOn;
