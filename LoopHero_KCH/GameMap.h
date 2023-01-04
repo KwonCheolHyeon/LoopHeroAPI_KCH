@@ -52,9 +52,7 @@ namespace ch {
 		static std::vector<std::vector<TileMapObject*>> roadTiles;
 
 		//static std::vector<std::vector<TileMapObject*>> monsterTiles;
-	protected:
-		
-		
+
 	private:
 		
 		int mTileType;
@@ -82,6 +80,11 @@ namespace ch {
 		void initMap();
 		Vector2 MapPosCalc(int y, int x);
 		GameObject ins ;
+
+		//보스관련
+		bool bossCheck();
+		bool bossCheckRock;
+		GameObject* lager;
 
 	public:
 		double InGameDay;

@@ -16,10 +16,12 @@ namespace ch
 
 	MouseObject::MouseObject(Vector2 position)
 	{
+
 	}
 
 	MouseObject::~MouseObject()
 	{
+
 	}
 
 	void MouseObject::Initialize()
@@ -37,11 +39,12 @@ namespace ch
 		
 		float a = mousePos.x;
 		float b = mousePos.y;
+		
 		if (KEY_DOWN(eKeyCode::LBTN))
 		{
 			a;
 			b;
-			int c = 0;
+			int c = 0;	
 		}
 		
 		

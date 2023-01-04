@@ -13,11 +13,11 @@ namespace ch
 	eyeOfSight::eyeOfSight()
 	{
 		SetName(L"FightTime");
-		SetPos({ 650, 500 });
-		SetScale({ 2.0f, 2.0f });
+		SetPos({ 497, 10 });
+		SetScale({ 2.5f, 2.5f });
 
 		mAnimator = new Animator();
-		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\MainGame\\eyeofspace", L"eyeofsightStart", { 1,1 }, 0.6f);
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\MainGame\\eyeofspace", L"eyeofsightStart", { 1,1 }, 0.2f);
 		mAnimator->Play(L"eyeofsightStart", true);
 		AddComponent(mAnimator);
 	}

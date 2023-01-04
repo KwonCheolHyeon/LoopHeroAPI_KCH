@@ -15,12 +15,10 @@ namespace ch
 
 	void UIManager::Initialize()
 	{
-		/*
-		FightPageOBJ* fpg = new FightPageOBJ(eUIType::BackGroundPanel);
-		mUIs.insert(std::make_pair(eUIType::BackGroundPanel, fpg));
-		fpg->ImageLoad(L"FightPage", L"..\\Resources\\loophero\\FightPage\\s_fight_window_0.bmp");
-		fpg->Initialize();
-		*/
+		
+
+
+
 	}
 
 	void UIManager::OnLoad(eUIType type)

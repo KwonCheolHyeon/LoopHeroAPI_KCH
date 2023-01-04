@@ -34,6 +34,9 @@ namespace ch {
 		int MonsterIndex;
 
 		bool death;
+
+		float lichTime;
+		bool lichTimeCheck;
 	private: //½ºÅÝ
 		MonsterHP mHP;
 		MonsterATT mATT;

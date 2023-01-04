@@ -5,19 +5,19 @@ namespace ch
 		struct wBasicSword //일반
 		{
 			//무기
-			int	wMinAttack= 4;
-			int wMaxAttack = 6;
+			int	wMinAttack= 0;
+			int wMaxAttack = 0;
 
 			//갑옷
-			int aHP = 90;
+			int aHP = 0;
 
 
 			//방패
-			int sDef = 4;
+			int sDef =0;
 
 
 			//반지
-			int rDef = 5; //고정
+			int rDef = 0; //고정
 
 			
 		};
@@ -68,63 +68,63 @@ namespace ch
 		{
 
 			//무기
-			int	wMinAttack = 4;
-			int wMaxAttack = 6;
+			int	wMinAttack = 0;
+			int wMaxAttack = 0;
 
 			//갑옷
-			int aHP = 90;
+			int aHP =0;
 
 
 			//방패
-			int sDef = 4;
+			int sDef = 0;
 
 
 			//반지
-			int rDef = 5; //고정
+			int rDef = 0; //고정
 
-			int eDefense = 5;
+			int eDefense = 0;
 		};
-
+	
 		struct wCounter // 카운터   5%단위
 		{
 			//무기
-			int	wMinAttack = 4;
-			int wMaxAttack = 6;
+			int	wMinAttack = 0;
+			int wMaxAttack = 0;
 
 			//갑옷
-			int aHP = 90;
+			int aHP = 0;
 
 
 			//방패
-			int sDef = 4;
+			int sDef =0;
 
 
 			//반지
-			int rDef = 5; //고정
+			int rDef =0; //고정
 
-			int eCounter = 5;
+			int eCounter = 0;
 		};
 
 		struct wAttSpeed // 공격속도 4%단위
 		{
 			//무기
-			int	wMinAttack = 4;
-			int wMaxAttack = 6;
+			int	wMinAttack = 0;
+			int wMaxAttack = 0;
 			
 
 			//갑옷
-			int aHP = 90;
+			int aHP =0;
 
 
 			//방패
-			int sDef = 4;
+			int sDef = 0;
 
 
 			//반지
-			int rDef = 5; //고정
+			int rDef = 0; //고정
 
 
-			int eAttSpeed = 4;
+			int eAttSpeed = 0;
 
 		};
 
@@ -132,23 +132,23 @@ namespace ch
 		{
 
 			//무기
-			int	wMinAttack = 4;
-			int wMaxAttack = 6;
+			int	wMinAttack = 0;
+			int wMaxAttack = 0;
 			
 
 			//갑옷
-			int aHP = 90;
+			int aHP = 0;
 			
 
 			//방패
-			int sDef = 4;
+			int sDef = 0;
 		
 
 			//반지
-			int rDef = 5; //고정
+			int rDef =0; //고정
 			
 
-			int eEvade = 3;
+			int eEvade = 0;
 
 		};
 }

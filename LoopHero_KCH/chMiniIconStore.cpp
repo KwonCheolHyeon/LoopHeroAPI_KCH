@@ -7,7 +7,7 @@
 #include "GameMap.h"
 #include "TileMapObject.h"
 #include "chCollider.h"
-
+#include "WarriorMini.h"
 namespace ch 
 {
     MiniIconStore::MiniIconStore(Vector2 pos)
@@ -167,8 +167,8 @@ namespace ch
                 gameObjsStore[y][x][i]->Death();
                 gameObjsStore[y][x][i] = nullptr;
             }
-           
         }
+        WarriorMini::gameSpeedCount = 1;
     }
 
 

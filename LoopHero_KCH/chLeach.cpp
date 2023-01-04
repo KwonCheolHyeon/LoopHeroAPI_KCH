@@ -64,6 +64,7 @@ namespace ch
 
 		SetPos(pos);
 
+
 		if (mHP.nowHP > 0)
 		{
 			//attSpdChek += Time::DeltaTime();
@@ -90,7 +91,7 @@ namespace ch
 
 	void Leach::mAttack()
 	{
-		mAnimator->Play(L"Slimeattack", false);
+		mAnimator->Play(L"leachattack", false);
 		FightPageOBJ::Testplayer->takeDamage(mATT.nowStr);
 	}
 
@@ -99,12 +100,12 @@ namespace ch
 		mHP.nowHP -= mCalcDef(damage);//데미지 받을때
 		if (mHP.nowHP <= 0)
 		{
-			mAnimator->Play(L"SlimeDeath", false);//죽음 애니메이션
+			mAnimator->Play(L"leachDeath", false);//죽음 애니메이션
 			death = true;
 		}
 		else
 		{
-			mAnimator->Play(L"SlimeHurt", false);
+			mAnimator->Play(L"leachHurt", false);
 		}
 	}
 
@@ -126,6 +127,7 @@ namespace ch
 		if (fullItemCheck())
 		{
 			ch::object::Instantiate<ItemBG>(rank, item, itemType, (eColliderLayer::Card));
+
 		}
 	}
 
@@ -148,7 +150,6 @@ namespace ch
 				}
 			}
 		}
-
 		if (count >= 12)
 		{
 			return false;

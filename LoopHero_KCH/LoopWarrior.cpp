@@ -47,7 +47,7 @@ namespace ch
 		SetName(L"Warrior");
 		SetPos(pos);
 		SetScale({ 2.5f, 2.5f });
-		pHp.maxHp = pHp.wepHp + pHp.minHp;
+		
 
 		if (mImage == nullptr)
 		{
@@ -64,19 +64,33 @@ namespace ch
 
 		AddComponent(mAnimator);
 		srand(time(NULL));
-
-		pSpd.AttSpeed = 1;
+		//공격력
+		pAtt.maxAtt = 6 + ItemBG::equipCheck[0]->chWepMaxATTs;
+		pAtt.minAtt = 4 + ItemBG::equipCheck[0]->chWepMinATTs;
+		//공속
+		float sppeedd = ItemBG::equipCheck[0]->chWepSpeeds+ ItemBG::equipCheck[1]->chWepSpeeds + ItemBG::equipCheck[2]->chWepSpeeds + ItemBG::equipCheck[3]->chWepSpeeds;
+		pSpd.AttSpeed = 0.8 + (sppeedd/100);
+		//체력
+		pHp.wepHp = ItemBG::equipCheck[0]->chHps + ItemBG::equipCheck[1]->chHps + ItemBG::equipCheck[2]->chHps + ItemBG::equipCheck[3]->chHps;
 		pHp.maxHp = pHp.minHp + pHp.wepHp;
 		pHp.nowHp = pHp.maxHp;
-		
-		pDef.maxDef = 3;
+		//방어
+		pDef.maxDef = 3 + ItemBG::equipCheck[0]->chDefs + ItemBG::equipCheck[1]->chDefs + ItemBG::equipCheck[2]->chDefs + ItemBG::equipCheck[3]->chDefs;
 		pDef.minDef = 1;
+		//카운터
+		pCounterAtk.wepCounter = ItemBG::equipCheck[0]->cHCounters + ItemBG::equipCheck[1]->cHCounters + ItemBG::equipCheck[2]->cHCounters + ItemBG::equipCheck[3]->cHCounters;
+		//회피
+		pEvade.wepEvade = ItemBG::equipCheck[1]->chEvades + ItemBG::equipCheck[0]->chEvades + ItemBG::equipCheck[2]->chEvades + ItemBG::equipCheck[3]->chEvades;
 
+		randStat();
 		monsterCount = 0;
 		FightDone = false;
+		
+		gameSpeed = 1;
 	}
 
 	bool LoopWarrior::FightDone;
+	int LoopWarrior::gameSpeed;
 
 	LoopWarrior::~LoopWarrior()
 	{
@@ -87,7 +101,7 @@ namespace ch
 	{
 
 		playerRegenTime += (Time::DeltaTime()); // 1초당 리젠 시간;
-		playerAttSpd += Time::DeltaTime();
+		playerAttSpd += Time::DeltaTime()*gameSpeed;
 
 		GameObject::Tick();
 		Vector2 pos = GetPos();
@@ -95,7 +109,7 @@ namespace ch
 
 		SetPos(pos);
 		
-		if(playerRegenTime >= 1.0f)//초당 회복
+		if(playerRegenTime >= 1.0f) // 초당 회복
 		{
 			pRegenHP();
 			mAnimator->Play(L"WarriorIdle", false);
@@ -109,15 +123,11 @@ namespace ch
 			{
 				mAnimator->Play(L"Warriorattack", false);
 				Attack();
-				
 				playerAttSpd = 0;
-
+				oneFight = true;
 				EndFightCheck();
 			}
 		}
-
-		
-	
 	}
 
 	void LoopWarrior::Render(HDC hdc)
@@ -127,9 +137,10 @@ namespace ch
 
 	void LoopWarrior::EndFightCheck() //전투 종료 확인
 	{
-		if (monsterCount == FightPageOBJ::fightPageMonsterCount)//전투 종료
+		if (monsterCount == FightPageOBJ::fightPageMonsterCount && oneFight == true)//전투 종료
 		{
-			FightDone = true;
+			oneFight = false;
+			LoopWarrior::FightDone = true;
 		}
 	}
 
@@ -149,7 +160,7 @@ namespace ch
 		{
 			FightPageOBJ::enemys[monsterCount]->mTakeDamage(pAttSelect());
 
-			if (FightPageOBJ::enemys[monsterCount]->GetHp() <= 0)
+			if (FightPageOBJ::enemys[monsterCount]->GetHp() <= 0 && FightPageOBJ::enemys[monsterCount]->GetName() != L"LichMonster")
 			{
 				monsterCount++;
 			}
@@ -184,8 +195,6 @@ namespace ch
 		return Finaldmg;
 	}
 
-
-
 	void LoopWarrior::pRegenHP() // 체력 재생   Tick();
 	{
 		if (plive == true) {
@@ -218,7 +227,7 @@ namespace ch
 	{
 		pAtt.nowAtt = rand() % (pAtt.maxAtt- pAtt.minAtt + 1) + pAtt.minAtt;
 
-		pDef.nowDef = rand() % (pDef.maxDef- pDef.minDef +1) + pDef.minDef;
+		//pDef.nowDef = rand() % (pDef.maxDef- pDef.minDef +1) + pDef.minDef;
 
 		pEvade.perEvade = pEvade.minEvade + pEvade.wepEvade; //회피율
 
@@ -238,8 +247,6 @@ namespace ch
 
 	}
 
-
-
 	bool LoopWarrior::pAvoid()//피하는 확률
 	{
 		int finalEvade = rand() % 100+1;
@@ -258,7 +265,7 @@ namespace ch
 	{
 		int finalCounter = rand() % 100 + 1;
 		
-		if(pCounterAtk.perCounter >= finalCounter)
+		if(pCounterAtk.wepCounter >= finalCounter)
 		{
 			return true;
 		}
@@ -283,7 +290,7 @@ namespace ch
 
 	double LoopWarrior::pDefSelect() 
 	{
-		float nowDef =rand() % (pDef.maxDef - pDef.minDef + 1) + pDef.minDef;
+		float nowDef = pDef.maxDef;
 
 		return nowDef;
 	}

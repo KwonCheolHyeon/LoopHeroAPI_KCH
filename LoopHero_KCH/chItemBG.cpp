@@ -8,7 +8,7 @@
 #include "chMouseObject.h"
 #include "GameMap.h"
 
-namespace ch 
+namespace ch
 {
 	ItemBG::ItemBG(int rank, int item, int itemtype)
 		: mBGImage(nullptr)
@@ -45,10 +45,12 @@ namespace ch
 		collider->SetOffset(Vector2(25, 25));
 		collider->SetScale(Vector2(50, 50));
 
+	
+		
 	}
 
-	ItemBG *ItemBG::bagChecks[3][4];// 
-	ItemBG *ItemBG::equipCheck[];// 
+	ItemBG* ItemBG::bagChecks[3][4];// 
+	ItemBG* ItemBG::equipCheck[];// 
 
 	ItemBG::~ItemBG()
 	{
@@ -90,7 +92,7 @@ namespace ch
 			, mBGImage->GetDC(), 0, 0, mBGImage->GetWidth(), mBGImage->GetHeight()
 			, RGB(255, 0, 255));
 
-		TransparentBlt(hdc, finalPos.x , finalPos.y, rectCard.x, rectCard.y
+		TransparentBlt(hdc, finalPos.x, finalPos.y, rectCard.x, rectCard.y
 			, mItemImage->GetDC(), 0, 0, mItemImage->GetWidth(), mItemImage->GetHeight()
 			, RGB(255, 0, 255));
 
@@ -106,19 +108,26 @@ namespace ch
 	{
 		if (KEY_DOWN(eKeyCode::LBTN))
 		{
-			int it = this->Getitems(); 
-			
+			int it = this->Getitems();
+
 			if (it == 0) //검
 			{
-				if (equipCheck[0] != nullptr) 
+				if (equipCheck[0] != nullptr)
 				{
 					equipCheck[0]->Death();
 					equipCheck[0] = nullptr;
 				}
+				this->chWepMaxATTs = chNormal.wMaxAttack;
+				this->chWepMinATTs = chNormal.wMinAttack;
+				this->chHps = chNormal.aHP;
+				this->chDefs = chNormal.rDef + chNormal.sDef + chDefend.eDefense;
+				this->cHCounters = chCounter.eCounter;
+				this->chWepSpeeds = chAttSpeed.eAttSpeed;
+				this->chEvades = chEvade.eEvade;
+
 				this->SetPos(equipPos[0]);
-				
 				equipCheck[0] = this;
-			} 
+			}
 			else if (it == 1) // 반지
 			{
 				if (equipCheck[1] != nullptr)
@@ -126,7 +135,14 @@ namespace ch
 					equipCheck[1]->Death();
 					equipCheck[1] = nullptr;
 				}
-				
+				this->chWepMaxATTs = chNormal.wMaxAttack;
+				this->chWepMinATTs = chNormal.wMinAttack;
+				this->chHps = chNormal.aHP;
+				this->chDefs = chNormal.rDef + chNormal.sDef + chDefend.eDefense;
+				this->cHCounters = chCounter.eCounter;
+				this->chWepSpeeds = chAttSpeed.eAttSpeed;
+				this->chEvades = chEvade.eEvade;
+
 				this->SetPos(equipPos[1]);
 				equipCheck[1] = this;
 			}
@@ -137,7 +153,14 @@ namespace ch
 					equipCheck[2]->Death();
 					equipCheck[2] = nullptr;
 				}
-				
+				this->chWepMaxATTs = chNormal.wMaxAttack;
+				this->chWepMinATTs = chNormal.wMinAttack;
+				this->chHps = chNormal.aHP;
+				this->chDefs = chNormal.rDef + chNormal.sDef + chDefend.eDefense;
+				this->cHCounters = chCounter.eCounter;
+				this->chWepSpeeds = chAttSpeed.eAttSpeed;
+				this->chEvades = chEvade.eEvade;
+
 				this->SetPos(equipPos[2]);
 				equipCheck[2] = this;
 			}
@@ -147,12 +170,20 @@ namespace ch
 				{
 					equipCheck[3]->Death();
 					equipCheck[3] = nullptr;
-				}				
+				}
+				this->chWepMaxATTs = chNormal.wMaxAttack;
+				this->chWepMinATTs = chNormal.wMinAttack;
+				this->chHps = chNormal.aHP;
+				this->chDefs = chNormal.rDef + chNormal.sDef + chDefend.eDefense;
+				this->cHCounters = chCounter.eCounter;
+				this->chWepSpeeds = chAttSpeed.eAttSpeed;
+				this->chEvades = chEvade.eEvade;
+
 				this->SetPos(equipPos[3]);
 				equipCheck[3] = this;
 			}
 			removeBag();
-			
+			int a = 0;
 		}
 	}
 
@@ -188,7 +219,7 @@ namespace ch
 
 		Collider* collider = new Collider();
 		AddComponent(collider);
-		
+
 	}*/
 
 	void ItemBG::setRank()
@@ -196,22 +227,22 @@ namespace ch
 		if (iRank == 0) // 일반
 		{
 			this->SetBGImage(L"normal", L"items_bg_0.bmp");
-			
+
 		}
 		else if (iRank == 1)  // 희귀
 		{
 			this->SetBGImage(L"rare", L"items_bg_1.bmp");
-			
+
 		}
 		else if (iRank == 2)  //영웅 
 		{
 			this->SetBGImage(L"Hero", L"items_bg_2.bmp");
-		
+
 		}
 		else if (iRank == 3)  // 전설
 		{
 			this->SetBGImage(L"Legend", L"items_bg_3.bmp");
-			
+
 		}
 		this->SetScale(Vector2(2.5, 2.5));
 		setItem();
@@ -252,7 +283,7 @@ namespace ch
 			else if (iItemType == 1) // 방어력
 			{
 				this->SetItemImage(L"rdefend", L"rings_6.bmp");
-				
+
 			}
 			else if (iItemType == 2) // 카운터
 			{
@@ -266,7 +297,7 @@ namespace ch
 			{
 				this->SetItemImage(L"revade", L"rings_7.bmp");
 			}
-			
+
 		}
 		else if (items == 2) // 방패
 		{
@@ -314,29 +345,30 @@ namespace ch
 				this->SetItemImage(L"aevade", L"kiraski_9.bmp");
 			}
 		}
+		this->itemStatCheck();
 	}
 
 	void ItemBG::itembagCheck()
 	{
-		for (int i = 0; i < 3; i++) 
+		for (int i = 0; i < 3; i++)
 		{
-			for (int j = 0; j < 4; j++) 
-			{	
-				if (bagChecks[i][j] == nullptr) 
+			for (int j = 0; j < 4; j++)
+			{
+				if (bagChecks[i][j] == nullptr)
 				{
 					this->SetPos(bagPos[i][j]);
 					bagChecks[i][j] = this;
 					int a = 0;
 					return;
 				}
-				
+
 			}
-			
+
 		}
 
 	}
 
-	void ItemBG::removeBag() 
+	void ItemBG::removeBag()
 	{
 		for (int i = 0; i < 3; i++)
 		{
@@ -350,8 +382,8 @@ namespace ch
 			}
 		}
 	}
-	
-	bool ItemBG::fullItemCheck() 
+
+	bool ItemBG::fullItemCheck()
 	{
 		int count = 0;
 
@@ -360,11 +392,11 @@ namespace ch
 			for (int j = 0; j < 4; j++)
 			{
 
-				if (bagChecks[i][j] != nullptr) 
+				if (bagChecks[i][j] != nullptr)
 				{
 					count++;
 
-					
+
 				}
 
 				if (count >= 13)
@@ -378,167 +410,343 @@ namespace ch
 			}
 		}
 	}
-	
-	void ItemBG::itemStatCheck() 
+
+	void ItemBG::itemStatCheck()
 	{
+		chNormal.wMaxAttack = 0;
+		chNormal.wMinAttack = 0;
+		chDefend.eDefense = 0;
+		chCounter.eCounter = 0;
+		chAttSpeed.eAttSpeed = 0;
+		chEvade.eEvade = 0;
+
 		if (iRank == 0) // 일반등급은 다 기본 무기
 		{
 			if (items == 0) // 검
 			{
-				
+				chNormal.wMaxAttack = 6;
+				chNormal.wMinAttack = 4;
+
 			}
 			else if (items == 1) // 반지
 			{
-				
+				chNormal.rDef = 5;
 			}
 			else if (items == 2) // 방패
 			{
-				
+				chNormal.sDef = 4;
 			}
 			else if (items == 3) // 갑옷
 			{
-				
+				chNormal.aHP = 90;
 			}
 		}
 		else if (iRank == 1)  // 희귀등급
 		{
 			if (items == 0) // 검
 			{
-				
+				chNormal.wMaxAttack = 6;
+				chNormal.wMinAttack = 4;
+
 				if (iItemType == 0) // 일반
 				{
-					
+
 				}
 				else if (iItemType == 1) // 방어력
 				{
-					
+					chDefend.eDefense = 5;
 				}
 				else if (iItemType == 2) // 카운터
 				{
-					
+					chCounter.eCounter = 5;
 				}
 				else if (iItemType == 3) // 공격속도
 				{
-					
+					chAttSpeed.eAttSpeed = 4;
 				}
 				else if (iItemType == 4) // 회피율
 				{
-				
+					chEvade.eEvade = 3;
 				}
 			}
 			else if (items == 1) // 반지
 			{
+				chNormal.rDef = 5;
 				if (iItemType == 0) // 일반
 				{
 
 				}
 				else if (iItemType == 1) // 방어력
 				{
-
+					chDefend.eDefense = 5;
 				}
 				else if (iItemType == 2) // 카운터
 				{
-
+					chCounter.eCounter = 5;
 				}
 				else if (iItemType == 3) // 공격속도
 				{
-
+					chAttSpeed.eAttSpeed = 4;
 				}
 				else if (iItemType == 4) // 회피율
 				{
-
+					chEvade.eEvade = 3;
 				}
 			}
 			else if (items == 2) // 방패
 			{
+				chNormal.sDef = 4;
 				if (iItemType == 0) // 일반
 				{
 
 				}
 				else if (iItemType == 1) // 방어력
 				{
-
+					chDefend.eDefense = 5;
 				}
 				else if (iItemType == 2) // 카운터
 				{
-
+					chCounter.eCounter = 5;
 				}
 				else if (iItemType == 3) // 공격속도
 				{
-
+					chAttSpeed.eAttSpeed = 4;
 				}
 				else if (iItemType == 4) // 회피율
 				{
-
+					chEvade.eEvade = 3;
 				}
 			}
 			else if (items == 3) // 갑옷
 			{
+				chNormal.aHP = 90;
 				if (iItemType == 0) // 일반
 				{
 
 				}
 				else if (iItemType == 1) // 방어력
 				{
-
+					chDefend.eDefense = 5;
 				}
 				else if (iItemType == 2) // 카운터
 				{
-
+					chCounter.eCounter = 5;
 				}
 				else if (iItemType == 3) // 공격속도
 				{
-
+					chAttSpeed.eAttSpeed = 4;
 				}
 				else if (iItemType == 4) // 회피율
 				{
-
+					chEvade.eEvade = 3;
 				}
 			}
 
 		}
 		else if (iRank == 2)  //영웅 등급
 		{
-
 			if (items == 0) // 검
 			{
+				chNormal.wMaxAttack = 6;
+				chNormal.wMinAttack = 4;
 
+				if (iItemType == 0) // 일반
+				{
+
+				}
+				else if (iItemType == 1) // 방어력
+				{
+					chDefend.eDefense = 5 * 2;
+				}
+				else if (iItemType == 2) // 카운터
+				{
+					chCounter.eCounter = 5 * 2;
+				}
+				else if (iItemType == 3) // 공격속도
+				{
+					chAttSpeed.eAttSpeed = 4 * 2;
+				}
+				else if (iItemType == 4) // 회피율
+				{
+					chEvade.eEvade = 3 * 2;
+				}
 			}
 			else if (items == 1) // 반지
 			{
+				chNormal.rDef = 5;
+				if (iItemType == 0) // 일반
+				{
 
+				}
+				else if (iItemType == 1) // 방어력
+				{
+					chDefend.eDefense = 5 * 2;
+				}
+				else if (iItemType == 2) // 카운터
+				{
+					chCounter.eCounter = 5 * 2;
+				}
+				else if (iItemType == 3) // 공격속도
+				{
+					chAttSpeed.eAttSpeed = 4 * 2;
+				}
+				else if (iItemType == 4) // 회피율
+				{
+					chEvade.eEvade = 3 * 2;
+				}
 			}
 			else if (items == 2) // 방패
 			{
+				chNormal.sDef = 4;
+				if (iItemType == 0) // 일반
+				{
 
+				}
+				else if (iItemType == 1) // 방어력
+				{
+					chDefend.eDefense = 5 * 2;
+				}
+				else if (iItemType == 2) // 카운터
+				{
+					chCounter.eCounter = 5 * 2;
+				}
+				else if (iItemType == 3) // 공격속도
+				{
+					chAttSpeed.eAttSpeed = 4 * 2;
+				}
+				else if (iItemType == 4) // 회피율
+				{
+					chEvade.eEvade = 3 * 2;
+				}
 			}
 			else if (items == 3) // 갑옷
 			{
+				chNormal.aHP = 90;
+				if (iItemType == 0) // 일반
+				{
 
+				}
+				else if (iItemType == 1) // 방어력
+				{
+					chDefend.eDefense = 5 * 2;
+				}
+				else if (iItemType == 2) // 카운터
+				{
+					chCounter.eCounter = 5 * 2;
+				}
+				else if (iItemType == 3) // 공격속도
+				{
+					chAttSpeed.eAttSpeed = 4 * 2;
+				}
+				else if (iItemType == 4) // 회피율
+				{
+					chEvade.eEvade = 3 * 2;
+				}
 			}
 
-		
 		}
 		else if (iRank == 3)  // 전설 등급
 		{
 
 			if (items == 0) // 검
 			{
+				chNormal.wMaxAttack = 6;
+				chNormal.wMinAttack = 4;
 
+				if (iItemType == 0) // 일반
+				{
+
+				}
+				else if (iItemType == 1) // 방어력
+				{
+					chDefend.eDefense = 5 * 3;
+				}
+				else if (iItemType == 2) // 카운터
+				{
+					chCounter.eCounter = 5 * 3;
+				}
+				else if (iItemType == 3) // 공격속도
+				{
+					chAttSpeed.eAttSpeed = 4 * 3;
+				}
+				else if (iItemType == 4) // 회피율
+				{
+					chEvade.eEvade = 3 * 3;
+				}
 			}
 			else if (items == 1) // 반지
 			{
+				chNormal.rDef = 5;
+				if (iItemType == 0) // 일반
+				{
 
+				}
+				else if (iItemType == 1) // 방어력
+				{
+					chDefend.eDefense = 5 * 3;
+				}
+				else if (iItemType == 2) // 카운터
+				{
+					chCounter.eCounter = 5 * 3;
+				}
+				else if (iItemType == 3) // 공격속도
+				{
+					chAttSpeed.eAttSpeed = 4 * 3;
+				}
+				else if (iItemType == 4) // 회피율
+				{
+					chEvade.eEvade = 3 * 3;
+				}
 			}
 			else if (items == 2) // 방패
 			{
+				chNormal.sDef = 4;
+				if (iItemType == 0) // 일반
+				{
 
+				}
+				else if (iItemType == 1) // 방어력
+				{
+					chDefend.eDefense = 5 * 3;
+				}
+				else if (iItemType == 2) // 카운터
+				{
+					chCounter.eCounter = 5 * 3;
+				}
+				else if (iItemType == 3) // 공격속도
+				{
+					chAttSpeed.eAttSpeed = 4 * 3;
+				}
+				else if (iItemType == 4) // 회피율
+				{
+					chEvade.eEvade = 3 * 3;
+				}
 			}
 			else if (items == 3) // 갑옷
 			{
+				chNormal.aHP = 90;
+				if (iItemType == 0) // 일반
+				{
 
+				}
+				else if (iItemType == 1) // 방어력
+				{
+					chDefend.eDefense = 5 * 3;
+				}
+				else if (iItemType == 2) // 카운터
+				{
+					chCounter.eCounter = 5 * 3;
+				}
+				else if (iItemType == 3) // 공격속도
+				{
+					chAttSpeed.eAttSpeed = 4 * 3;
+				}
+				else if (iItemType == 4) // 회피율
+				{
+					chEvade.eEvade = 3 * 3;
+				}
 			}
-		
+
 		}
 	}
 }

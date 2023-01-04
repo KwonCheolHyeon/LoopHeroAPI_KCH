@@ -36,17 +36,13 @@ namespace ch
 		int GetTileBase() { return mTileBase; }
 		void SetTileBase(int type) { mTileBase = type; }
 
-
 		int GetMapBaseCode() { return MapBaseCode; }
 		void SetMapBaseCode(int type) { MapBaseCode = type; }
-
-		
 
 		//몬스터 저장 함수
 		int GetMonsterType(int a) { return chMonsters[a]; }
 		int GetMonsterCount() { return monsterCount; }//현재 이타일의 몬스터의 개수를 구해줌
 		void SetMonsters(int monsterIndex);// 각배열에 몬스터 고유번호 집어 넣어주는 함수
-		
 		void clearMonsters(); // 맵 클리어시 맵의 몬스터 초기화 해주는 함수
 
 	protected:

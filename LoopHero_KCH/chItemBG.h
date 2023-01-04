@@ -47,7 +47,7 @@ namespace ch {
 		wEvade chEvade;
 		void itemStatCheck();
 
-	private: // ¹«±â ½ºÅÝ
+	public: // ¹«±â ½ºÅÝ
 		int chWepMaxATTs;
 		int chWepMinATTs;
 		int chDefs;

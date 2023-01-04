@@ -71,9 +71,13 @@ namespace ch
         pIndex = Vector2(pX,pY);
         Pdir = dirSelect(pIndex.x,pIndex.y);
         Loop = 1;
-       
+        ch::object::Instantiate<ItemBG>(0, 0, 0, (eColliderLayer::Card));
+        ch::object::Instantiate<ItemBG>(0, 1, 0, (eColliderLayer::Card));
+        ch::object::Instantiate<ItemBG>(0, 2, 0, (eColliderLayer::Card));
+        ch::object::Instantiate<ItemBG>(0, 3, 0, (eColliderLayer::Card));
     }
     int WarriorMini::Loop;
+    int WarriorMini::gameSpeedCount;
 
     WarriorMini::~WarriorMini()
     {
@@ -107,44 +111,42 @@ namespace ch
             }
             if(GameMap::roadTiles[prevPY][prevPX]->GetTileType() == 100)
             {
+                if (GameMap::roadTiles[prevPY][prevPX]->GetMonsterType(0) ==  6) //보스
+                {
+                    
+                }
                 Loop += 1;
+
             }
         }
 
         if (LoopWarrior::FightDone == true) 
         {
             LoopWarrior::FightDone == false;
-            
+          
             GameMap::roadTiles[prevPY][prevPX]->clearMonsters();
             MiniIconStore::ClearGameObjs(prevPY, prevPX);
             FightPageOBJ::objDeath();
             fpg2->Death();
            
             Time::gameSpeed = 1;
-            gameSpeedCount = 1;
+            
         }
+        if (KEY_DOWN(eKeyCode::NUM_4))
+        {
+            gameSpeedCount = 4;
 
+        }
+        if (KEY_DOWN(eKeyCode::NUM_1))
+        {
+            gameSpeedCount = 1;
+
+        }
 
         moveTo(Pdir, pos);
 
         distanceOne += gameSpeed;//움직이는 거리
 
-        //시간 조절 테스트
-        if (KEY_DOWN(eKeyCode::NUM_2)) 
-        {
-            gameSpeedCount = 2;
-        }
-        if (KEY_DOWN(eKeyCode::NUM_1))
-        {
-            gameSpeedCount = 1;
-        }
-        if (KEY_DOWN(eKeyCode::NUM_0))
-        {
-            gameSpeedCount = 0;
-        }
-       
-
-      
 
     }
     void WarriorMini::Render(HDC hdc)

@@ -11,7 +11,8 @@
 #include "LoopWarrior.h"
 #include "chObject.h"
 #include "chItemBG.h"
-
+#include "chLeach.h"
+#include "LoopWarrior.h"
 namespace ch
 {
 
@@ -169,6 +170,40 @@ namespace ch
 		MonsterIndex = monsIndex;
 		
 		}
+		else if (monsIndex == 6) //리치
+		{
+		SetName(L"LichMonster");
+		SetPos(pos);
+		SetScale({ 3.0f, 3.0f });
+
+		if (mImage == nullptr)
+		{
+			mImage = Resources::Load<Image>(L"Monster", L"..\\Resources\\loophero\\monster\\Slime\\idle\\s_slime_idle_0.bmp");
+		}
+		mAnimator = new Animator();
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Boss\\leach\\idle", L"leachIdle");
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Boss\\leach\\attack", L"leachattack", { 0,0 }, 0.1f);
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Boss\\leach\\hurt", L"leachHurt", { 0,0 }, 0.1f);
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Boss\\leach\\death", L"leachDeath", { 0,0 }, 0.2f);
+		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Boss\\leach\\firstStart", L"leachFirst", { 0,0 }, 0.3f);///6초 대기 시간 추가 해주기
+
+		
+		AddComponent(mAnimator);
+		MonsterIndex = monsIndex;
+		//리치 스텟
+		mHP.baseHp = 110;
+		mATT.baseStr = 16;
+		mDEF.baseDef = 1.3;
+
+
+		//리치 
+		mHP.nowHP = mHP.baseHp * WarriorMini::Loop;// 현재 HP 
+		mATT.nowStr = mATT.baseStr * WarriorMini::Loop;
+		mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
+		mSPD.spd = 0.36;
+		}
+		lichTimeCheck = true;
+		lichTime = 0;
 		srand(time(NULL));
 		death = false;
 	}
@@ -187,22 +222,69 @@ namespace ch
 
 		SetPos(pos);
 
-		if (mHP.nowHP > 0) 
+		if (MonsterIndex == 6) //리치
 		{
-			attSpdChek += Time::DeltaTime();
+			lichTime += Time::DeltaTime();
+			
+			if (lichTimeCheck == true) 
+			{
+				FightPageOBJ::Testplayer->gameSpeed = 0;
+				lichTimeCheck = false;
+
+				mAnimator->Play(L"leachFirst", false);
+			}
+			if(lichTime >= 6.0f )
+			{
+				FightPageOBJ::Testplayer->gameSpeed = 1;
+				if (mHP.nowHP > 0)
+				{
+					attSpdChek += Time::DeltaTime();
+				}
+
+				if (death == true)
+				{
+					death = false;
+					mItems();
+				}
+
+				if (attSpdChek >= (1 / mSPD.spd)) //공격속도
+				{
+					mAttack();
+					attSpdChek = 0;
+				}
+			
+			}
+
+
+		}
+		else 
+		{
+		
+			if (mHP.nowHP > 0)
+			{
+				attSpdChek += Time::DeltaTime();
+			}
+
+			if (death == true)
+			{
+				death = false;
+				mItems();
+			}
+
+			if (attSpdChek >= (1 / mSPD.spd)) //공격속도
+			{
+				mAttack();
+				attSpdChek = 0;
+			}
+		
+		
 		}
 		
-		if(death == true)
-		{
-			death = false;
-			mItems();
-		}
 
-		if (attSpdChek >= (1 / mSPD.spd)) //공격속도
-		{
-			mAttack();
-			attSpdChek = 0;
-		}
+		
+
+
+		
 
 	}
 
@@ -210,6 +292,7 @@ namespace ch
 	{
 		GameObject::Render(hdc);
 	}
+
 	void Monsters::mAttack()
 	{
 		//공격
@@ -236,6 +319,11 @@ namespace ch
 		else if (MonsterIndex == 5)
 		{
 			mAnimator->Play(L"Skeletonattack", false);
+			FightPageOBJ::Testplayer->takeDamage(mATT.nowStr);
+		}
+		else if (MonsterIndex == 6)
+		{
+			mAnimator->Play(L"leachattack", false);
 			FightPageOBJ::Testplayer->takeDamage(mATT.nowStr);
 		}
 	}
@@ -311,6 +399,20 @@ namespace ch
 				mAnimator->Play(L"SkeletonHurt", false);
 			}
 		}
+		else if (MonsterIndex == 6)
+		{
+			mHP.nowHP -= mCalcDef(damage);//데미지 받을때
+			if (mHP.nowHP <= 0 )
+			{
+				mAnimator->Play(L"leachDeath", false);//죽음 애니메이션
+				death = true;
+			}
+			else
+			{
+				mAnimator->Play(L"leachHurt", false);
+			}
+		}
+
 	}
 
 
@@ -369,6 +471,12 @@ namespace ch
 			rank = rand() % 3 + 1;
 			item = rand() % 4;
 			itemType = rand() % 4 + 1;
+		}
+		else if (MonsterIndex == 5) // 스켈레톤
+		{
+			rank = 3; // 0~3;
+			item = rand() % 4; // 0~3;
+			itemType = rand() % 4 + 1; // 0~4
 		}
 
 		if (fullItemCheck())

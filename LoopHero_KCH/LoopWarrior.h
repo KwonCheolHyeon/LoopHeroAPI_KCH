@@ -38,7 +38,7 @@ namespace ch {
 
 	public:
 		int loopTIme = 1; ////////현재 루프 UI 에 넣어도 될듯///////
-		int gameSpeed = 1;
+		static int gameSpeed;
 		
 		int monsterCount;
 
@@ -50,7 +50,7 @@ namespace ch {
 		double playerAttSpd = 0;
 
 		bool plive;//살아있는지?
-		
+		bool oneFight;
 
 	private: //스텟
 		HP pHp; // hp
@@ -62,5 +62,6 @@ namespace ch {
 		CRIT_PERC pCriticalPer;//크리티컬 확률
 		LevelUp pExp; //레벨업 경험치 관련
 		AttSpd pSpd;
+
 	};
 }

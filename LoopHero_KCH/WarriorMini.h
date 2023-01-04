@@ -22,7 +22,7 @@ namespace ch
 
 	public:
 		int loopTIme = 1; ////////현재 루프 UI 에 넣어도 될듯///////
-		int gameSpeedCount = 1;
+		static int gameSpeedCount;
 		static int Loop;
 
 	public:

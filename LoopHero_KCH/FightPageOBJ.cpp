@@ -69,7 +69,7 @@ namespace ch
 
 		Testplayer = ch::object::Instantiate<LoopWarrior>(playerPos,eColliderLayer::PlayerMonster);
 
-		enemyPos[0] = { 0,0 };
+		enemyPos[0] = { 782,343 }; //È¥ÀÚÀÖÀ»¶§
 		enemyPos[1] = { 875,281.25f };
 		enemyPos[2] = { 718.75f,343.75f };
 		enemyPos[3] = { 875,437.5f };
@@ -101,8 +101,6 @@ namespace ch
 				enemys[i]->Death();
 			}
 		}
-
-
 	}
 
 	void FightPageOBJ::prevFightCheck()
@@ -110,13 +108,24 @@ namespace ch
 		int monsterCount = GameMap::roadTiles[tileYpos][tileXpos]->GetMonsterCount();
 		fightPageMonsterCount = monsterCount;
 
-		for (int i = 0; i < monsterCount; i++)
+		if (monsterCount == 1) 
 		{
-			int enemyTypeNum = GameMap::roadTiles[tileYpos][tileXpos]->GetMonsterType(i);
+			for (int i = 0; i < monsterCount; i++)
+			{
+				int enemyTypeNum = GameMap::roadTiles[tileYpos][tileXpos]->GetMonsterType(i);
 
-			enemys[i] = ch::object::Instantiate<Monsters>(enemyTypeNum, enemyPos[i + 1], eColliderLayer::PlayerMonster);
+				enemys[i] = ch::object::Instantiate<Monsters>(enemyTypeNum, enemyPos[0], eColliderLayer::PlayerMonster);
+			}
 		}
+		else 
+		{
+			for (int i = 0; i < monsterCount; i++)
+			{
+				int enemyTypeNum = GameMap::roadTiles[tileYpos][tileXpos]->GetMonsterType(i);
 
+				enemys[i] = ch::object::Instantiate<Monsters>(enemyTypeNum, enemyPos[i + 1], eColliderLayer::PlayerMonster);
+			}
+		}
 	}
 
 

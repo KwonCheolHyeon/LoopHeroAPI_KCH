@@ -26,7 +26,6 @@ namespace ch
 		SetPos(pos);
 		SetScale({ 5.0f, 5.0f });
 
-
 		mAnimator = new Animator();
 
 		mAnimator->CreateAnimations(L"..\\Resources\\loophero\\Boss\\appear", L"appearLeach", Vector2(0,-115));

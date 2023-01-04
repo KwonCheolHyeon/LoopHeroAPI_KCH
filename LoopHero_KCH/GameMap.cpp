@@ -45,7 +45,7 @@ namespace ch
 		initMap();//초기화
 		ch::object::Instantiate<WarriorMini>(MapPosCalc(7, 12), (eColliderLayer::MiniIcon));
 		ch::object::Instantiate<eyeOfSight>((eColliderLayer::MiniIcon));
-		ch::object::Instantiate<bossAppear>(MapPosCalc(7, 12),(eColliderLayer::Tile)); // 리치 소환
+		bossCheckRock = true;
 		//ch::object::Instantiate<Leach>(1,MapPosCalc(7, 12), (eColliderLayer::MiniIcon)); //리치 소환
 	}
 
@@ -70,6 +70,13 @@ namespace ch
 			if (y >= 0 && y < 11 && x >= 0 && x < 21)
 			{
 				mapBuildCheck(mTileType, y, x);
+				if (bossCheck() && bossCheckRock)
+				{
+					bossCheckRock = false;
+					lager->Death();
+					ch::object::Instantiate<bossAppear>(MapPosCalc(7, 12), (eColliderLayer::Tile)); // 리치 소환
+					roadTiles[7][12]->SetMonsters(6);
+				}
 			}
 		}
 
@@ -136,10 +143,8 @@ namespace ch
 			chCardSelect = false;
 			exAroundRoad();
 		}
-
-
-
 		
+	
 	}
 
 	void GameMap::Render(HDC hdc)
@@ -337,7 +342,7 @@ namespace ch
 		
 
 		
-		ch::object::Instantiate<Lager>(MapPosCalc(7, 12),(eColliderLayer::Tile));  // 캠프장
+		lager = ch::object::Instantiate<Lager>(MapPosCalc(7, 12),(eColliderLayer::Tile));  // 캠프장
 		roadgameObj = ch::object::Instantiate<newroad_2>(MapPosCalc(7, 12), eColliderLayer::Road); //2번 길    // 캠프장
 		roadgameObj->SetTileType(100);
 		roadgameObj->SetTileBase(0);
@@ -898,8 +903,29 @@ namespace ch
 		
 	}
 
-	
-
+	bool GameMap::bossCheck()
+	{
+		int count = 0;
+		for (size_t i = 0; i < 11; i++)
+		{
+			for (size_t j = 0; j < 21; j++)
+			{
+				if (mTiles[i][j]->GetTileType() > 0) 
+				{
+					count++;
+				}
+			}
+		}
+		if (count >= 5)
+		{
+			//boss출현
+			return true;
+		}
+		else 
+		{
+			return false;
+		}
+	}
 
 }
 	/*
