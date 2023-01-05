@@ -1,4 +1,6 @@
 #include "chTitleScene.h"
+#include "chSound.h"
+#include "chSoundManager.h"
 #include "chInput.h"
 #include "chSceneManager.h"
 #include "chBgImageObject.h"
@@ -8,16 +10,24 @@
 #include "TitleOpLeft.h"
 #include "TitleOpRight.h"
 #include "titleStarBtn.h"
+#include "chMouseObject.h"
+#include "chResources.h"
+
 namespace ch
 {
 	TitleScene::TitleScene()
+
 	{
+		
+		
 	}
 	TitleScene::~TitleScene()
 	{
 	}
 	void TitleScene::Initialize()
 	{
+		ch::object::Instantiate<MouseObject>(eColliderLayer::Mouse);
+
 		BgImageObject* bg = new BgImageObject();
 		bg->SetImage(L"s_intro_bg_0", L"s_intro_bg_0.bmp");
 		bg->Initialize();
@@ -49,19 +59,22 @@ namespace ch
 
 		AddGameObject(TitleLeft, eColliderLayer::Tile);
 
-		//ch::object::Instantiate<titleStarBtn>(eColliderLayer::Tile);
+		
+		
+		//chSound->Play(true);
+		
+		
 	}
 	void TitleScene::Tick()
 	{
 		Scene::Tick();
 
-		if (KEY_DOWN(eKeyCode::N))
-		{
-			SceneManager::ChangeScene(eSceneType::Play);
-		}
+		
 	}
 	void TitleScene::Render(HDC hdc)
 	{
+
+
 		Scene::Render(hdc);
 		wchar_t szFloat[50] = {};
 		swprintf_s(szFloat, 50, L"Title Scene");

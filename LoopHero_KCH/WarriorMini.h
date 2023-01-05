@@ -52,5 +52,11 @@ namespace ch
 		Vector2 miniOffset ={25.0f,25.0f};
 		Vector2 pIndex;//플레이어 현위치
 		
+	private :
+		Sound* gameStart_bgm;
+		Sound* lichPotal_bgm;
+		Sound* Walk_Bgm;
+		Sound* campfire_bgm;
+		
 	};
 }

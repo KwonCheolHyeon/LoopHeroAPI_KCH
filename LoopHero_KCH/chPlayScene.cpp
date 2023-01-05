@@ -14,14 +14,16 @@
 #include "chApplication.h"
 #include "GameMap.h"
 #include "chMouseObject.h"
-
+#include "chUiManager.h"
+#include "chHUD.h"
+#include "chBarobject.h"
 
 namespace ch
 {
 	PlayScene::PlayScene()
 	{
 		CollisionManager::SetLayer(eColliderLayer::Card, eColliderLayer::Mouse, true);
-
+		CollisionManager::SetLayer(eColliderLayer::UI, eColliderLayer::Mouse, true);
 		GameMap::Instance().Initialize();
 
 		ch::object::Instantiate<MouseObject>(eColliderLayer::Mouse);
@@ -131,6 +133,9 @@ namespace ch
 		ep->Initialize();
 
 		AddGameObject(ep, eColliderLayer::BackGround);
+
+		
+		
 	}
 
 	PlayScene::~PlayScene()
@@ -141,6 +146,18 @@ namespace ch
 	void PlayScene::Initialize()
 	{
 		
+		Barobject* hp = new Barobject(1);
+		hp->SetImage(L"hphp", L"hp_bar.bmp");
+		AddGameObject(hp, eColliderLayer::Tile);
+
+		Barobject* day = new Barobject(2);
+		day->SetImage(L"day", L"day_bar.bmp");
+		AddGameObject(day, eColliderLayer::Tile);
+
+		Barobject* bossInit = new Barobject(3);
+		bossInit->SetImage(L"bossInit", L"boss_bar.bmp");
+		AddGameObject(bossInit, eColliderLayer::Tile);
+
 	}
 
 	void PlayScene::Tick()

@@ -16,8 +16,11 @@ namespace ch
 	void UIManager::Initialize()
 	{
 		
-
-
+		HUD* time = new HUD(eUIType::Time);
+		mUIs.insert(std::make_pair(eUIType::Time, time));
+		time->SetPos(Vector2(40, 8));
+		time->ImageLoad(L"TimeBar", L"..\\Resources\\loophero\\hud\\HPBAR.bmp");
+		
 
 	}
 

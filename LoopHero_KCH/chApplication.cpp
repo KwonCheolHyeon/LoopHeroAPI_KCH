@@ -1,3 +1,7 @@
+#include <Windows.h>
+#include "framework.h"
+#include "WindowsAPI.h"
+
 #include "chApplication.h"
 #include "chSceneManager.h"
 #include "chTime.h"
@@ -6,6 +10,8 @@
 #include "chCollisionManager.h"
 #include "chCamera.h"
 #include "chUiManager.h"
+#include "chSoundManager.h"
+
 namespace ch
 {
 	//Application Application::mInstance;
@@ -14,10 +20,13 @@ namespace ch
 		initializeWindow(data);
 
 		Time::Initialize();
+		SoundManager::Initialize();
 		Input::Initialize();
-		SceneManager::Initialize();
-		Camera::Initialize();
 		UIManager::Initialize();
+		
+		SceneManager::Initialize();
+		//Camera::Initialize();
+		
 
 	}
 
@@ -33,10 +42,12 @@ namespace ch
 		Time::Tick();
 		Input::Tick();
 
-		Camera::Tick();
+		
 		SceneManager::Tick();
 		CollisionManager::Tick();
 		UIManager::Tick();
+		//Camera::Tick();
+		// 
 		// clear
 		//Brush brush(mWindowData.backBuffer, mBrushes[(UINT)eBrushColor::Gray]);
 		HBRUSH hPrevBrush = (HBRUSH)SelectObject(mWindowData.backBuffer, mBrushes[(UINT)eBrushColor::Black]);
@@ -45,10 +56,11 @@ namespace ch
 		SelectObject(mWindowData.backBuffer, hPrevBrush);
 
 		SceneManager::Render(mWindowData.backBuffer);
-		Camera::Render(mWindowData.backBuffer);
+		UIManager::Render(mWindowData.backBuffer);
+		//Camera::Render(mWindowData.backBuffer);
 		Input::Render(mWindowData.backBuffer);
 		Time::Render(mWindowData.backBuffer);
-
+		
 		// BitBlt 함수는 DC간에 이미지를 복사 해주는 함수
 		BitBlt(mWindowData.hdc
 			, 0, 0, mWindowData.width, mWindowData.height

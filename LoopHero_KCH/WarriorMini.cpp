@@ -14,6 +14,8 @@
 #include "LoopWarrior.h"
 #include "chMiniIconStore.h"
 #include "chItemBG.h"
+#include "chSound.h"
+#include "chSoundManager.h"
 
 
 namespace ch 
@@ -123,7 +125,7 @@ namespace ch
         if (LoopWarrior::FightDone == true) 
         {
             LoopWarrior::FightDone == false;
-          
+            
             GameMap::roadTiles[prevPY][prevPX]->clearMonsters();
             MiniIconStore::ClearGameObjs(prevPY, prevPX);
             FightPageOBJ::objDeath();

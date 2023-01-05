@@ -146,6 +146,7 @@ namespace ch
 		
 	
 	}
+	int GameMap::tileBossCount;
 
 	void GameMap::Render(HDC hdc)
 	{
@@ -916,7 +917,8 @@ namespace ch
 				}
 			}
 		}
-		if (count >= 5)
+		tileBossCount = count;
+		if (count >= 20)
 		{
 			//bossÃâÇö
 			return true;

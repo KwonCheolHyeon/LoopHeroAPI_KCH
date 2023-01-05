@@ -1,8 +1,9 @@
 #pragma once
 #include "chScene.h"
-
+#include "chSound.h"
 namespace ch
 {
+	class Sound;
 	class TitleScene : public Scene
 	{
 	public:
@@ -17,7 +18,7 @@ namespace ch
 		virtual void Exit();
 
 	private:
-
+		
 	};
 
 }

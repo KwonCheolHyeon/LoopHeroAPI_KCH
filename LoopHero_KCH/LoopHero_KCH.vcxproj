@@ -136,6 +136,7 @@
     <ClInclude Include="chAnimator.h" />
     <ClInclude Include="chApplication.h" />
     <ClInclude Include="chBackPack.h" />
+    <ClInclude Include="chBarobject.h" />
     <ClInclude Include="chBasePlace.h" />
     <ClInclude Include="chBgImageObject.h" />
     <ClInclude Include="chButton.h" />
@@ -170,6 +171,8 @@
     <ClInclude Include="chPlace.h" />
     <ClInclude Include="chSlimeMinIcon.h" />
     <ClInclude Include="chSlimeSpawn.h" />
+    <ClInclude Include="chSound.h" />
+    <ClInclude Include="chSoundManager.h" />
     <ClInclude Include="chWheat.h" />
     <ClInclude Include="chPanel.h" />
     <ClInclude Include="chPlashkaOBJ.h" />
@@ -228,6 +231,7 @@
     <ClInclude Include="UIGameObject.h" />
     <ClInclude Include="Vampire_Mansion.h" />
     <ClInclude Include="WarriorMini.h" />
+    <ClInclude Include="WindowsAPI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bossAppear.cpp" />
@@ -236,6 +240,7 @@
     <ClCompile Include="chAnimator.cpp" />
     <ClCompile Include="chApplication.cpp" />
     <ClCompile Include="chBackPack.cpp" />
+    <ClCompile Include="chBarobject.cpp" />
     <ClCompile Include="chBasePlace.cpp" />
     <ClCompile Include="chBgImageObject.cpp" />
     <ClCompile Include="chButton.cpp" />
@@ -270,6 +275,8 @@
     <ClCompile Include="chPlace.cpp" />
     <ClCompile Include="chSlimeMinIcon.cpp" />
     <ClCompile Include="chSlimeSpawn.cpp" />
+    <ClCompile Include="chSound.cpp" />
+    <ClCompile Include="chSoundManager.cpp" />
     <ClCompile Include="chWheat.cpp" />
     <ClCompile Include="chPanel.cpp" />
     <ClCompile Include="chPlashkaOBJ.cpp" />

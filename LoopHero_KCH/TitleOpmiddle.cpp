@@ -3,6 +3,7 @@
 #include "chImage.h"
 #include "chObject.h"
 #include "chTime.h"
+#include "titleStarBtn.h"
 
 namespace ch
 {
@@ -11,7 +12,7 @@ namespace ch
 	{
 		SetPos({ 650,-950 });
 		SetScale({ 2.5f, 2.5f });
-	
+		ch::object::Instantiate<titleStarBtn>(eColliderLayer::UI);
 	}
 
 	TitleOpmiddle::~TitleOpmiddle()

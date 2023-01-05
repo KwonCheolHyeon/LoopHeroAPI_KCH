@@ -151,6 +151,9 @@
     <Filter Include="Client\BossOBJs\leach">
       <UniqueIdentifier>{f80c27b4-77e0-4eb4-8a1c-021d1fec732b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Client\hpBar">
+      <UniqueIdentifier>{82522e7a-5ccf-4396-bb12-c485787e8759}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -447,6 +450,18 @@
     <ClInclude Include="chLeach.h">
       <Filter>Client\BossOBJs\leach</Filter>
     </ClInclude>
+    <ClInclude Include="chSoundManager.h">
+      <Filter>Engine\Manager</Filter>
+    </ClInclude>
+    <ClInclude Include="chSound.h">
+      <Filter>Engine\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsAPI.h">
+      <Filter>main</Filter>
+    </ClInclude>
+    <ClInclude Include="chBarobject.h">
+      <Filter>Client\hpBar</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -724,6 +739,15 @@
     </ClCompile>
     <ClCompile Include="chLeach.cpp">
       <Filter>Client\BossOBJs\leach</Filter>
+    </ClCompile>
+    <ClCompile Include="chSoundManager.cpp">
+      <Filter>Engine\Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="chSound.cpp">
+      <Filter>Engine\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="chBarobject.cpp">
+      <Filter>Client\hpBar</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

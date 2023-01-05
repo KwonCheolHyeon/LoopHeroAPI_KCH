@@ -12,6 +12,11 @@
 #define IDI_LOOPHEROKCH			107
 #define IDI_SMALL				108
 #define IDC_LOOPHEROKCH			109
+#define ID_32771                        32771
+#define ID_32772                        32772
+#define ID_32773                        32773
+#define ID_TILE_SAVE                    32774
+#define ID_TILE_LOAD                    32775
 #define IDC_MYICON				2
 #ifndef IDC_STATIC
 #define IDC_STATIC				-1

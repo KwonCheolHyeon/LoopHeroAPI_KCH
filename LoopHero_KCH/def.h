@@ -73,7 +73,7 @@ enum class eUIType
 	INVENTORY,
 	StartBtn,
 	OPTION,
-
+	Time,
 
 	END,
 };

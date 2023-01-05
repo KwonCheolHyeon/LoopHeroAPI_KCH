@@ -14,6 +14,10 @@
 #include "chObject.h"
 #include "chItemBG.h"
 
+#include "chResources.h"
+#include "chSound.h"
+#include "chSoundManager.h"
+
 
 namespace ch 
 {
@@ -72,7 +76,7 @@ namespace ch
 		pSpd.AttSpeed = 0.8 + (sppeedd/100);
 		//체력
 		pHp.wepHp = ItemBG::equipCheck[0]->chHps + ItemBG::equipCheck[1]->chHps + ItemBG::equipCheck[2]->chHps + ItemBG::equipCheck[3]->chHps;
-		pHp.maxHp = pHp.minHp + pHp.wepHp;
+		pHp.maxHp = pHp.minHp + pHp.wepHp + 100;
 		pHp.nowHp = pHp.maxHp;
 		//방어
 		pDef.maxDef = 3 + ItemBG::equipCheck[0]->chDefs + ItemBG::equipCheck[1]->chDefs + ItemBG::equipCheck[2]->chDefs + ItemBG::equipCheck[3]->chDefs;
@@ -87,10 +91,14 @@ namespace ch
 		FightDone = false;
 		
 		gameSpeed = 1;
+
+		heroAttk_Sound = Resources::Load<Sound>(L"heroAtt", L"..\\Resources\\sound\\effect\\snd_HERO_attack2.wav");
 	}
 
 	bool LoopWarrior::FightDone;
 	int LoopWarrior::gameSpeed;
+	float LoopWarrior::CHmaxHp;
+	float LoopWarrior::CHnowHp;
 
 	LoopWarrior::~LoopWarrior()
 	{
@@ -111,11 +119,12 @@ namespace ch
 		
 		if(playerRegenTime >= 1.0f) // 초당 회복
 		{
-			pRegenHP();
+			//pRegenHP();
 			mAnimator->Play(L"WarriorIdle", false);
 			playerRegenTime = 0;
 		}
-		
+		CHmaxHp = pHp.maxHp;
+		CHnowHp = pHp.nowHp;
 
 		if (playerAttSpd >= (1 / pSpd.AttSpeed)) //공격속도
 		{
@@ -123,6 +132,7 @@ namespace ch
 			{
 				mAnimator->Play(L"Warriorattack", false);
 				Attack();
+				heroAttk_Sound->Play(false);
 				playerAttSpd = 0;
 				oneFight = true;
 				EndFightCheck();
@@ -137,9 +147,8 @@ namespace ch
 
 	void LoopWarrior::EndFightCheck() //전투 종료 확인
 	{
-		if (monsterCount == FightPageOBJ::fightPageMonsterCount && oneFight == true)//전투 종료
+		if (monsterCount == FightPageOBJ::fightPageMonsterCount)//전투 종료
 		{
-			oneFight = false;
 			LoopWarrior::FightDone = true;
 		}
 	}

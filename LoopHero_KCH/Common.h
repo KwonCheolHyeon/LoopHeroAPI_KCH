@@ -17,7 +17,15 @@
 #include "def.h"
 #include "Maths.h"
 
+// 렌더링 라이브러리
 #pragma comment(lib, "Msimg32.lib")
+
+#include <mmsystem.h>
+#include <dsound.h>
+#include <dinput.h>
+
+#pragma comment(lib, "winmm.lib")
+#pragma comment(lib, "dsound.lib")
 //typedef Pos POINT;
 //using Pos = POINT;
 

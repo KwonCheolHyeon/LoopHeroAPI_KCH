@@ -52,7 +52,7 @@ namespace ch {
 		static std::vector<std::vector<TileMapObject*>> roadTiles;
 
 		//static std::vector<std::vector<TileMapObject*>> monsterTiles;
-
+		static int tileBossCount;
 	private:
 		
 		int mTileType;

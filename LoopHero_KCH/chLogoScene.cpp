@@ -12,6 +12,8 @@
 #include "chTime.h"
 #include "LogoAni2.h"
 #include "chCamera.h"
+
+
 namespace ch
 {
 	LogoScene::LogoScene()
@@ -21,6 +23,7 @@ namespace ch
 		logo2->Initialize();
 		
 		AddGameObject(logo2, eColliderLayer::BackGround);
+
 	}
 
 	LogoScene::~LogoScene()

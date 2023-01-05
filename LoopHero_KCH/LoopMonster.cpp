@@ -13,6 +13,10 @@
 #include "chItemBG.h"
 #include "chLeach.h"
 #include "LoopWarrior.h"
+#include "chSound.h"
+#include "chSoundManager.h"
+
+
 namespace ch
 {
 
@@ -54,6 +58,7 @@ namespace ch
 			mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
 			mSPD.spd = 0.6;
 			MonsterIndex = monsIndex;
+			monsterAttack_sound = Resources::Load<Sound>(L"monsterAtk", L"..\\Resources\\sound\\monster\\snd_slime_attack3.wav");
 		}
 		else if (monsIndex == 2) //거미
 		{
@@ -82,6 +87,7 @@ namespace ch
 			mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
 			mSPD.spd = 0.91;
 			MonsterIndex = monsIndex;
+			monsterAttack_sound = Resources::Load<Sound>(L"monsterAtk", L"..\\Resources\\sound\\monster\\snd_spider_attack.wav");
 		}
 		else if (monsIndex == 3) //뱀파이어
 		{
@@ -110,7 +116,7 @@ namespace ch
 			mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
 			mSPD.spd = 0.5;
 			MonsterIndex = monsIndex;
-		
+			monsterAttack_sound = Resources::Load<Sound>(L"monsterAtk", L"..\\Resources\\sound\\monster\\snd_vampire_attack.wav");
 		}
 		else if (monsIndex == 4) //들개
 		{
@@ -139,7 +145,7 @@ namespace ch
 			mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
 			mSPD.spd = 0.75;
 			MonsterIndex = monsIndex;
-		
+			monsterAttack_sound = Resources::Load<Sound>(L"monsterAtk", L"..\\Resources\\sound\\monster\\snd_wolf_attack.wav");
 		}
 		else if (monsIndex == 5) //스켈레톤
 		{
@@ -156,7 +162,7 @@ namespace ch
 		mAnimator->Play(L"SkeletonIdle", true);
 		AddComponent(mAnimator);
 
-		//슬라임 기본 체력
+		//스켈 기본 체력
 		mHP.baseHp = 12;
 		mATT.baseStr = 9;
 		mDEF.baseDef = 0.3;
@@ -168,7 +174,7 @@ namespace ch
 		mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
 		mSPD.spd = 0.35;
 		MonsterIndex = monsIndex;
-		
+		monsterAttack_sound = Resources::Load<Sound>(L"monsterAtk", L"..\\Resources\\sound\\monster\\snd_skeleton_damaged_attack.wav");
 		}
 		else if (monsIndex == 6) //리치
 		{
@@ -200,12 +206,20 @@ namespace ch
 		mHP.nowHP = mHP.baseHp * WarriorMini::Loop;// 현재 HP 
 		mATT.nowStr = mATT.baseStr * WarriorMini::Loop;
 		mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
-		mSPD.spd = 0.36;
+		mSPD.spd = 0.5;
+
+		monsterAttack_sound = Resources::Load<Sound>(L"monsterAtk", L"..\\Resources\\sound\\lich\\snd_LICH_attack.wav");
+		fightLich_Sound = Resources::Load<Sound>(L"fightLichSound", L"..\\Resources\\sound\\lich\\snd_boss_lich.wav");
+		deathLich_Sound = Resources::Load<Sound>(L"deathLich", L"..\\Resources\\sound\\lich\\snd_win_lich.wav");
+
+		fightLich_Sound->Play(true);
 		}
 		lichTimeCheck = true;
 		lichTime = 0;
 		srand(time(NULL));
 		death = false;
+
+
 	}
 
 	Monsters::~Monsters()
@@ -244,12 +258,15 @@ namespace ch
 				if (death == true)
 				{
 					death = false;
+					fightLich_Sound->Stop(true);
+					deathLich_Sound->Play(true);
 					mItems();
 				}
 
 				if (attSpdChek >= (1 / mSPD.spd)) //공격속도
 				{
 					mAttack();
+					monsterAttack_sound->Play(false);
 					attSpdChek = 0;
 				}
 			
@@ -274,6 +291,7 @@ namespace ch
 			if (attSpdChek >= (1 / mSPD.spd)) //공격속도
 			{
 				mAttack();
+				monsterAttack_sound->Play(false);
 				attSpdChek = 0;
 			}
 		

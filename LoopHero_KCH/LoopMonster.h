@@ -2,7 +2,7 @@
 #include "chGameObject.h"
 #include "chAnimator.h"
 #include "MonsterStat.h"
-
+#include "chSound.h"
 namespace ch {
 
 	class Image;
@@ -45,5 +45,10 @@ namespace ch {
 
 		MonsteritemRelv mITEM;
 		double attSpdChek;//초당 공격 속도
+
+	private:
+		Sound* monsterAttack_sound;
+		Sound* fightLich_Sound;
+		Sound* deathLich_Sound;
 	};
 }

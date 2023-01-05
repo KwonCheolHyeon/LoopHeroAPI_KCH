@@ -28,7 +28,7 @@ namespace ch
 		Vector2 playerPos;
 
 		//LoopWarrior *player;
-		static Monsters *enemys[6];
+		static Monsters *enemys[5];
 		//static Monsters *Testenemy;
 		static LoopWarrior *Testplayer;
 		static FigjtPageTimeAni *FightPageAniObj;

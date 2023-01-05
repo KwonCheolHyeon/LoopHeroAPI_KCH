@@ -1,7 +1,7 @@
 #pragma once
 #include "chGameObject.h"
 #include "PlayerStat.h"
-
+#include "chSound.h"
 namespace ch {
 	
 	class Animator;
@@ -35,7 +35,8 @@ namespace ch {
 		bool pCritical(); //크리티컬
 		bool pCounterAtt(); //카운터 공격
 
-
+		static float CHmaxHp;
+		static float CHnowHp;
 	public:
 		int loopTIme = 1; ////////현재 루프 UI 에 넣어도 될듯///////
 		static int gameSpeed;
@@ -63,5 +64,8 @@ namespace ch {
 		LevelUp pExp; //레벨업 경험치 관련
 		AttSpd pSpd;
 
+
+	private://사운드
+		Sound* heroAttk_Sound;
 	};
 }
