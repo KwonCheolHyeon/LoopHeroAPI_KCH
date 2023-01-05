@@ -86,6 +86,8 @@ namespace ch
         lichPotal_bgm = Resources::Load<Sound>(L"LichPotal", L"..\\Resources\\sound\\lich\\snd_mus_Lich_portal.wav");
         Walk_Bgm = Resources::Load<Sound>(L"heroWalk", L"..\\Resources\\sound\\effect\\snd_hero_steps.wav"); //
         campfire_bgm = Resources::Load<Sound>(L"campFire", L"..\\Resources\\sound\\effect\\snd_campfire_heal.wav");//Ä·ÇÁÆÄÀÌ¾î
+        daySound = Resources::Load<Sound>(L"daySound", L"..\\Resources\\sound\\effect\\snd_start_new_day.wav");
+        battleStart_sound = Resources::Load<Sound>(L"battleStart", L"..\\Resources\\sound\\effect\\snd_battle_start.wav");
     }
     int WarriorMini::Loop;
     int WarriorMini::gameSpeedCount;
@@ -112,7 +114,7 @@ namespace ch
             {//ÀüÅõ¾À
                
                gameSpeedCount = 0;
-
+               battleStart_sound->Play(false);
                FightPageOBJ* fpg = new FightPageOBJ(prevPY, prevPX);
                fpg->SetImage(L"FightPage", L"s_fight_window_0.bmp");
                fpg->Initialize();
@@ -161,15 +163,10 @@ namespace ch
             Time::gameSpeed = 1;
             
         }
-        if (KEY_DOWN(eKeyCode::NUM_4))
+       
+        if (Time::mDays == 1)
         {
-            gameSpeedCount = 4;
-
-        }
-        if (KEY_DOWN(eKeyCode::NUM_1))
-        {
-            gameSpeedCount = 1;
-
+            daySound->Play(false);
         }
 
         moveTo(Pdir, pos);

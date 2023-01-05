@@ -28,6 +28,12 @@ namespace ch
 	{
 		ch::object::Instantiate<MouseObject>(eColliderLayer::Mouse);
 
+		TitleOpmiddle* TitleOp = new TitleOpmiddle();
+		TitleOp->SetImage(L"newescmenu_0", L"newescmenu_0.bmp");
+		TitleOp->Initialize();
+
+		AddGameObject(TitleOp, eColliderLayer::Tile);
+
 		BgImageObject* bg = new BgImageObject();
 		bg->SetImage(L"s_intro_bg_0", L"s_intro_bg_0.bmp");
 		bg->Initialize();
@@ -39,13 +45,9 @@ namespace ch
 		Logo1->SetImage(L"s_game_logo_0", L"s_game_logo_0.bmp");
 		Logo1->Initialize();
 
-		AddGameObject(Logo1, eColliderLayer::PlayerMonster);
+		AddGameObject(Logo1, eColliderLayer::UI);
 
-		TitleOpmiddle* TitleOp = new TitleOpmiddle();
-		TitleOp->SetImage(L"newescmenu_0", L"newescmenu_0.bmp");
-		TitleOp->Initialize();
-
-		AddGameObject(TitleOp, eColliderLayer::Tile);
+		
 
 		TitleOpRight* TitleRight = new TitleOpRight();
 		TitleRight->SetImage(L"opt_lang_0", L"opt_lang_0.bmp");

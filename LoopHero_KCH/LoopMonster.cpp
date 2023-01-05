@@ -216,6 +216,7 @@ namespace ch
 		}
 		lichTimeCheck = true;
 		lichTime = 0;
+		itemDrop_sound = Resources::Load<Sound>(L"itemDrop_sound", L"..\\Resources\\sound\\effect\\snd_item_drop1.wav");
 		srand(time(NULL));
 		death = false;
 
@@ -499,6 +500,7 @@ namespace ch
 
 		if (fullItemCheck())
 		{
+			itemDrop_sound->Play(false);
 			ch::object::Instantiate<ItemBG>(rank, item, itemType, (eColliderLayer::Card));
 		}
 	}

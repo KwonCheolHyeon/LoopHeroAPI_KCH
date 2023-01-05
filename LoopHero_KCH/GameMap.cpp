@@ -133,7 +133,7 @@ namespace ch
 		else if (mTileType == 9 && chCardSelect == true) // 금고
 		{
 			chCardSelect = false;
-			cofferCheck();
+			exAroundRoad();
 
 		}
 		else if (mTileType == 10 && chCardSelect == true) // 밀밭
@@ -147,7 +147,7 @@ namespace ch
 			exAroundRoad();
 		}
 		
-	
+		
 	}
 	int GameMap::tileBossCount;
 	//bool GameMap::bossOn;
@@ -764,7 +764,7 @@ namespace ch
 				if (mTiles[i][j]->GetTileBase() == 1)
 				{
 					mTiles[i][j]->Death();
-					//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+					mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
 					TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i, j), eColliderLayer::BackGround); // 무덤
 					gameObj->SetTileBase(0);
 					gameObj->SetTileType(0);
@@ -811,6 +811,7 @@ namespace ch
 		}
 	}
 
+	/*
 	void GameMap::cofferCheck() 
 	{
 		exAroundRoad();
@@ -823,7 +824,7 @@ namespace ch
 					if (mTiles[i - 1][j] != nullptr && mTiles[i-1][j]->GetTileBase() == 1)
 					{
 						mTiles[i-1][j]->Death();
-						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						mTiles[i-1][j] = nullptr;  // 이거 지우는 차이 있는지???????
 						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i-1, j), eColliderLayer::BackGround); // 무덤
 						gameObj->SetTileBase(0);
 						gameObj->SetTileType(0);
@@ -832,7 +833,7 @@ namespace ch
 					if (mTiles[i + 1][j] != nullptr && mTiles[i+1][j]->GetTileBase() == 1)
 					{
 						mTiles[i+1][j]->Death();
-						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						mTiles[i+1][j] = nullptr;  // 이거 지우는 차이 있는지???????
 						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i+1, j), eColliderLayer::BackGround); // 무덤
 						gameObj->SetTileBase(0);
 						gameObj->SetTileType(0);
@@ -841,7 +842,7 @@ namespace ch
 					if (mTiles[i][j-1] != nullptr && mTiles[i][j-1]->GetTileBase() == 1)
 					{
 						mTiles[i][j-1]->Death();
-						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						mTiles[i][j-1] = nullptr;  // 이거 지우는 차이 있는지???????
 						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i, j-1), eColliderLayer::BackGround); // 무덤
 						gameObj->SetTileBase(0);
 						gameObj->SetTileType(0);
@@ -850,7 +851,7 @@ namespace ch
 					if (mTiles[i][j + 1] != nullptr && mTiles[i][j+1]->GetTileBase() == 1)
 					{
 						mTiles[i][j+1]->Death();
-						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						mTiles[i][j+1] = nullptr;  // 이거 지우는 차이 있는지???????
 						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i, j+1), eColliderLayer::BackGround); // 무덤
 						gameObj->SetTileBase(0);
 						gameObj->SetTileType(0);
@@ -859,7 +860,7 @@ namespace ch
 					if (mTiles[i - 1][j-1] != nullptr && mTiles[i - 1][j-1]->GetTileBase() == 1)
 					{
 						mTiles[i - 1][j-1]->Death();
-						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						mTiles[i-1][j-1] = nullptr;  // 이거 지우는 차이 있는지???????
 						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i - 1, j-1), eColliderLayer::BackGround); // 무덤
 						gameObj->SetTileBase(0);
 						gameObj->SetTileType(0);
@@ -868,7 +869,7 @@ namespace ch
 					if (mTiles[i - 1][j + 1] != nullptr && mTiles[i - 1][j + 1]->GetTileBase() == 1)
 					{
 						mTiles[i - 1][j + 1]->Death();
-						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						mTiles[i-1][j+1] = nullptr;  // 이거 지우는 차이 있는지???????
 						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i - 1, j + 1), eColliderLayer::BackGround); // 무덤
 						gameObj->SetTileBase(0);
 						gameObj->SetTileType(0);
@@ -877,7 +878,7 @@ namespace ch
 					if (mTiles[i+1][j - 1] != nullptr && mTiles[i+1][j - 1]->GetTileBase() == 1)
 					{
 						mTiles[i+1][j - 1]->Death();
-						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						mTiles[i+1][j-1] = nullptr;  // 이거 지우는 차이 있는지???????
 						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i+1, j - 1), eColliderLayer::BackGround); // 무덤
 						gameObj->SetTileBase(0);
 						gameObj->SetTileType(0);
@@ -886,7 +887,7 @@ namespace ch
 					if (mTiles[i+1][j + 1] != nullptr && mTiles[i+1][j + 1]->GetTileBase() == 1)
 					{
 						mTiles[i+1][j + 1]->Death();
-						//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+						mTiles[i+1][j+1] = nullptr;  // 이거 지우는 차이 있는지???????
 						TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i+1, j + 1), eColliderLayer::BackGround); // 무덤
 						gameObj->SetTileBase(0);
 						gameObj->SetTileType(0);
@@ -896,7 +897,7 @@ namespace ch
 				if (i == 0 || i==10 || j ==0 || j==20) 
 				{
 					mTiles[i][j]->Death();
-					//mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
+					mTiles[i][j] = nullptr;  // 이거 지우는 차이 있는지???????
 					TileMapObject* gameObj = ch::object::Instantiate<BasePlace>(MapPosCalc(i, j), eColliderLayer::BackGround); // 무덤
 					gameObj->SetTileBase(0);
 					gameObj->SetTileType(0);
@@ -907,7 +908,7 @@ namespace ch
 		}
 		
 	}
-
+	*/
 	bool GameMap::bossCheck()
 	{
 		int count = 0;

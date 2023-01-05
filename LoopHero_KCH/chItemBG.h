@@ -1,6 +1,7 @@
 #pragma once
 #include "chGameObject.h"
 #include "chItemBase.h"
+#include "chSound.h"
 namespace ch {
 	class Image;
 	class ItemBG : public GameObject
@@ -63,5 +64,8 @@ namespace ch {
 		int iRank;
 		int items;
 		int iItemType;
+
+	private:
+		Sound* equipItem;
 	};
 }

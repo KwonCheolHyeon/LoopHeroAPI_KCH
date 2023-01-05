@@ -82,7 +82,7 @@ namespace ch {
 			rect.y = mImage->GetHeight() * scale.y;
 
 			float chX = Time::mDayTime;//day
-			float xRatio = (chX / 10.0f);
+			float xRatio = (chX / 15.0f);
 			TransparentBlt(hdc, finalPos.x, finalPos.y, rect.x * xRatio, rect.y
 				, mImage->GetDC(), 0, 0, mImage->GetWidth(), mImage->GetHeight()
 				, RGB(255, 0, 255));

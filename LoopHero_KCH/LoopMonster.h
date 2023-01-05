@@ -50,5 +50,6 @@ namespace ch {
 		Sound* monsterAttack_sound;
 		Sound* fightLich_Sound;
 		Sound* deathLich_Sound;
+		Sound* itemDrop_sound;
 	};
 }

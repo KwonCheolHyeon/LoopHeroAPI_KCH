@@ -59,6 +59,7 @@ namespace ch
 		Sound* lichPotal_bgm;
 		Sound* Walk_Bgm;
 		Sound* campfire_bgm;
-		
+		Sound* daySound;
+		Sound* battleStart_sound;
 	};
 }

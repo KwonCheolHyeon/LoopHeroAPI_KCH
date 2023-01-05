@@ -1,6 +1,5 @@
 #include "chTime.h"
 #include "chApplication.h"
-
 namespace ch
 {
 	LARGE_INTEGER Time::mCpuFrequency;
@@ -40,9 +39,10 @@ namespace ch
 		mDayTime += mDeltaTime * gameSpeed;//¸î ¹è¼Ó
 
 		mDays = 0;
-		if (mDayTime >= 10.0f) 
+		if (mDayTime >= 15.0f) 
 		{
 			mDays = 1;
+
 			mDayTime = 0;
 		}
 		

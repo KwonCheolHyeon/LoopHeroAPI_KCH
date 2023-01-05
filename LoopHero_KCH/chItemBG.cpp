@@ -7,6 +7,8 @@
 #include "chCollisionManager.h"
 #include "chMouseObject.h"
 #include "GameMap.h"
+#include "chSound.h"
+#include "chSoundManager.h"
 
 namespace ch
 {
@@ -39,6 +41,8 @@ namespace ch
 		iItemType = itemtype;
 		setRank();
 		itembagCheck();
+
+		equipItem = Resources::Load<Sound>(L"equipItem", L"..\\Resources\\sound\\effect\\snd_equip_item.wav");
 
 		Collider* collider = new Collider();
 		AddComponent(collider);
@@ -124,7 +128,7 @@ namespace ch
 				this->cHCounters = chCounter.eCounter;
 				this->chWepSpeeds = chAttSpeed.eAttSpeed;
 				this->chEvades = chEvade.eEvade;
-
+				equipItem->Play(false);
 				this->SetPos(equipPos[0]);
 				equipCheck[0] = this;
 			}
@@ -142,7 +146,7 @@ namespace ch
 				this->cHCounters = chCounter.eCounter;
 				this->chWepSpeeds = chAttSpeed.eAttSpeed;
 				this->chEvades = chEvade.eEvade;
-
+				equipItem->Play(false);
 				this->SetPos(equipPos[1]);
 				equipCheck[1] = this;
 			}
@@ -160,7 +164,7 @@ namespace ch
 				this->cHCounters = chCounter.eCounter;
 				this->chWepSpeeds = chAttSpeed.eAttSpeed;
 				this->chEvades = chEvade.eEvade;
-
+				equipItem->Play(false);
 				this->SetPos(equipPos[2]);
 				equipCheck[2] = this;
 			}
@@ -178,7 +182,7 @@ namespace ch
 				this->cHCounters = chCounter.eCounter;
 				this->chWepSpeeds = chAttSpeed.eAttSpeed;
 				this->chEvades = chEvade.eEvade;
-
+				equipItem->Play(false);
 				this->SetPos(equipPos[3]);
 				equipCheck[3] = this;
 			}
