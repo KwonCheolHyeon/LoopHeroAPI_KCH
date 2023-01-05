@@ -44,6 +44,8 @@ namespace ch
         gameSpeed = 0;
         gameSpeedCount = 1;
         pos = miniOffset + pos;
+        boosOneCheck = true;
+        bgmOneCheck = true;
         SetName(L"WarriorMini");
         SetPos(pos);
         SetScale({ 3.0f, 3.0f });
@@ -77,6 +79,13 @@ namespace ch
         ch::object::Instantiate<ItemBG>(0, 1, 0, (eColliderLayer::Card));
         ch::object::Instantiate<ItemBG>(0, 2, 0, (eColliderLayer::Card));
         ch::object::Instantiate<ItemBG>(0, 3, 0, (eColliderLayer::Card));
+
+
+        gameStart_bgm = Resources::Load<Sound>(L"stageStart", L"..\\Resources\\sound\\bgm\\snd_music1_2.wav");
+       
+        lichPotal_bgm = Resources::Load<Sound>(L"LichPotal", L"..\\Resources\\sound\\lich\\snd_mus_Lich_portal.wav");
+        Walk_Bgm = Resources::Load<Sound>(L"heroWalk", L"..\\Resources\\sound\\effect\\snd_hero_steps.wav"); //
+        campfire_bgm = Resources::Load<Sound>(L"campFire", L"..\\Resources\\sound\\effect\\snd_campfire_heal.wav");//캠프파이어
     }
     int WarriorMini::Loop;
     int WarriorMini::gameSpeedCount;
@@ -96,6 +105,7 @@ namespace ch
 
         if (distanceOne >= TILE_SIZE * TILE_SCALE)
         {
+
             distanceOne = 0;
             Pdir=dirSelect(pIndex.x,pIndex.y);
             if (GameMap::roadTiles[prevPY][prevPX]->GetMonsterCount() > 0) //몬스터가 있는지? 체크
@@ -115,12 +125,29 @@ namespace ch
             {
                 if (GameMap::roadTiles[prevPY][prevPX]->GetMonsterType(0) ==  6) //보스
                 {
+                    lichPotal_bgm->Stop(true);
                     
                 }
+                campfire_bgm->Play(false);
+
                 Loop += 1;
 
             }
         }
+
+        if (bgmOneCheck) 
+        {
+            bgmOneCheck = false;
+            gameStart_bgm->Play(true);
+        }
+        if (GameMap::roadTiles[7][12]->GetMonsterType(0) == 6 && boosOneCheck== true) //보스
+        {
+            boosOneCheck = false;
+            gameStart_bgm->Stop(true);
+            lichPotal_bgm->Play(true);
+
+        }
+        
 
         if (LoopWarrior::FightDone == true) 
         {

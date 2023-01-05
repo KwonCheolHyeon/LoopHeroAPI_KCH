@@ -29,7 +29,7 @@ namespace ch
 	void Collider::Render(HDC hdc)
 	{
 
-
+		/*
 		HBRUSH tr = Application::GetInstance().GetBrush(eBrushColor::Transparent);
 		Brush brush(hdc, tr);
 
@@ -49,7 +49,7 @@ namespace ch
 
 		SelectObject(hdc, oldPen);
 		DeleteObject(redPen);
-		DeleteObject(greenPen);
+		DeleteObject(greenPen);*/
 	}
 
 	void Collider::OnCollisionEnter(Collider* other)

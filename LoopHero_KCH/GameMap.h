@@ -53,6 +53,8 @@ namespace ch {
 
 		//static std::vector<std::vector<TileMapObject*>> monsterTiles;
 		static int tileBossCount;
+
+		//static bool bossOn;
 	private:
 		
 		int mTileType;

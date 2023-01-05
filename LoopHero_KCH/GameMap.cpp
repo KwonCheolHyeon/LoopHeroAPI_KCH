@@ -32,6 +32,8 @@ namespace ch
 		{
 			roadTiles[i].resize(21);
 		}
+
+		//bossOn
 	}
 
 	std::vector<std::vector<TileMapObject*>> GameMap::roadTiles;
@@ -76,6 +78,7 @@ namespace ch
 					lager->Death();
 					ch::object::Instantiate<bossAppear>(MapPosCalc(7, 12), (eColliderLayer::Tile)); // 리치 소환
 					roadTiles[7][12]->SetMonsters(6);
+
 				}
 			}
 		}
@@ -147,6 +150,7 @@ namespace ch
 	
 	}
 	int GameMap::tileBossCount;
+	//bool GameMap::bossOn;
 
 	void GameMap::Render(HDC hdc)
 	{
