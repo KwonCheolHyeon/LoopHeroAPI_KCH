@@ -90,6 +90,7 @@ namespace ch
         campfire_bgm = Resources::Load<Sound>(L"campFire", L"..\\Resources\\sound\\effect\\snd_campfire_heal.wav");//캠프파이어
         daySound = Resources::Load<Sound>(L"daySound", L"..\\Resources\\sound\\effect\\snd_start_new_day.wav");
         battleStart_sound = Resources::Load<Sound>(L"battleStart", L"..\\Resources\\sound\\effect\\snd_battle_start.wav");
+        Time::gameSpeed = 1;
     }
     int WarriorMini::Loop;
     int WarriorMini::gameSpeedCount;
@@ -103,7 +104,7 @@ namespace ch
 
     void WarriorMini::Tick()
     {
-        gameSpeed = (20 * Time::DeltaTime() * gameSpeedCount);
+        gameSpeed = (30 * Time::DeltaTime() * gameSpeedCount);
 
         GameObject::Tick();
 
@@ -135,7 +136,7 @@ namespace ch
                     
                 }
                 campfire_bgm->Play(false);
-                miniNowHp += 300;
+                miniNowHp += 500;
                 Loop += 1;
 
             }

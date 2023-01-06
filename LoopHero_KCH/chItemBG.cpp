@@ -175,9 +175,11 @@ namespace ch
 			{
 				if (equipCheck[3] != nullptr)
 				{
+					WarriorMini::miniHP = WarriorMini::miniHP - equipCheck[3]->chHps;
 					equipCheck[3]->Death();
 					equipCheck[3] = nullptr;
 				}
+				
 				this->chWepMaxATTs = chNormal.wMaxAttack;
 				this->chWepMinATTs = chNormal.wMinAttack;
 				this->chHps = chNormal.aHP;
@@ -188,7 +190,7 @@ namespace ch
 				equipItem->Play(false);
 				this->SetPos(equipPos[3]);
 				equipCheck[3] = this;
-				WarriorMini::miniHP = equipCheck[3]->chHps + WarriorMini::miniNowHp;
+				WarriorMini::miniHP += equipCheck[3]->chHps;
 			}
 
 

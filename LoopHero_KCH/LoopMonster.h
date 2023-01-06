@@ -51,5 +51,6 @@ namespace ch {
 		Sound* fightLich_Sound;
 		Sound* deathLich_Sound;
 		Sound* itemDrop_sound;
+		Sound* lichAttack_sound;
 	};
 }

@@ -104,12 +104,12 @@ namespace ch {
 			rect.x = mImage->GetWidth() * scale.x;
 			rect.y = mImage->GetHeight() * scale.y;
 
-			float chX = GameMap::tileBossCount; //day
-			if (chX >= 20) 
+			float chX = GameMap::tileBossCount; //tile
+			if (chX >= 15) 
 			{
-				chX = 20;
+				chX = 15;
 			}
-			float xRatio = (chX / 20.0f);
+			float xRatio = (chX / 15.0f);
 			TransparentBlt(hdc, finalPos.x, finalPos.y, rect.x * xRatio, rect.y
 				, mImage->GetDC(), 0, 0, mImage->GetWidth(), mImage->GetHeight()
 				, RGB(255, 0, 255));

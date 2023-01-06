@@ -106,7 +106,7 @@ namespace ch
 
 			//슬라임 기본 체력
 			mHP.baseHp = 24;
-			mATT.baseStr =6;
+			mATT.baseStr =10;
 			mDEF.baseDef = 0.5;
 
 
@@ -135,7 +135,7 @@ namespace ch
 
 			//슬라임 기본 체력
 			mHP.baseHp = 21;
-			mATT.baseStr = 4;
+			mATT.baseStr =6;
 			mDEF.baseDef = 0.2;
 
 
@@ -197,7 +197,7 @@ namespace ch
 		AddComponent(mAnimator);
 		MonsterIndex = monsIndex;
 		//리치 스텟
-		mHP.baseHp = 130;
+		mHP.baseHp = 125;
 		mATT.baseStr = 20;
 		mDEF.baseDef = 1.3;
 
@@ -208,7 +208,7 @@ namespace ch
 		mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
 		mSPD.spd = 0.5;
 
-		monsterAttack_sound = Resources::Load<Sound>(L"monsterAtk", L"..\\Resources\\sound\\lich\\snd_LICH_attack.wav");
+		lichAttack_sound = Resources::Load<Sound>(L"lichAtk", L"..\\Resources\\sound\\lich\\snd_LICH_attack.wav");
 		fightLich_Sound = Resources::Load<Sound>(L"fightLichSound", L"..\\Resources\\sound\\lich\\snd_boss_lich.wav");
 		deathLich_Sound = Resources::Load<Sound>(L"deathLich", L"..\\Resources\\sound\\lich\\snd_win_lich.wav");
 
@@ -267,7 +267,7 @@ namespace ch
 				if (attSpdChek >= (1 / mSPD.spd)) //공격속도
 				{
 					mAttack();
-					monsterAttack_sound->Play(false);
+					lichAttack_sound->Play(false);
 					attSpdChek = 0;
 				}
 			

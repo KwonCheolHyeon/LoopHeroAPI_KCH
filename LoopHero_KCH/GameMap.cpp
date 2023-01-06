@@ -460,7 +460,7 @@ namespace ch
 				}
 				TileMapObject* gameObj = ch::object::Instantiate<StoneMountain>(MapPosCalc(y, x), eColliderLayer::Tile); //산
 				gameObj->SetTileType(1);
-				WarriorMini::miniHP += 10;
+				WarriorMini::miniHP += 50;
 				mTiles[y][x] = gameObj;
 				mTileType = 0;
 			}
@@ -475,7 +475,7 @@ namespace ch
 				}
 				TileMapObject* gameObj = ch::object::Instantiate<Rock>(MapPosCalc(y, x), eColliderLayer::Tile); //바위
 				gameObj->SetTileType(2);
-				WarriorMini::miniHP += 10;
+				WarriorMini::miniHP += 50;
 				mTiles[y][x] = gameObj;
 				mTileType = 0;
 			}
@@ -606,6 +606,7 @@ namespace ch
 			{
 				initGreen();
 			}
+			WarriorMini::miniHP += 100;
 			TileMapObject* gameObj = ch::object::Instantiate<Medow>(MapPosCalc(y, x), eColliderLayer::Tile); // 초원
 			gameObj->SetTileType(11);
 			mTiles[y][x] = gameObj;
@@ -925,7 +926,7 @@ namespace ch
 			}
 		}
 		tileBossCount = count;
-		if (count >= 20)
+		if (count >= 15)
 		{
 			//boss출현
 			return true;

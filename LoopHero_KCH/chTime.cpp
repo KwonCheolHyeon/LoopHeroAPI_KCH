@@ -18,7 +18,7 @@ namespace ch
 		// 프로그램 시작 했을때 cpu의 클럿 수
 		QueryPerformanceCounter(&mPrevFrequency);
 
-		gameSpeed = 1;
+		gameSpeed = 0;
 	}
 
 	//초기화
@@ -43,7 +43,7 @@ namespace ch
 		if (mDayTime >= 15.0f) 
 		{
 			mDays = 1;
-			WarriorMini::miniNowHp += 200;
+			WarriorMini::miniNowHp += 400;
 			mDayTime = 0;
 		}
 		
