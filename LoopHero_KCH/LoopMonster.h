@@ -48,9 +48,13 @@ namespace ch {
 
 	private:
 		Sound* monsterAttack_sound;
+		Sound* lichAttack_sound;
+		Sound* vampire_sound;
+		Sound* skeletom_sound;
+		Sound* dog_sound;
 		Sound* fightLich_Sound;
 		Sound* deathLich_Sound;
 		Sound* itemDrop_sound;
-		Sound* lichAttack_sound;
+		
 	};
 }

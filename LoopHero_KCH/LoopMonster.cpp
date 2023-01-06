@@ -116,7 +116,7 @@ namespace ch
 			mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
 			mSPD.spd = 0.5;
 			MonsterIndex = monsIndex;
-			monsterAttack_sound = Resources::Load<Sound>(L"monsterAtk", L"..\\Resources\\sound\\monster\\snd_vampire_attack.wav");
+			vampire_sound = Resources::Load<Sound>(L"monsterAtk", L"..\\Resources\\sound\\monster\\snd_vampire_attack.wav");
 		}
 		else if (monsIndex == 4) //들개
 		{
@@ -145,7 +145,7 @@ namespace ch
 			mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
 			mSPD.spd = 0.75;
 			MonsterIndex = monsIndex;
-			monsterAttack_sound = Resources::Load<Sound>(L"monsterAtk", L"..\\Resources\\sound\\monster\\snd_wolf_attack.wav");
+			dog_sound = Resources::Load<Sound>(L"monsterAtk", L"..\\Resources\\sound\\monster\\snd_wolf_attack.wav");
 		}
 		else if (monsIndex == 5) //스켈레톤
 		{
@@ -174,7 +174,7 @@ namespace ch
 		mDEF.nowDef = mDEF.baseDef * WarriorMini::Loop;
 		mSPD.spd = 0.35;
 		MonsterIndex = monsIndex;
-		monsterAttack_sound = Resources::Load<Sound>(L"monsterAtk", L"..\\Resources\\sound\\monster\\snd_skeleton_damaged_attack.wav");
+		skeletom_sound = Resources::Load<Sound>(L"monsterAtk", L"..\\Resources\\sound\\monster\\snd_skeleton_damaged_attack.wav");
 		}
 		else if (monsIndex == 6) //리치
 		{
@@ -292,7 +292,6 @@ namespace ch
 			if (attSpdChek >= (1 / mSPD.spd)) //공격속도
 			{
 				mAttack();
-				monsterAttack_sound->Play(false);
 				attSpdChek = 0;
 			}
 		
@@ -319,26 +318,31 @@ namespace ch
 		{
 			mAnimator->Play(L"Slimeattack", false);
 			FightPageOBJ::Testplayer->takeDamage(mATT.nowStr);
+			monsterAttack_sound->Play(false);
 		}
 		else if (MonsterIndex == 2) 
 		{
 			mAnimator->Play(L"Spiderattack", false);
 			FightPageOBJ::Testplayer->takeDamage(mATT.nowStr);
+			monsterAttack_sound->Play(false);
 		}
 		else if (MonsterIndex == 3)
 		{
 			mAnimator->Play(L"Vampireattack", false);
 			FightPageOBJ::Testplayer->takeDamage(mATT.nowStr);
+			vampire_sound->Play(false);
 		}
 		else if (MonsterIndex == 4)
 		{
 			mAnimator->Play(L"Dogattack", false);
 			FightPageOBJ::Testplayer->takeDamage(mATT.nowStr);
+			dog_sound->Play(false);
 		}
 		else if (MonsterIndex == 5)
 		{
 			mAnimator->Play(L"Skeletonattack", false);
 			FightPageOBJ::Testplayer->takeDamage(mATT.nowStr);
+			skeletom_sound->Play(false);
 		}
 		else if (MonsterIndex == 6)
 		{
