@@ -104,7 +104,7 @@ namespace ch
 
     void WarriorMini::Tick()
     {
-        gameSpeed = (30 * Time::DeltaTime() * gameSpeedCount);
+        gameSpeed = (25 * Time::DeltaTime() * gameSpeedCount);
 
         GameObject::Tick();
 
@@ -141,6 +141,7 @@ namespace ch
 
             }
 
+         
             if (miniNowHp > miniHP) 
             {
                 miniNowHp = miniHP;
@@ -160,7 +161,10 @@ namespace ch
             gameStart_bgm->Stop(true);
             lichPotal_bgm->Play(true);
         }
-        
+        if (KEY_DOWN(eKeyCode::Q))
+        {
+            LoopWarrior::FightDone = true;
+        }
 
         if (LoopWarrior::FightDone == true) 
         {
@@ -173,6 +177,8 @@ namespace ch
            
             Time::gameSpeed = 1;
         }
+
+       
        
         if (Time::mDays == 1)
         {
