@@ -460,6 +460,7 @@ namespace ch
 				}
 				TileMapObject* gameObj = ch::object::Instantiate<StoneMountain>(MapPosCalc(y, x), eColliderLayer::Tile); //»ê
 				gameObj->SetTileType(1);
+				WarriorMini::miniHP += 10;
 				mTiles[y][x] = gameObj;
 				mTileType = 0;
 			}
@@ -474,6 +475,7 @@ namespace ch
 				}
 				TileMapObject* gameObj = ch::object::Instantiate<Rock>(MapPosCalc(y, x), eColliderLayer::Tile); //¹ÙÀ§
 				gameObj->SetTileType(2);
+				WarriorMini::miniHP += 10;
 				mTiles[y][x] = gameObj;
 				mTileType = 0;
 			}

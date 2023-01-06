@@ -1,5 +1,6 @@
 #include "chTime.h"
 #include "chApplication.h"
+#include "WarriorMini.h"
 namespace ch
 {
 	LARGE_INTEGER Time::mCpuFrequency;
@@ -42,7 +43,7 @@ namespace ch
 		if (mDayTime >= 15.0f) 
 		{
 			mDays = 1;
-
+			WarriorMini::miniNowHp += 200;
 			mDayTime = 0;
 		}
 		

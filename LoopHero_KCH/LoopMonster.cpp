@@ -47,8 +47,8 @@ namespace ch
 			AddComponent(mAnimator);
 
 			//슬라임 기본 체력
-			mHP.baseHp = 13;
-			mATT.baseStr = 3.3;
+			mHP.baseHp = 18;
+			mATT.baseStr = 5;
 			mDEF.baseDef = 0;
 
 
@@ -76,8 +76,8 @@ namespace ch
 			AddComponent(mAnimator);
 
 			//슬라임 기본 체력
-			mHP.baseHp = 8;
-			mATT.baseStr = 3.1;
+			mHP.baseHp = 13;
+			mATT.baseStr = 5;
 			mDEF.baseDef = 0.4;
 
 
@@ -105,8 +105,8 @@ namespace ch
 			AddComponent(mAnimator);
 
 			//슬라임 기본 체력
-			mHP.baseHp = 18;
-			mATT.baseStr =5.8;
+			mHP.baseHp = 24;
+			mATT.baseStr =6;
 			mDEF.baseDef = 0.5;
 
 
@@ -134,8 +134,8 @@ namespace ch
 			AddComponent(mAnimator);
 
 			//슬라임 기본 체력
-			mHP.baseHp = 16;
-			mATT.baseStr = 3.6;
+			mHP.baseHp = 21;
+			mATT.baseStr = 4;
 			mDEF.baseDef = 0.2;
 
 
@@ -163,7 +163,7 @@ namespace ch
 		AddComponent(mAnimator);
 
 		//스켈 기본 체력
-		mHP.baseHp = 12;
+		mHP.baseHp = 25;
 		mATT.baseStr = 9;
 		mDEF.baseDef = 0.3;
 
@@ -197,8 +197,8 @@ namespace ch
 		AddComponent(mAnimator);
 		MonsterIndex = monsIndex;
 		//리치 스텟
-		mHP.baseHp = 110;
-		mATT.baseStr = 16;
+		mHP.baseHp = 130;
+		mATT.baseStr = 20;
 		mDEF.baseDef = 1.3;
 
 

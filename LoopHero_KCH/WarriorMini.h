@@ -24,9 +24,10 @@ namespace ch
 		int loopTIme = 1; ////////현재 루프 UI 에 넣어도 될듯///////
 		static int gameSpeedCount;
 		static int Loop;
+		static int miniHP;
+		static int miniNowHp;
 
 	public:
-		
 		//1.방향 결정 , 2. 지금 내 위치, 3. 이동해야하는 위치
 		void moveTo(int dir, Vector2 pos);
 		int dirSelect(int pY, int pX);//방향 정하기

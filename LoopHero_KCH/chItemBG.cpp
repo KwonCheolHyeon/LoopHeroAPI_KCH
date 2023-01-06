@@ -7,6 +7,7 @@
 #include "chCollisionManager.h"
 #include "chMouseObject.h"
 #include "GameMap.h"
+#include "WarriorMini.h"
 #include "chSound.h"
 #include "chSoundManager.h"
 
@@ -149,6 +150,7 @@ namespace ch
 				equipItem->Play(false);
 				this->SetPos(equipPos[1]);
 				equipCheck[1] = this;
+				
 			}
 			else if (it == 2) // ¹æÆÐ
 			{
@@ -167,6 +169,7 @@ namespace ch
 				equipItem->Play(false);
 				this->SetPos(equipPos[2]);
 				equipCheck[2] = this;
+				
 			}
 			else if (it == 3) // °©¿Ê
 			{
@@ -185,9 +188,12 @@ namespace ch
 				equipItem->Play(false);
 				this->SetPos(equipPos[3]);
 				equipCheck[3] = this;
+				WarriorMini::miniHP = equipCheck[3]->chHps + WarriorMini::miniNowHp;
 			}
+
+
 			removeBag();
-			int a = 0;
+			
 		}
 	}
 

@@ -49,7 +49,7 @@ namespace ch
         SetName(L"WarriorMini");
         SetPos(pos);
         SetScale({ 3.0f, 3.0f });
-       
+
         if (mImage == nullptr)
         {
             mImage = Resources::Load<Image>(L"Warrior", L"..\\Resources\\loophero\\character\\warrior\\warrior_00.bmp");
@@ -72,6 +72,7 @@ namespace ch
                 }
             }
         }
+
         pIndex = Vector2(pX,pY);
         Pdir = dirSelect(pIndex.x,pIndex.y);
         Loop = 1;
@@ -80,9 +81,10 @@ namespace ch
         ch::object::Instantiate<ItemBG>(0, 2, 0, (eColliderLayer::Card));
         ch::object::Instantiate<ItemBG>(0, 3, 0, (eColliderLayer::Card));
 
+        miniHP = 1000;
+        miniNowHp = miniHP;
 
         gameStart_bgm = Resources::Load<Sound>(L"stageStart", L"..\\Resources\\sound\\bgm\\snd_music1_2.wav");
-       
         lichPotal_bgm = Resources::Load<Sound>(L"LichPotal", L"..\\Resources\\sound\\lich\\snd_mus_Lich_portal.wav");
         Walk_Bgm = Resources::Load<Sound>(L"heroWalk", L"..\\Resources\\sound\\effect\\snd_hero_steps.wav"); //
         campfire_bgm = Resources::Load<Sound>(L"campFire", L"..\\Resources\\sound\\effect\\snd_campfire_heal.wav");//캠프파이어
@@ -91,6 +93,8 @@ namespace ch
     }
     int WarriorMini::Loop;
     int WarriorMini::gameSpeedCount;
+    int WarriorMini::miniHP;
+    int WarriorMini::miniNowHp;
 
     WarriorMini::~WarriorMini()
     {
@@ -131,10 +135,16 @@ namespace ch
                     
                 }
                 campfire_bgm->Play(false);
-
+                miniNowHp += 300;
                 Loop += 1;
 
             }
+
+            if (miniNowHp > miniHP) 
+            {
+                miniNowHp = miniHP;
+            }
+
         }
 
         if (bgmOneCheck) 
@@ -142,12 +152,12 @@ namespace ch
             bgmOneCheck = false;
             gameStart_bgm->Play(true);
         }
+
         if (GameMap::roadTiles[7][12]->GetMonsterType(0) == 6 && boosOneCheck== true) //보스
         {
             boosOneCheck = false;
             gameStart_bgm->Stop(true);
             lichPotal_bgm->Play(true);
-
         }
         
 
@@ -161,13 +171,15 @@ namespace ch
             fpg2->Death();
            
             Time::gameSpeed = 1;
-            
         }
        
         if (Time::mDays == 1)
         {
             daySound->Play(false);
         }
+
+       
+
 
         moveTo(Pdir, pos);
 

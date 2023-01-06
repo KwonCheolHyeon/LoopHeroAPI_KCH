@@ -4,7 +4,7 @@
 #include "chObject.h"
 #include "chTime.h"
 #include "titleStarBtn.h"
-#include "LoopWarrior.h"
+#include "WarriorMini.h"
 #include "GameMap.h"
 
 namespace ch {
@@ -61,9 +61,13 @@ namespace ch {
 			rect.y = mImage->GetHeight() * scale.y;
 
 			
-			float chX = LoopWarrior::CHnowHp;//hp
-			float xRatio = (chX /LoopWarrior::CHmaxHp); //현재 체력 / 최대 체력
+			float chX = WarriorMini::miniNowHp;//hp
+			float xRatio = (chX / WarriorMini::miniHP); //현재 체력 / 최대 체력
 			
+			if (xRatio >= 1) {
+				xRatio = 1;
+			}
+
 			TransparentBlt(hdc, finalPos.x, finalPos.y, rect.x * xRatio, rect.y
 				, mImage->GetDC(), 0, 0, mImage->GetWidth(), mImage->GetHeight()
 				, RGB(255, 0, 255));

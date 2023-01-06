@@ -13,6 +13,7 @@
 #include "LoopMonster.h"
 #include "chObject.h"
 #include "chItemBG.h"
+#include "WarriorMini.h"
 
 #include "chResources.h"
 #include "chSound.h"
@@ -69,15 +70,15 @@ namespace ch
 		AddComponent(mAnimator);
 		srand(time(NULL));
 		//공격력
-		pAtt.maxAtt = 6 + ItemBG::equipCheck[0]->chWepMaxATTs;
-		pAtt.minAtt = 4 + ItemBG::equipCheck[0]->chWepMinATTs;
+		pAtt.maxAtt = 6 + ItemBG::equipCheck[0]->chWepMaxATTs * WarriorMini::Loop;
+		pAtt.minAtt = 4 + ItemBG::equipCheck[0]->chWepMinATTs* WarriorMini::Loop;
 		//공속
 		float sppeedd = ItemBG::equipCheck[0]->chWepSpeeds+ ItemBG::equipCheck[1]->chWepSpeeds + ItemBG::equipCheck[2]->chWepSpeeds + ItemBG::equipCheck[3]->chWepSpeeds;
 		pSpd.AttSpeed = 0.8 + (sppeedd/100);
 		//체력
-		pHp.wepHp = ItemBG::equipCheck[0]->chHps + ItemBG::equipCheck[1]->chHps + ItemBG::equipCheck[2]->chHps + ItemBG::equipCheck[3]->chHps;
-		pHp.maxHp = pHp.minHp + pHp.wepHp + 100;
-		pHp.nowHp = pHp.maxHp;
+		pHp.maxHp = WarriorMini::miniHP;
+		pHp.nowHp = WarriorMini::miniNowHp;
+
 		//방어
 		pDef.maxDef = 3 + ItemBG::equipCheck[0]->chDefs + ItemBG::equipCheck[1]->chDefs + ItemBG::equipCheck[2]->chDefs + ItemBG::equipCheck[3]->chDefs;
 		pDef.minDef = 1;
@@ -186,6 +187,7 @@ namespace ch
 		{
 			mAnimator->Play(L"WarrioraHurt", false);
 			pHp.nowHp -= calcDEF(damage);//데미지 받을때
+			WarriorMini::miniNowHp = pHp.nowHp;
 			if ( pCounterAtt() ) //반격확률 계산하고 성공시 공격
 			{
 				Attack();
